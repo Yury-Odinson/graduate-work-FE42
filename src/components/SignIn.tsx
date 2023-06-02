@@ -10,7 +10,7 @@ export const SignIn = () => {
                 <input type="text" className="form__input" placeholder="Your email"></input>
                 <span className="form-elem__span">Password</span>
                 <input type="text" className="form__input" placeholder="Your password"></input>
-                <Link to={"/resetpassword"}>
+                <Link to={"/login/resetpassword"}>
                     <span className="form-elem__spanPass">Forgot password?</span>
                 </Link>
                 <button className="form-elem__button">Sign in</button>

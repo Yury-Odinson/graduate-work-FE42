@@ -2,6 +2,8 @@ import { Route, Routes } from "react-router-dom"
 import "../styles/formLogin.css"
 import { SignIn } from "./SignIn"
 import { SignUp } from "./SignUp"
+import { ResetPassword } from "./ResetPassword"
+import { NewPassword } from "./NewPassword"
 
 export const FormLoginWrapper = () => {
     return (
@@ -19,6 +21,8 @@ export const FormLoginWrapper = () => {
                 <Routes >
                     <Route path="/" element={<SignIn />} />
                     <Route path="/signup" element={<SignUp />} />
+                    <Route path="/resetpassword" element={<ResetPassword />} />
+                    <Route path="/newpassword" element={<NewPassword />} />
                 </Routes>
                 <span className="footer__copyright">© All Rights Reserved</span>
             </div>
