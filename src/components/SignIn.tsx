@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import "../styles/signIn.css"
+import "../styles/login.css"
 
 export const SignIn = () => {
     return (

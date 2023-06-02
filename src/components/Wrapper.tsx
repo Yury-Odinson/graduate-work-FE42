@@ -1,7 +1,7 @@
 import { SignInWrapper } from "./SignInWrapper";
 import "../styles/wrapper.css"
 import { Route, Routes } from "react-router-dom";
-import { SignUp } from "./SignUp";
+import { SignUpWrapper } from "./SignUpWrapper";
 
 export const Wrapper = () => {
     return (
@@ -9,7 +9,7 @@ export const Wrapper = () => {
             <div className="wrapper">
                 <Routes >
                     <Route path="/" element={<SignInWrapper />} />
-                    <Route path="/signup" element={<SignUp />} />
+                    <Route path="/signup" element={<SignUpWrapper />} />
                 </Routes>
             </div>
         </>
