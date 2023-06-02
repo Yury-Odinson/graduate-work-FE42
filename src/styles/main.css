@@ -1,0 +1,28 @@
+html {
+    background-color: #000;
+}
+
+.header {
+    margin: 0 auto;
+    width: 1440px;
+    display: flex;
+        border: 2px solid red;
+}
+
+.header__search {
+    padding: 20px;
+    width: 90%;
+    font-size: 24px;
+}
+
+.header__user {
+    width: 10%;
+    color: #FFF;
+    border: 2px solid blue;
+}
+
+.content {
+    margin: 0 auto;
+    width: 1440px;
+    border: 2px solid blue;
+}
