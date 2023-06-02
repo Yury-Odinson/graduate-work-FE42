@@ -15,6 +15,7 @@
     position: absolute;
     z-index: 1;
     background-image: url("/public/images/background_sign.png");
+    background-size: 100%;
 }
 
 .logo {
