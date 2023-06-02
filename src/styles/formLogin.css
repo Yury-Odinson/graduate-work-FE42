@@ -1,11 +1,11 @@
-.signInWrapper {
+.loginWrapper {
     position: relative;
     width: 100%;
     height: 100vh;
     background-color: #000;
 }
 
-.signInWrapper::after {
+.loginWrapper::after {
     content: "";
     opacity: 0.5;
     top: 0;

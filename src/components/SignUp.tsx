@@ -15,7 +15,7 @@ export const SignUp = () => {
                 <input type="text" className="form__input" placeholder="Confirm password"></input>
                 <button className="form-elem__button">Sign up</button>
                 <span className="form-elem__footerSpan">Already have an account? &nbsp;
-                    <Link to={"/"}>
+                    <Link to={"/login"}>
                         Sign in!
                     </Link>
                 </span>

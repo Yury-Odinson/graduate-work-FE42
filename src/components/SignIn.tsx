@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import "../styles/login.css"
+import "../styles/formLogin.css"
 
 export const SignIn = () => {
     return (
@@ -10,10 +10,12 @@ export const SignIn = () => {
                 <input type="text" className="form__input" placeholder="Your email"></input>
                 <span className="form-elem__span">Password</span>
                 <input type="text" className="form__input" placeholder="Your password"></input>
-                <a href="./" className="form-elem__spanPass"><span>Forgot password?</span></a>
+                <Link to={"/login/resetpassword"}>
+                    <span className="form-elem__spanPass">Forgot password?</span>
+                </Link>
                 <button className="form-elem__button">Sign in</button>
                 <span className="form-elem__footerSpan">Don't have account? &nbsp;
-                    <Link to={"/signup"}>
+                    <Link to={"/login/signup"}>
                         Sign up!
                     </Link>
                 </span>
