@@ -4,6 +4,8 @@ html {
 
 .header {
     margin: 0 auto;
+    padding: 40px;
+    gap: 40px;
     width: 1440px;
     display: flex;
         border: 2px solid red;
@@ -11,14 +13,50 @@ html {
 
 .header__search {
     padding: 20px;
-    width: 90%;
+    width: 80%;
     font-size: 24px;
 }
 
 .header__user {
-    width: 10%;
+    display: flex;
+    width: 20%;
+    gap: 20px;
     color: #FFF;
     border: 2px solid blue;
+}
+
+.header__user > * {
+    align-self: center;
+    text-align: center;
+}
+
+.user-initials {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: var(--var-systemPrimaryColor);
+    border-radius: 10px;
+    color: #FFF;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.user-initials__item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.user__name {
+    border: 2px solid red;
+}
+
+.user__menu {
+    width: 24px;
+    height: 24px;
+    border: 2px solid red;
+    cursor: pointer;
 }
 
 .content {
