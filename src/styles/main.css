@@ -91,6 +91,7 @@ html {
 }
 
 .movie-item {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     width: 260px;
@@ -115,6 +116,16 @@ html {
     border-radius: 20px;
     transition: 0.2s;
     cursor: pointer;
+}
+
+.movie-item__rating {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 5px 10px;
+    font-weight: 600;
+    border-radius: 6px;
+    background-color: #00A340;
 }
 
 .movie-item__name {
