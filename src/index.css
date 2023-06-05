@@ -20,6 +20,10 @@ a {
   color: var(--var-systemPrimaryColor);
 }
 
+li {
+  list-style: none;
+}
+
 button {
   cursor: pointer;
   border: none;
