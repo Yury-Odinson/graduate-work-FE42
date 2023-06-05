@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
 import "../styles/main.css"
-import { UserMenu } from "./UserMenu"
-import { useState } from "react"
+import { Header } from "./Header"
 
 export type ExpandedMenuProps = {
     opened: boolean,
@@ -12,7 +11,7 @@ export const Main = () => {
 
     return (
         <>
-            <UserMenu />
+            <Header />
             <div className="content">
                 <Link to={"/login"}><button>open auth page</button></Link>
             </div>
