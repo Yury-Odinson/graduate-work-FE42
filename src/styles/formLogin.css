@@ -55,6 +55,19 @@
 
 .form__input {
     padding: 20px;
+    width: 100%;
+}
+
+.form-elem__pass {
+    position: relative;
+}
+
+.form-elem__showpass {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-50%, -50%);
+    color: #fff;
 }
 
 .form-elem__spanPass {
