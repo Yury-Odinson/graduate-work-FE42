@@ -63,6 +63,13 @@
     color: var(--var-fontDarkColor);
 }
 
+.form-elem__wrongPassword {
+    margin: 0 auto;
+    font-size: 16px;
+    font-weight: 600;
+    color: #be2f2f;
+}
+
 .form-elem__button {
     margin: 40px 0;
     height: 60px;
