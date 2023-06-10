@@ -8,6 +8,11 @@ export type User = {
     password: string | null;
 }
 
+export type Token = {
+    access: string,
+    refresh: string
+}
+
 export const regUser = async (user: User) => {
     const regURL = new URL(DOMAIN + REGUSER)
     const response = await fetch(regURL, {
@@ -26,4 +31,9 @@ export const authUser = async (user: User) => {
         headers: { "Content-Type": "application/json" }
     })
     return await response.json()
+}
+
+export const saveToken = ({ access, refresh }: Token) => {
+    localStorage.setItem("access", access)
+    localStorage.setItem("refresh", refresh)
 }
