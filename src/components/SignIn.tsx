@@ -17,15 +17,23 @@ export const SignIn = () => {
 
     return (
         <>
-            <div className="form">
+            <form className="form">
                 <p className="form__title">Sign In</p>
-                <span className="form-elem__span">Email</span>
-                <input type="text" className="form__input" placeholder="Your email" onChange={(e) => setEmail(e.target.value)}></input>
-                <span className="form-elem__span">Password</span>
-                <label className="form-elem__pass">
-                    <input type={showPassword} className="form__input" placeholder="Your password" onChange={(e) => setPassword(e.target.value)}></input>
-                    <img className="form-elem__showpass" src="../images/pass_show.png" onClick={() => setShowPassword("text")} />
+                <label className="form-label">
+                    <span className="form-elem__span">Email</span>
+                    <input type="text" className="form__input" placeholder="Your email" onChange={(e) => setEmail(e.target.value)}></input>
                 </label>
+
+                <label className="form-label">
+                    <span className="form-elem__span">Password</span>
+                    <input type={showPassword} className="form__input form__inputPass" placeholder="Your password" onChange={(e) => setPassword(e.target.value)}></input>
+
+                    <div>
+                        <img className="form-elem__showpass" src="../images/pass_show.png" onClick={() => setShowPassword("text")} />
+                    </div>
+
+                </label>
+
                 <Link to={"/login/resetpassword"}>
                     <span className="form-elem__spanPass">Forgot password?</span>
                 </Link>
@@ -35,7 +43,7 @@ export const SignIn = () => {
                         Sign up!
                     </Link>
                 </span>
-            </div>
+            </form>
         </>
     )
 }

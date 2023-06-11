@@ -41,13 +41,21 @@
 }
 
 .form__title {
+    padding: 20px 0;
     font-size: 24px;
     font-weight: 600;
     color: #fff;
 }
 
+.form-label {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
 .form-elem__span {
-    padding-top: 20px;
+    padding: 20px 0 10px;
+    width: 100%;
     font-size: 16px;
     font-weight: 600;
     color: #fff;
@@ -58,13 +66,9 @@
     width: 100%;
 }
 
-.form-elem__pass {
-    position: relative;
-}
-
 .form-elem__showpass {
     position: absolute;
-    top: 50%;
+    bottom: 0;
     right: 0;
     transform: translate(-50%, -50%);
     color: #fff;
