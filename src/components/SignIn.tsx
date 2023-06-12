@@ -17,7 +17,7 @@ export const SignIn = () => {
 
     return (
         <>
-            <form className="form">
+            <div className="form">
                 <p className="form__title">Sign In</p>
                 <label className="form-label">
                     <span className="form-elem__span">Email</span>
@@ -43,7 +43,7 @@ export const SignIn = () => {
                         Sign up!
                     </Link>
                 </span>
-            </form>
+            </div>
         </>
     )
 }
