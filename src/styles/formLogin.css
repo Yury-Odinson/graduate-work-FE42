@@ -41,13 +41,21 @@
 }
 
 .form__title {
+    padding: 20px 0;
     font-size: 24px;
     font-weight: 600;
     color: #fff;
 }
 
+.form-label {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
 .form-elem__span {
-    padding-top: 20px;
+    padding: 20px 0 10px;
+    width: 100%;
     font-size: 16px;
     font-weight: 600;
     color: #fff;
@@ -55,12 +63,28 @@
 
 .form__input {
     padding: 20px;
+    width: 100%;
+}
+
+.form-elem__showpass {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(-50%, -50%);
+    color: #fff;
 }
 
 .form-elem__spanPass {
     font-size: 14px;
     font-weight: 500;
     color: var(--var-fontDarkColor);
+}
+
+.form-elem__wrongPassword {
+    margin: 0 auto;
+    font-size: 16px;
+    font-weight: 600;
+    color: #be2f2f;
 }
 
 .form-elem__button {
