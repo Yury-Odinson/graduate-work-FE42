@@ -1,6 +1,4 @@
-const DOMAIN = "https://studapi.teachmeskills.by"
-const REGUSER = "/auth/users/"
-const AUTHUSER = "/auth/jwt/create/"
+import { domainAuthURL, regUserURL } from "./URLs";
 
 export type User = {
     username?: string | null;
@@ -14,7 +12,7 @@ export type Token = {
 }
 
 export const regUser = async (user: User) => {
-    const regURL = new URL(DOMAIN + REGUSER)
+    const regURL = new URL(domainAuthURL + regUserURL)
     const response = await fetch(regURL, {
         method: "POST",
         body: JSON.stringify(user),
@@ -24,7 +22,7 @@ export const regUser = async (user: User) => {
 }
 
 export const authUser = async (user: User) => {
-    const authURL = new URL(DOMAIN + AUTHUSER)
+    const authURL = new URL(domainAuthURL + regUserURL)
     const response = await fetch(authURL, {
         method: "POST",
         body: JSON.stringify(user),
@@ -34,6 +32,7 @@ export const authUser = async (user: User) => {
 }
 
 export const saveToken = ({ access, refresh }: Token) => {
-    localStorage.setItem("access", access)
-    localStorage.setItem("refresh", refresh)
+    // localStorage.setItem("access", access)
+    // localStorage.setItem("refresh", refresh)
+    console.log(access, refresh)
 }

@@ -6,7 +6,7 @@ html {
     margin: 0 auto;
     padding: 40px;
     gap: 40px;
-    width: 1490px;
+    max-width: 1490px;
     display: flex;
 }
 
@@ -79,16 +79,13 @@ html {
 
 .content {
     margin: 0 auto;
-    width: 1490px;
-    border: 2px solid blue;
+    max-width: 1490px;
 }
 
 .content-movies {
     margin: 0 auto;
     display: grid;
-    width: fit-content;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, auto));
 }
 
 .movie-item {
