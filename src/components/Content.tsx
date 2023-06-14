@@ -6,9 +6,10 @@ import { Link } from "react-router-dom"
 export const Content = () => {
 
     const [movies, setMovies] = useState<Movie[]>([])
+    const [page, setPage] = useState(1)
 
     useEffect(() => {
-        getMovies().then((movies) => setMovies(movies.results))
+        getMovies(page).then((movies) => setMovies(movies.results))
     }, [])
 
     return (
@@ -23,7 +24,7 @@ export const Content = () => {
                         </li>
                     )}
                 </div>
-            </div>
+            </div >
         </>
     )
 }
