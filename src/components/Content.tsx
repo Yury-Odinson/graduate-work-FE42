@@ -13,23 +13,18 @@ export const Content = () => {
     }, [])
 
     const numbersForPagination = (currentPage: number) => {
-        const firstPage = 1
-        const lastPage = 500
-        const setPage = undefined
-        const step = 3
-
         if (currentPage > 0 && currentPage < 500) {
-                return (
-                    <>
-                        <button className="content-pages__navigation">{currentPage - 3}</button>
-                        <button className="content-pages__navigation">{currentPage - 2}</button>
-                        <button className="content-pages__navigation">{currentPage - 1}</button>
-                        <button className="content-pages__navigation">{currentPage}</button>
-                        <button className="content-pages__navigation">{currentPage + 1}</button>
-                        <button className="content-pages__navigation">{currentPage + 2}</button>
-                        <button className="content-pages__navigation">{currentPage + 3}</button>
-                    </>
-                )
+            return (
+                <>
+                    <button className="content-pages__navigation" onClick={() => setPage(currentPage)}>{currentPage - 3}</button>
+                    <button className="content-pages__navigation" onClick={() => setPage(currentPage)}>{currentPage - 2}</button>
+                    <button className="content-pages__navigation" onClick={() => setPage(currentPage)}>{currentPage - 1}</button>
+                    <button className="content-pages__navigation" onClick={() => setPage(currentPage)}>{currentPage}</button>
+                    <button className="content-pages__navigation" onClick={() => setPage(currentPage)}>{currentPage + 1}</button>
+                    <button className="content-pages__navigation" onClick={() => setPage(currentPage)}>{currentPage + 2}</button>
+                    <button className="content-pages__navigation" onClick={() => setPage(currentPage)}>{currentPage + 3}</button>
+                </>
+            )
         }
     }
 
