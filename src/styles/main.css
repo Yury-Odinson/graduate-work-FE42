@@ -6,7 +6,7 @@ html {
     margin: 0 auto;
     padding: 40px;
     gap: 40px;
-    width: 1490px;
+    max-width: 1490px;
     display: flex;
 }
 
@@ -79,41 +79,65 @@ html {
 
 .content {
     margin: 0 auto;
-    width: 1490px;
-        border: 2px solid blue;
+    max-width: 1490px;
+}
+
+.content-pages {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    max-width: 500px;
+        border: 2px solid red;
+}
+
+.content-pages__navigation {
+    margin: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    font-weight: 500;
 }
 
 .content-movies {
     margin: 0 auto;
     display: grid;
-    width: fit-content;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+    justify-items: center;
 }
 
 .movie-item {
     position: relative;
     display: flex;
     flex-wrap: wrap;
+    padding: 10px;
     width: 260px;
     color: #FFF;
     font-size: 16px;
     border-radius: 20px;
     transition: 0.2s;
 }
+
 .movie-item:hover {
+    scale: 1.03;
     background-color: var(--var-graphite);
     transition: 0.4s;
 }
 
-.movie-item:hover .movie-item__image{
+.movie-item:hover>.movie-item__rating {
+    transition: 0.2s;
+    opacity: 0.3;
+}
+
+.movie-item:hover>.movie-item__name {
+
+    color: var(--var-systemPrimaryColor);
     transition: 0.4s;
-    border-radius: 20px 20px 0 0;
 }
 
 .movie-item__image {
-    width: 100%;
-    height: 350px;
+    margin: 0 auto;
+    width: 240px;
+    max-height: 350px;
     border-radius: 20px;
     transition: 0.2s;
     cursor: pointer;
@@ -121,8 +145,8 @@ html {
 
 .movie-item__rating {
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 30px;
+    left: 30px;
     padding: 5px 10px;
     font-weight: 600;
     border-radius: 6px;
@@ -133,21 +157,10 @@ html {
     margin: 20px 10px 0;
     font-weight: 600;
     cursor: pointer;
-}
-
-.movie-item__genres {
-    display: flex;
-    padding: 10px ;
-    color: #AFB2B6;
-}
-
-.movie-item__genre {
-    margin-right: 20px;
-    cursor: pointer;
-    transition: 0.4s;
-}
-
-.movie-item__genre:hover {
-    color: var(--var-systemPrimaryColor);
     transition: 0.2s;
+}
+
+.movie-item__crew {
+    margin: 10px 10px 20px;
+    font-size: 12px;
 }
