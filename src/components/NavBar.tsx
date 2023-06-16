@@ -26,7 +26,7 @@ export const NavBar = () => {
                         <span className="navigation__textItem">Trends</span>
                     </button>
                 </Link>
-                <Link to={"/fovorites"}>
+                <Link to={"/favorites"}>
                     <button className="navigation__item">
                         <NavFavoritesImg />
                         <span className="navigation__textItem">Favorites</span>
