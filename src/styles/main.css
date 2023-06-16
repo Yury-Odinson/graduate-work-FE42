@@ -2,11 +2,23 @@ html {
     background-color: #000;
 }
 
+.wrapper {
+    display: flex;
+}
+
+.main {
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 1490px;
+}
+
 .header {
     margin: 0 auto;
     padding: 40px;
     gap: 40px;
-    max-width: 1490px;
+    width: 100%;
     display: flex;
 }
 
@@ -87,7 +99,6 @@ html {
     justify-content: center;
     margin: 20px auto;
     max-width: 500px;
-        border: 2px solid red;
 }
 
 .content-pages__navigation {
@@ -100,7 +111,9 @@ html {
 
 .content-movies {
     margin: 0 auto;
+    max-width: 1490px;
     display: grid;
+    gap: 40px;
     grid-template-columns: repeat(auto-fit, minmax(250px, auto));
     justify-items: center;
 }
