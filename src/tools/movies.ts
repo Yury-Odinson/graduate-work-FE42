@@ -50,9 +50,9 @@ export const getMovies = async (numberPage: number) => {
     return await response.json()
 }
 
-export const getGenres = async () => {
-    const genresURL = new URL(tmdbGenresURL)
-    const response = await fetch(genresURL, {
+export const getPopularMovies = async (numberPage: number) => {
+    const movieURL = new URL(tmdbPopularMoviesURL + numberPage)
+    const response = await fetch(movieURL, {
         method: "GET",
         headers: {
             accept: "application/json",
@@ -62,9 +62,9 @@ export const getGenres = async () => {
     return await response.json()
 }
 
-export const getPopularMovies = async (numberPage: number) => {
-    const movieURL = new URL(tmdbPopularMoviesURL)
-    const response = await fetch(movieURL, {
+export const getGenres = async () => {
+    const genresURL = new URL(tmdbGenresURL)
+    const response = await fetch(genresURL, {
         method: "GET",
         headers: {
             accept: "application/json",
