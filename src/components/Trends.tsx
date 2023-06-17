@@ -11,26 +11,37 @@ export const Trends = () => {
         getPopularMovies(page).then((movies) => setMovies(movies.results))
     }, [])
 
-    const numbersForPagination = (currentPage: number) => {
-        if (currentPage > 0 && currentPage < 500) {
-            return (
-                <>
-                    <button className="content-pages__navigation" onClick={() => setPage(currentPage)}>{currentPage - 3}</button>
-                    <button className="content-pages__navigation" onClick={() => setPage(currentPage)}>{currentPage - 2}</button>
-                    <button className="content-pages__navigation" onClick={() => setPage(currentPage)}>{currentPage - 1}</button>
-                    <button className="content-pages__navigation" onClick={() => setPage(currentPage)}>{currentPage}</button>
-                    <button className="content-pages__navigation" onClick={() => setPage(currentPage)}>{currentPage + 1}</button>
-                    <button className="content-pages__navigation" onClick={() => setPage(currentPage)}>{currentPage + 2}</button>
-                    <button className="content-pages__navigation" onClick={() => setPage(currentPage)}>{currentPage + 3}</button>
-                </>
-            )
-        }
+    const changePage = (pageNumber: number) => {
+        setPage(pageNumber)
+        getPopularMovies(pageNumber).then((movies) => setMovies(movies.results))
+    }
+
+    const pagination = () => {
+        return (
+            <>
+                {page === 1 ? null : <button className="pagination__button" onClick={() => changePage(page - 1)}>BACK page</button >}
+                {page === 1 ? null : <button className="pagination__button" onClick={() => changePage(1)}>{1}</button >}
+
+                {page < 0 ? null : <button className="pagination__button" onClick={() => changePage(page - 3)}>{page - 3}</button >}
+                {page < 0 ? null : <button className="pagination__button" onClick={() => changePage(page - 2)}>{page - 2}</button >}
+                {page < 0 ? null : <button className="pagination__button" onClick={() => changePage(page - 1)}>{page - 1}</button >}
+
+                <button className="pagination__button pagination__activeButton" onClick={() => changePage(page)}>{page}</button >
+
+                {page > 500 ? null : <button className="pagination__button" onClick={() => changePage(page + 1)}>{page + 1}</button >}
+                {page > 500 ? null : <button className="pagination__button" onClick={() => changePage(page + 2)}>{page + 2}</button >}
+                {page > 500 ? null : <button className="pagination__button" onClick={() => changePage(page + 3)}>{page + 3}</button >}
+
+                {page === 500 ? null : <button className="pagination__button" onClick={() => changePage(500)}>{500}</button >}
+                {page === 500 ? null : <button className="pagination__button" onClick={() => changePage(page + 1)}>NEXT page</button>}
+            </>
+        )
     }
 
     return (
         <>
-                <div className="content-pages">
-                    {numbersForPagination(page)}
+                <div className="content-pagination">
+                    {pagination()}
                 </div>
                 <div className="content-movies">
                     {movies.map((item) =>
@@ -40,6 +51,9 @@ export const Trends = () => {
                             </Link>
                         </li>
                     )}
+                </div>
+                <div className="content-pagination">
+                    {pagination()}
                 </div>
         </>
     )
