@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { Movie, getPopularMovies } from "../tools/movies"
 import { CardMovie } from "./CardMovie"
 
-export const Trends = () => {
+export const TrendsContent = () => {
     const [movies, setMovies] = useState<Movie[]>([])
     const [page, setPage] = useState(1)
 
@@ -40,21 +40,22 @@ export const Trends = () => {
 
     return (
         <>
-                <div className="content-pagination">
-                    {pagination()}
-                </div>
-                <div className="content-movies">
-                    {movies.map((item) =>
-                        <li>
-                            <Link to={"/movie_" + item.id}>
-                                <CardMovie movie={item} />
-                            </Link>
-                        </li>
-                    )}
-                </div>
-                <div className="content-pagination">
-                    {pagination()}
-                </div>
+            <h2 className="content__title">In trends</h2>
+            <div className="content-pagination">
+                {pagination()}
+            </div>
+            <div className="content-movies">
+                {movies.map((item) =>
+                    <li>
+                        <Link to={"/movie_" + item.id}>
+                            <CardMovie movie={item} />
+                        </Link>
+                    </li>
+                )}
+            </div>
+            <div className="content-pagination">
+                {pagination()}
+            </div>
         </>
     )
 }

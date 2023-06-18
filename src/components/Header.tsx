@@ -1,8 +1,10 @@
 import { useState } from "react"
+import { SearchResultContent } from "./SearchResultContent"
 
 export const Header = () => {
 
     const [expandedUserMenu, setExpandedUserMenu] = useState(false)
+    const [searchValue, setSearchValue] = useState("")
 
     const modalMenu = () => {
         return (
@@ -39,7 +41,7 @@ export const Header = () => {
     return (
         <>
             <div className="header">
-                <input className="header__search" type="search" placeholder="Search"></input>
+                <input className="header__search" type="search" placeholder="Search" onChange={(e) => setSearchValue(e.target.value)}></input>
                 <div className="header__user" onClick={() => setExpandedUserMenu(!expandedUserMenu)}>
                     <div className="user-initials">
                         <span className="user-initials__item">DEB</span>
