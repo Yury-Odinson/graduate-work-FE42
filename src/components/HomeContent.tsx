@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
+import { Link, Routes } from "react-router-dom"
 import { Movie, getMovies } from "../tools/movies"
 import { CardMovie } from "./CardMovie"
 
-export const Home = () => {
+export const HomeContent = () => {
     const [movies, setMovies] = useState<Movie[]>([])
     const [page, setPage] = useState(1)
 
@@ -40,6 +40,7 @@ export const Home = () => {
 
     return (
         <>
+        <h2 className="content__title">Top rated movies</h2>
             <div className="content-pagination">
                 {pagination()}
             </div>

@@ -1,8 +1,8 @@
 import { Link, Route, Routes } from "react-router-dom";
-import { Home } from "./Home";
-import { CleanPage } from "./CleanPage";
-import { Trends } from "./Trends";
+import { HomeContent } from "./HomeContent";
+import { TrendsContent } from "./TrendsContent";
 import { useState } from "react";
+import { SearchResultContent } from "./SearchResultContent";
 
 export const Content = () => {
     const [page, setPage] = useState(1)
@@ -10,11 +10,12 @@ export const Content = () => {
         <>
             <div className="content">
                 <Routes>
-                    <Route path="/" element={<CleanPage />}></Route>
-                    <Route path="/home/" element={<Home />}></Route>
-                    <Route path="/trends" element={<Trends />}></Route>
-                    <Route path="/favorites" element={<Home />}></Route>
-                    <Route path="/settings" element={<Home />}></Route>
+                    <Route path="/" element={<SearchResultContent />}></Route>
+                    <Route path="/s/:searchString" element={<SearchResultContent />}></Route>
+                    <Route path="/home/" element={<HomeContent />}></Route>
+                    <Route path="/trends" element={<TrendsContent />}></Route>
+                    <Route path="/favorites" element={<HomeContent />}></Route>
+                    <Route path="/settings" element={<HomeContent />}></Route>
                 </Routes>
                 <Link to={"/login"}><button>open auth page</button></Link>
             </div>

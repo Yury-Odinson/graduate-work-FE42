@@ -1,19 +1,22 @@
-import { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
-import { Movie, getPopularMovies } from "../tools/movies"
+import { useEffect, useState } from "react"
+import { Movie, searchMovies } from "../tools/movies"
+import { Link, useParams } from "react-router-dom"
 import { CardMovie } from "./CardMovie"
+import { SearchValueProps } from "./Main"
 
-export const Trends = () => {
+export const SearchResultContent = () => {
+
     const [movies, setMovies] = useState<Movie[]>([])
     const [page, setPage] = useState(1)
+    const { searchString } = useParams()
 
     useEffect(() => {
-        getPopularMovies(page).then((movies) => setMovies(movies.results))
-    }, [])
+        searchString && searchMovies(searchString, page).then((movies) => setMovies(movies.results))
+    }, [searchString])
 
     const changePage = (pageNumber: number) => {
         setPage(pageNumber)
-        getPopularMovies(pageNumber).then((movies) => setMovies(movies.results))
+        searchString && searchMovies(searchString, pageNumber).then((movies) => setMovies(movies.results))
     }
 
     const pagination = () => {
@@ -40,9 +43,12 @@ export const Trends = () => {
 
     return (
         <>
-                <div className="content-pagination">
-                    {pagination()}
-                </div>
+            <h2 className="content__title">Search result</h2>
+            <div className="content-pagination">
+                {pagination()}
+            </div>
+            <div className="content-movies">
+
                 <div className="content-movies">
                     {movies.map((item) =>
                         <li>
@@ -52,9 +58,8 @@ export const Trends = () => {
                         </li>
                     )}
                 </div>
-                <div className="content-pagination">
-                    {pagination()}
-                </div>
+            </div>
         </>
+
     )
 }

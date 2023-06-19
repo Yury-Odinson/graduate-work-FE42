@@ -12,14 +12,15 @@ html {
     flex-direction: column;
     justify-content: space-between;
     max-width: 1490px;
+        border: 2px solid red;
 }
 
 .header {
+    display: flex;
     margin: 0 auto;
     padding: 40px;
     gap: 40px;
     width: 100%;
-    display: flex;
 }
 
 .header__search {
@@ -92,6 +93,11 @@ html {
 .content {
     margin: 0 auto;
     max-width: 1490px;
+}
+
+.content__title {
+    color: #FFF;
+    font-weight: 400;
 }
 
 .content-pagination {
