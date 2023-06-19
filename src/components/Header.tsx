@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { SearchResultContent } from "./SearchResultContent"
+import { Link } from "react-router-dom"
 
 export const Header = () => {
 
@@ -42,6 +43,7 @@ export const Header = () => {
         <>
             <div className="header">
                 <input className="header__search" type="search" placeholder="Search" onChange={(e) => setSearchValue(e.target.value)}></input>
+                <Link to={"/s/" + searchValue}>go</Link>
                 <div className="header__user" onClick={() => setExpandedUserMenu(!expandedUserMenu)}>
                     <div className="user-initials">
                         <span className="user-initials__item">DEB</span>

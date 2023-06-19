@@ -10,7 +10,8 @@ export const Content = () => {
         <>
             <div className="content">
                 <Routes>
-                    <Route path="/" element={<SearchResultContent inputSearchValue="as" />}></Route>
+                    <Route path="/" element={<SearchResultContent />}></Route>
+                    <Route path="/s/:searchString" element={<SearchResultContent />}></Route>
                     <Route path="/home/" element={<HomeContent />}></Route>
                     <Route path="/trends" element={<TrendsContent />}></Route>
                     <Route path="/favorites" element={<HomeContent />}></Route>
