@@ -1,14 +1,24 @@
+export type PaginationProps = {
+    currentPage: number,
+    totalPages: number,
+    handlerSetPage: (pageNum: number) => void
+}
 
-export const Pagination = (currentPage: number) => {
+export const Pagination = ({ currentPage, totalPages, handlerSetPage }: PaginationProps) => {
 
-    if (currentPage > 0 && currentPage < 500)
-        return (
-            <>
-                {/* <button onClick={() => console.log("back page")}>back page</button> */}
-                {/* <button onClick={() => console.log("next page")}>next page</button> */}
-
-
-                <button onClick={() => console.log(currentPage)}>PROPS BACK page</button>
-            </>
-        )
+    return (
+        <>
+            {currentPage === 1 ? null : <button className="pagination__button" onClick={() => handlerSetPage(currentPage - 1)}>BACK page</button >}
+            {currentPage === 1 ? null : <button className="pagination__button" onClick={() => handlerSetPage(1)}>{1}</button >}
+            {currentPage - 3 < 3 ? null : <button className="pagination__button" onClick={() => handlerSetPage(currentPage - 3)}>{currentPage - 3}</button >}
+            {currentPage - 2 < 2 ? null : <button className="pagination__button" onClick={() => handlerSetPage(currentPage - 2)}>{currentPage - 2}</button >}
+            {currentPage - 1 < 2 ? null : <button className="pagination__button" onClick={() => handlerSetPage(currentPage - 1)}>{currentPage - 1}</button >}
+            <button className="pagination__button pagination__activeButton" onClick={() => handlerSetPage(currentPage)}>{currentPage}</button >
+            {currentPage + 1 > totalPages - 1 ? null : <button className="pagination__button" onClick={() => handlerSetPage(currentPage + 1)}>{currentPage + 1}</button >}
+            {currentPage + 2 > totalPages - 2 ? null : <button className="pagination__button" onClick={() => handlerSetPage(currentPage + 2)}>{currentPage + 2}</button >}
+            {currentPage + 3 > totalPages - 3 ? null : <button className="pagination__button" onClick={() => handlerSetPage(currentPage + 3)}>{currentPage + 3}</button >}
+            {currentPage === totalPages ? null : <button className="pagination__button" onClick={() => handlerSetPage(totalPages)}>{totalPages}</button >}
+            {currentPage === totalPages ? null : <button className="pagination__button" onClick={() => handlerSetPage(currentPage + 1)}>NEXT page</button>}
+        </>
+    )
 }

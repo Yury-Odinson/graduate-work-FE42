@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react"
-import { Link, Routes } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { Movie, getMovies } from "../tools/movies"
 import { CardMovie } from "./CardMovie"
+import { Pagination } from "./Pagination"
 
 export const HomeContent = () => {
     const [movies, setMovies] = useState<Movie[]>([])
@@ -16,37 +17,15 @@ export const HomeContent = () => {
         getMovies(pageNumber).then((movies) => setMovies(movies.results))
     }
 
-    const pagination = () => {
-        return (
-            <>
-                {page === 1 ? null : <button className="pagination__button" onClick={() => changePage(page - 1)}>BACK page</button >}
-                {page === 1 ? null : <button className="pagination__button" onClick={() => changePage(1)}>{1}</button >}
-
-                {page < 0 ? null : <button className="pagination__button" onClick={() => changePage(page - 3)}>{page - 3}</button >}
-                {page < 0 ? null : <button className="pagination__button" onClick={() => changePage(page - 2)}>{page - 2}</button >}
-                {page < 0 ? null : <button className="pagination__button" onClick={() => changePage(page - 1)}>{page - 1}</button >}
-
-                <button className="pagination__button pagination__activeButton" onClick={() => changePage(page)}>{page}</button >
-
-                {page > 500 ? null : <button className="pagination__button" onClick={() => changePage(page + 1)}>{page + 1}</button >}
-                {page > 500 ? null : <button className="pagination__button" onClick={() => changePage(page + 2)}>{page + 2}</button >}
-                {page > 500 ? null : <button className="pagination__button" onClick={() => changePage(page + 3)}>{page + 3}</button >}
-
-                {page === 500 ? null : <button className="pagination__button" onClick={() => changePage(500)}>{500}</button >}
-                {page === 500 ? null : <button className="pagination__button" onClick={() => changePage(page + 1)}>NEXT page</button>}
-            </>
-        )
-    }
-
     return (
         <>
-        <h2 className="content__title">Top rated movies</h2>
+            <h2 className="content__title">Top rated movies</h2>
             <div className="content-pagination">
-                {pagination()}
+                <Pagination currentPage={page} totalPages={500} handlerSetPage={(pageNum) => changePage(pageNum)} />
             </div>
             <div className="content-movies">
                 {movies.map((item) =>
-                    <li>
+                    <li key={item.id}>
                         <Link to={"/movie_" + item.id}>
                             <CardMovie movie={item} />
                         </Link>
@@ -54,7 +33,7 @@ export const HomeContent = () => {
                 )}
             </div>
             <div className="content-pagination">
-                {pagination()}
+                <Pagination currentPage={page} totalPages={500} handlerSetPage={(pageNum) => changePage(pageNum)} />
             </div>
         </>
     )

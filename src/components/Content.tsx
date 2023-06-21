@@ -1,11 +1,9 @@
 import { Link, Route, Routes } from "react-router-dom";
 import { HomeContent } from "./HomeContent";
 import { TrendsContent } from "./TrendsContent";
-import { useState } from "react";
 import { SearchResultContent } from "./SearchResultContent";
 
 export const Content = () => {
-    const [page, setPage] = useState(1)
     return (
         <>
             <div className="content">
