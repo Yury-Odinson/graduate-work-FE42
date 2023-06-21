@@ -30,16 +30,13 @@ export const SearchResultContent = () => {
                 <Pagination currentPage={page} totalPages={totalPages} handlerSetPage={(pageNum) => changePage(pageNum)} />
             </div>
             <div className="content-movies">
-
-                <div className="content-movies">
-                    {movies.map((item) =>
-                        <li key={item.id}>
-                            <Link to={"/movie_" + item.id}>
-                                <CardMovie movie={item} />
-                            </Link>
-                        </li>
-                    )}
-                </div>
+                {movies.map((item) =>
+                    <li key={item.id}>
+                        <Link to={"/movie_" + item.id}>
+                            <CardMovie movie={item} />
+                        </Link>
+                    </li>
+                )}
             </div>
             <div className="content-pagination">
                 <Pagination currentPage={page} totalPages={totalPages} handlerSetPage={(pageNum) => changePage(pageNum)} />
