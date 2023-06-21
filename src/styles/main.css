@@ -12,7 +12,6 @@ html {
     flex-direction: column;
     justify-content: space-between;
     max-width: 1490px;
-        border: 2px solid red;
 }
 
 .header {
@@ -93,6 +92,8 @@ html {
 .content {
     margin: 0 auto;
     max-width: 1490px;
+    display: flex;
+    flex-direction: column;
 }
 
 .content__title {
@@ -101,10 +102,9 @@ html {
 }
 
 .content-pagination {
-    display: flex;
-    justify-content: space-between;
     margin: 20px auto;
-    max-width: 500px;
+    display: flex;
+    gap: 10px;
 }
 
 .pagination__button {
@@ -121,15 +121,6 @@ html {
 
 .pagination__activeButton {
     background-color: var(--var-systemPrimaryColor);
-}
-
-
-.content-pages__navigation {
-    margin: 10px;
-    width: 40px;
-    height: 40px;
-    font-size: 24px;
-    font-weight: 500;
 }
 
 .content-movies {

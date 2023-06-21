@@ -25,7 +25,7 @@ export const TrendsContent = () => {
             </div>
             <div className="content-movies">
                 {movies.map((item) =>
-                    <li>
+                    <li key={item.id}>
                         <Link to={"/movie_" + item.id}>
                             <CardMovie movie={item} />
                         </Link>
