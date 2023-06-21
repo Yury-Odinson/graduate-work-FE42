@@ -12,7 +12,6 @@ export const SignIn = () => {
     const handlerCheck = async ({ email, password }: User) => {
         const tokens = await authUser({ email, password })
         saveToken(tokens)
-
     }
 
     return (
@@ -23,17 +22,13 @@ export const SignIn = () => {
                     <span className="form-elem__span">Email</span>
                     <input type="text" className="form__input" placeholder="Your email" onChange={(e) => setEmail(e.target.value)}></input>
                 </label>
-
                 <label className="form-label">
                     <span className="form-elem__span">Password</span>
                     <input type={showPassword} className="form__input form__inputPass" placeholder="Your password" onChange={(e) => setPassword(e.target.value)}></input>
-
                     <div>
                         <img className="form-elem__showpass" src="../images/pass_show.png" onClick={() => setShowPassword("text")} />
                     </div>
-
                 </label>
-
                 <Link to={"/login/resetpassword"}>
                     <span className="form-elem__spanPass">Forgot password?</span>
                 </Link>

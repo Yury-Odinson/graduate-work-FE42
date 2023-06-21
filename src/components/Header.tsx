@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { SearchResultContent } from "./SearchResultContent"
 import { Link } from "react-router-dom"
 
 export const Header = () => {

@@ -1,8 +1,7 @@
-import { Link, Route, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import "../styles/main.css"
 import { Header } from "./Header"
 import { Content } from "./Content"
-import { HomeContent } from "./HomeContent"
 import { NavBar } from "./NavBar"
 
 export type ExpandedMenuProps = {
