@@ -13,7 +13,7 @@ export const Pagination = ({ currentPage, totalPages, handlerSetPage }: Paginati
             {currentPage - 3 < 3 ? null : <button className="pagination__button" onClick={() => handlerSetPage(currentPage - 3)}>{currentPage - 3}</button >}
             {currentPage - 2 < 2 ? null : <button className="pagination__button" onClick={() => handlerSetPage(currentPage - 2)}>{currentPage - 2}</button >}
             {currentPage - 1 < 2 ? null : <button className="pagination__button" onClick={() => handlerSetPage(currentPage - 1)}>{currentPage - 1}</button >}
-            {totalPages === 0 ? <button className="pagination__button pagination__activeButton" onClick={() => handlerSetPage(currentPage)}>{currentPage}</button > : null}
+            {totalPages === 1 ? null : <button className="pagination__button pagination__activeButton" onClick={() => handlerSetPage(currentPage)}>{currentPage}</button >}
             {currentPage + 1 > totalPages - 1 ? null : <button className="pagination__button" onClick={() => handlerSetPage(currentPage + 1)}>{currentPage + 1}</button >}
             {currentPage + 2 > totalPages - 2 ? null : <button className="pagination__button" onClick={() => handlerSetPage(currentPage + 2)}>{currentPage + 2}</button >}
             {currentPage + 3 > totalPages - 3 ? null : <button className="pagination__button" onClick={() => handlerSetPage(currentPage + 3)}>{currentPage + 3}</button >}
