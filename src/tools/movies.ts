@@ -40,10 +40,10 @@ export type Movie = {
         name: string,
         origin_country: string
     }[],
-    production_countries: {
+    production_countries:[ {
         iso_3166_1: string,
         name: string
-    }[],
+    }],
     release_date: string,
     revenue: number,
     runtime: number,

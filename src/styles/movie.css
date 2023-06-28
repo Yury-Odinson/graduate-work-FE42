@@ -24,7 +24,8 @@
 }
 
 .movie-rating-container {
-    border: 2px solid red;
+    margin: 20px 0;
+    /* border: 2px solid red; */
     display: flex;
     gap: 20px;
 }
@@ -40,3 +41,13 @@
 .movie-rContainer__item:first-child {
     background-color: #00A340;
 }
+
+.movie__description {
+    color: #FFF;
+}
+
+.movie-information-container{
+    margin: 20px 0;
+    
+}
+

@@ -22,6 +22,8 @@ export const MoviePage = () => {
             .then(data => setMovie(data))
     }, [id])
 
+    const numberWithSpaces = (num: number) => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+
     return (
         <>
             <div className="movie-wrapper">
@@ -40,6 +42,46 @@ export const MoviePage = () => {
                                 <div className="movie-rContainer__item">{Number(movie.vote_average).toFixed(1)}</div>
                                 <div className="movie-rContainer__item">votes: {movie.vote_count}</div>
                                 <div className="movie-rContainer__item">{movie.runtime} min</div>
+                            </div>
+                            <span className="movie__description">{movie.overview}</span>
+
+
+
+                            <div className="movie-information-container">
+                                <table>
+                                    <tr>
+                                        <td>Year</td>
+                                        <td>{movie.release_date.slice(0, 4)}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Released</td>
+                                        <td>{movie.release_date}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>BoxOffice</td>
+                                        <td>$ {numberWithSpaces(movie.revenue)}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Country</td>
+                                        <td>asdddd</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Production</td>
+                                        <td>sdsasdasdafg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Actors</td>
+                                        <td>sdsasdasdafg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Director</td>
+                                        <td>sdsasdasdafg</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Writers</td>
+                                        <td>sdsasdasdafg</td>
+                                    </tr>
+                                </table>
                             </div>
 
                         </div>
