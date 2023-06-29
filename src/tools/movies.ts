@@ -1,22 +1,5 @@
 import { tmdbGenresURL, tmdbMoviesURL, tmdbPopularMoviesURL } from "./URLs"
 
-export type Movie2 = {
-    adult: boolean,
-    backdrop_path: string,
-    genre_ids: number[],
-    id: string,
-    original_language: string,
-    original_title: string,
-    overview: string,
-    popularity: string,
-    poster_path: string,
-    release_date: string,
-    title: string,
-    video: boolean,
-    vote_average: string,
-    vote_count: number
-}
-
 export type Movie = {
     adult: boolean,
     backdrop_path: string,
@@ -40,7 +23,7 @@ export type Movie = {
         name: string,
         origin_country: string
     }[],
-    production_countries:[ {
+    production_countries: [{
         iso_3166_1: string,
         name: string
     }],
@@ -84,18 +67,6 @@ export const getPopularMovies = async (numberPage: number) => {
     return await response.json()
 }
 
-export const getGenres = async () => {
-    const genresURL = new URL(tmdbGenresURL)
-    const response = await fetch(genresURL, {
-        method: "GET",
-        headers: {
-            accept: "application/json",
-            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZWMyZTNmYTFlOTA1NGI0Zjk4NWU5Y2Q2YjJjZjE2OSIsInN1YiI6IjY0ODg5OTdjZDJiMjA5MDE0ZTBhZjYyYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1HxHn8Xff6pZFz3mNoT0X56GTr8gCWj3XhhnJ-UsbXI"
-        }
-    })
-    return await response.json()
-}
-
 export const searchMovies = async (inputValue: string, numberPage: number) => {
     const searchURL = new URL(`https://api.themoviedb.org/3/search/movie?query=${inputValue}&include_adult=false&language=en-US&page=${numberPage}`)
     const response = await fetch(searchURL, {
@@ -103,18 +74,6 @@ export const searchMovies = async (inputValue: string, numberPage: number) => {
         headers: {
             accept: 'application/json',
             Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZWMyZTNmYTFlOTA1NGI0Zjk4NWU5Y2Q2YjJjZjE2OSIsInN1YiI6IjY0ODg5OTdjZDJiMjA5MDE0ZTBhZjYyYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1HxHn8Xff6pZFz3mNoT0X56GTr8gCWj3XhhnJ-UsbXI'
-        }
-    })
-    return await response.json()
-}
-
-export const getMovie = async (idMovie: string) => {
-    const movieURL = new URL(`https://api.themoviedb.org/3/movie/${idMovie}?language=en-US`)
-    const response = await fetch(movieURL, {
-        method: "GET",
-        headers: {
-            accept: "application/json",
-            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZWMyZTNmYTFlOTA1NGI0Zjk4NWU5Y2Q2YjJjZjE2OSIsInN1YiI6IjY0ODg5OTdjZDJiMjA5MDE0ZTBhZjYyYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1HxHn8Xff6pZFz3mNoT0X56GTr8gCWj3XhhnJ-UsbXI"
         }
     })
     return await response.json()

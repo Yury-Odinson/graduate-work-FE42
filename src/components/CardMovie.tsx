@@ -1,5 +1,5 @@
 import { tmdbImageURL } from "../tools/URLs"
-import { Movie, getGenres } from "../tools/movies"
+import { Movie } from "../tools/movies"
 
 export const CardMovie = (movieProps: { movie: Movie }) => {
 

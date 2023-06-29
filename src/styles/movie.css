@@ -1,6 +1,5 @@
 .movie-wrapper {
     display: flex;
-    border: 2px solid red;
 }
 
 .movie-nav {
@@ -21,6 +20,11 @@
     color: #FFF;
     font-size: 40px;
     font-weight: 600;
+}
+
+.movie__tagline {
+    margin: 0 10px 20px;
+    font-size: 14px;
 }
 
 .movie-rating-container {
@@ -48,6 +52,8 @@
 
 .movie-information-container{
     margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
     
 }
 

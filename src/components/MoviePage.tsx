@@ -23,72 +23,70 @@ export const MoviePage = () => {
     }, [id])
 
     const numberWithSpaces = (num: number) => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    const genres = movie?.genres.map((element) => element.name).join(", ")
+    const companies = movie?.production_companies.map((element) => element.name).join(", ")
+    const countries = movie?.production_countries.map((element) => element.name).join(", ")
+    const languages = movie?.spoken_languages.map((element) => element.name).join(", ")
 
     return (
         <>
-            <div className="movie-wrapper">
-                {movie && (
-                    <>
-                        <div className="movie-nav">
-                            <img className="movie__poster" src={tmdbImageURL + movie.poster_path} alt="asdf" />
+            {movie && (
+                <div className="movie-wrapper">
+                    <div className="movie-nav">
+                        <img className="movie__poster" src={tmdbImageURL + movie.poster_path} alt="movie poster" />
+                    </div>
+                    <div className="movie-info">
+                        <h2 className="movie__title">{movie.title}</h2>
+                        <p className="movie__tagline">{movie.tagline}</p>
+                        <div className="movie-rating-container">
+                            <div className="movie-rContainer__item">{Number(movie.vote_average).toFixed(1)}</div>
+                            <div className="movie-rContainer__item">votes: {movie.vote_count}</div>
+                            <div className="movie-rContainer__item">{movie.runtime} min</div>
                         </div>
-
-
-
-
-                        <div className="movie-info">
-                            <h2 className="movie__title">{movie.title}</h2>
-                            <div className="movie-rating-container">
-                                <div className="movie-rContainer__item">{Number(movie.vote_average).toFixed(1)}</div>
-                                <div className="movie-rContainer__item">votes: {movie.vote_count}</div>
-                                <div className="movie-rContainer__item">{movie.runtime} min</div>
-                            </div>
-                            <span className="movie__description">{movie.overview}</span>
-
-
-
-                            <div className="movie-information-container">
-                                <table>
+                        <span className="movie__description">{movie.overview}</span>
+                        <div className="movie-information-container">
+                            <table>
+                                <thead></thead>
+                                <tbody>
                                     <tr>
                                         <td>Year</td>
                                         <td>{movie.release_date.slice(0, 4)}</td>
                                     </tr>
                                     <tr>
-                                        <td>Released</td>
-                                        <td>{movie.release_date}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>BoxOffice</td>
-                                        <td>$ {numberWithSpaces(movie.revenue)}</td>
+                                        <td>Genres</td>
+                                        <td>{genres}</td>
                                     </tr>
                                     <tr>
                                         <td>Country</td>
-                                        <td>asdddd</td>
+                                        <td>{countries}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Spoken languages</td>
+                                        <td>{languages}</td>
                                     </tr>
                                     <tr>
                                         <td>Production</td>
-                                        <td>sdsasdasdafg</td>
+                                        <td>{companies} </td>
                                     </tr>
                                     <tr>
-                                        <td>Actors</td>
-                                        <td>sdsasdasdafg</td>
+                                        <td>Budget</td>
+                                        <td>$ {numberWithSpaces(movie.budget)}</td>
                                     </tr>
                                     <tr>
-                                        <td>Director</td>
-                                        <td>sdsasdasdafg</td>
+                                        <td>Revenue</td>
+                                        <td>$ {numberWithSpaces(movie.revenue)}</td>
                                     </tr>
                                     <tr>
-                                        <td>Writers</td>
-                                        <td>sdsasdasdafg</td>
+                                        <td>Released</td>
+                                        <td>{movie.release_date}</td>
                                     </tr>
-                                </table>
-                            </div>
-
+                                </tbody>
+                                <tfoot></tfoot>
+                            </table>
                         </div>
-                    </>
-                )
-                }
-            </div>
+                    </div>
+                </div>
+            )}
         </>
     )
 }
