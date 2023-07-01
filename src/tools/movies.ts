@@ -3,39 +3,44 @@ import { tmdbGenresURL, tmdbMoviesURL, tmdbPopularMoviesURL } from "./URLs"
 export type Movie = {
     adult: boolean,
     backdrop_path: string,
-    genre_ids: number[],
+    belongs_to_collection: null,
+    budget: number,
+    genres: {
+        id: string,
+        name: string
+    }[],
+    homepage: string,
     id: string,
+    imdb_id: string,
     original_language: string,
     original_title: string,
     overview: string,
-    popularity: string,
+    popularity: 107.982,
     poster_path: string,
+    production_companies: {
+        id: 97,
+        logo_path: string,
+        name: string,
+        origin_country: string
+    }[],
+    production_countries: [{
+        iso_3166_1: string,
+        name: string
+    }],
     release_date: string,
+    revenue: number,
+    runtime: number,
+    spoken_languages: {
+        english_name: string,
+        iso_639_1: string,
+        name: string
+    }[],
+    status: string,
+    tagline: string,
     title: string,
     video: boolean,
-    vote_average: string,
-    vote_count: number
-}
-
-const srlgd = {
-    "adult": false,
-    "backdrop_path": "/2e7fc8eNwLXZ5Uvehvl3xj8wVyv.jpg",
-    "genre_ids": [
-        28,
-        80,
-        53
-    ],
-    "id": 385687,
-    "original_language": "en",
-    "original_title": "Fast X",
-    "overview": "Over many missions and against impossible odds, Dom Toretto and his family have outsmarted, out-nerved and outdriven every foe in their path. Now, they confront the most lethal opponent they've ever faced: A terrifying threat emerging from the shadows of the past who's fueled by blood revenge, and who is determined to shatter this family and destroy everything—and everyone—that Dom loves, forever.",
-    "popularity": 8363.473,
-    "poster_path": "/fiVW06jE7z9YnO4trhaMEdclSiC.jpg",
-    "release_date": "2023-05-17",
-    "title": "Fast X",
-    "video": false,
-    "vote_average": 7.4,
-    "vote_count": 1347
+    vote_average: string, // or number
+    vote_count: string, // or number
 }
 
 export const getMovies = async (numberPage: number) => {
@@ -53,18 +58,6 @@ export const getMovies = async (numberPage: number) => {
 export const getPopularMovies = async (numberPage: number) => {
     const movieURL = new URL(tmdbPopularMoviesURL + numberPage)
     const response = await fetch(movieURL, {
-        method: "GET",
-        headers: {
-            accept: "application/json",
-            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZWMyZTNmYTFlOTA1NGI0Zjk4NWU5Y2Q2YjJjZjE2OSIsInN1YiI6IjY0ODg5OTdjZDJiMjA5MDE0ZTBhZjYyYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1HxHn8Xff6pZFz3mNoT0X56GTr8gCWj3XhhnJ-UsbXI"
-        }
-    })
-    return await response.json()
-}
-
-export const getGenres = async () => {
-    const genresURL = new URL(tmdbGenresURL)
-    const response = await fetch(genresURL, {
         method: "GET",
         headers: {
             accept: "application/json",

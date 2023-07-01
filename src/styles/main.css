@@ -150,7 +150,7 @@ html {
     transition: 0.4s;
 }
 
-.movie-item:hover>.movie-item__rating {
+.movie-item:hover>.movie-item__voteAverage {
     transition: 0.2s;
     opacity: 0.3;
 }
@@ -170,7 +170,7 @@ html {
     cursor: pointer;
 }
 
-.movie-item__rating {
+.movie-item__voteAverage {
     position: absolute;
     top: 30px;
     left: 30px;
@@ -178,6 +178,7 @@ html {
     font-weight: 600;
     border-radius: 6px;
     background-color: #00A340;
+    color: #FFF;
 }
 
 .movie-item__name {
