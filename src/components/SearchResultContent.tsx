@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
-import { Movie, searchMovies } from "../tools/movies"
+import { MovieCard, searchMovies } from "../tools/movies"
 import { Link, useParams } from "react-router-dom"
 import { CardMovie } from "./CardMovie"
 import { Pagination } from "./Pagination"
 
 export const SearchResultContent = () => {
 
-    const [movies, setMovies] = useState<Movie[]>([])
+    const [movies, setMovies] = useState<MovieCard[]>([])
     const [page, setPage] = useState(1)
     const [totalPages, setTotalPages] = useState(1)
     const { searchString } = useParams()
