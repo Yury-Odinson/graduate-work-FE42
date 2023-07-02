@@ -8,7 +8,7 @@ export const Header = () => {
     const [searchValue, setSearchValue] = useState("")
     const [filterMenu, setFilterMenu] = useState(false)
 
-    const showFilter = () => filterMenu === true ? <Filter /> : null
+    const showFilter = () => filterMenu === true ? <Filter handlerSetMenu={() => setFilterMenu(false)}/> : null
 
     const modalMenu = () => {
         return (

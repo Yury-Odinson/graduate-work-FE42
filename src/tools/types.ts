@@ -69,3 +69,13 @@ export type PaginationProps = {
     totalPages: number,
     handlerSetPage: (pageNum: number) => void
 }
+
+export type FilterStateProps = {
+    handlerSetMenu: () => void
+}
+
+export type FilterValuesToSearch = {
+    movieName?: string,
+    movieAdult?: boolean,
+    movieYear?: string // or number
+}
