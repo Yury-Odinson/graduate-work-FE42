@@ -41,8 +41,16 @@ export const Header = () => {
     return (
         <>
             <div className="header">
-                <input className="header__search" type="search" placeholder="Search" onChange={(e) => setSearchValue(e.target.value)}></input>
-                <Link to={"/s/" + searchValue}>go</Link>
+                <label className="header-search">
+                    <input className="header-search__input" type="text" placeholder="Search" onChange={(e) => setSearchValue(e.target.value)}></input>
+
+                    <div className="header-search-buttonsContainer">
+                        <button className="header-search__button"></button>
+                        <Link to={"/search/" + searchValue}>
+                            <button className="header-search__button"></button>
+                        </Link>
+                    </div>
+                </label >
                 <div className="header__user" onClick={() => setExpandedUserMenu(!expandedUserMenu)}>
                     <div className="user-initials">
                         <span className="user-initials__item">DEB</span>
@@ -50,7 +58,7 @@ export const Header = () => {
                     <span className="user__name"> dr. Emmet Brown</span>
                     {showMenu()}
                 </div>
-            </div>
+            </div >
         </>
     )
 }
