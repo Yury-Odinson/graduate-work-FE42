@@ -1,10 +1,17 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import { Filter } from "./Filter"
 
 export const Header = () => {
 
     const [expandedUserMenu, setExpandedUserMenu] = useState(false)
     const [searchValue, setSearchValue] = useState("")
+    const [filterMenu, setFilterMenu] = useState(false)
+
+    const showFilter = () => {
+
+    }
+
 
     const modalMenu = () => {
         return (
@@ -41,11 +48,13 @@ export const Header = () => {
     return (
         <>
             <div className="header">
+            <Filter />
                 <label className="header-search">
                     <input className="header-search__input" type="text" placeholder="Search" onChange={(e) => setSearchValue(e.target.value)}></input>
 
                     <div className="header-search-buttonsContainer">
                         <button className="header-search__button"></button>
+                        
                         <Link to={"/search/" + searchValue}>
                             <button className="header-search__button"></button>
                         </Link>

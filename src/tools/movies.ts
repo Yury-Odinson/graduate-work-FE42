@@ -1,4 +1,4 @@
-import { tmdbGenresURL, tmdbMoviesURL, tmdbPopularMoviesURL } from "./URLs"
+import { tmdbGenresURL, tmdbLanguages, tmdbMoviesURL, tmdbPopularMoviesURL } from "./URLs"
 
 export type Movie = {
     adult: boolean,
@@ -60,6 +60,12 @@ export type MovieCard = {
     vote_count: number
 }
 
+export type Languages = {
+    iso_639_1: string,
+    english_name: string,
+    name: string
+}
+
 export const getMovies = async (numberPage: number) => {
     const movieURL = new URL(tmdbMoviesURL + numberPage)
     const response = await fetch(movieURL, {
@@ -107,3 +113,20 @@ export const getGenres = async () => {
     })
     return await response.json()
 }
+
+export const getLanguages = async () => {
+    const languagesURL = new URL(tmdbLanguages)
+    const response = await fetch(languagesURL, {
+        method: "GET",
+        headers: {
+            accept: "application/json",
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZWMyZTNmYTFlOTA1NGI0Zjk4NWU5Y2Q2YjJjZjE2OSIsInN1YiI6IjY0ODg5OTdjZDJiMjA5MDE0ZTBhZjYyYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1HxHn8Xff6pZFz3mNoT0X56GTr8gCWj3XhhnJ-UsbXI"
+        }
+    })
+    const test = await response.json()
+    // return console.log(test)
+    return test
+}
+
+
+

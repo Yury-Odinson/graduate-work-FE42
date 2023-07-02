@@ -1,4 +1,6 @@
 :root {
+  --dur: 0.3s;
+
   --var-fontDarkColor: #80858B;
   --var-systemPrimaryColor: #7B61FF;
 
@@ -30,7 +32,9 @@ button {
   border: none;
 }
 
-input {
+input,
+select {
+  padding: 20px;
   height: 60px;
   border: none;
   border-radius: 10px;
