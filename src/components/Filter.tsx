@@ -1,6 +1,12 @@
+import { useState } from "react"
 import "../styles/filter.css"
 
 export const Filter = () => {
+
+    const [sortBy, setSortBy] = useState("")
+    const [movieName, setMovieName] = useState("")
+    const [movieYear, setMovieYear] = useState("")
+    const [movieAdult, setMovieAdult] = useState(false)
 
     return (
         <>
@@ -17,24 +23,24 @@ export const Filter = () => {
                 <div className="filter-sort">
                     <span className="filter-sort__title">Sort by</span>
                     <label className="filter-sort-items">
-                        <button className="filter-sort__button">Rating</button>
-                        <button className="filter-sort__button">Year</button>
+                        <button className="filter-sort__button" onClick={() => setSortBy("Rating")}>Rating</button>
+                        <button className="filter-sort__button" onClick={() => setSortBy("Year")}>Year</button>
                     </label>
                 </div>
 
                 <label className="filter-movieName">
                     <span className="filter-movieName__title">Full or short movie name *</span>
-                    <input className="filter-movieName__input" placeholder="Your text"></input>
+                    <input className="filter-movieName__input" placeholder="Your text" onChange={(e) => setMovieName(e.target.value)}></input>
                 </label>
 
                 <div className="filter-additional">
                     <label className="filter-year">
                         <span className="filter-additional__title">Year of issue</span>
-                        <input className="filter-additional__input" placeholder="Year" maxLength={4}></input>
+                        <input className="filter-additional__input" placeholder="Year" maxLength={4} onChange={(e) => setMovieYear(e.target.value)}></input>
                     </label>
                     <label className="filter-adult">
                         <span className="filter-adult__title">Adult</span>
-                        <input className="toggle" type="checkbox"></input>
+                        <input className="toggle" type="checkbox" onChange={() => setMovieAdult(!movieAdult)}></input>
                     </label>
                 </div>
 
