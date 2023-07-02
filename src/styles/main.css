@@ -135,7 +135,7 @@ html {
 .movie-item {
     position: relative;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     padding: 10px;
     width: 260px;
     color: #FFF;
@@ -186,6 +186,7 @@ html {
     font-weight: 600;
     cursor: pointer;
     transition: 0.2s;
+    /* border: 2px solid red; */
 }
 
 .movie-item__crew {

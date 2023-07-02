@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
-import { Movie, getPopularMovies } from "../tools/movies"
+import { MovieCard, getPopularMovies } from "../tools/movies"
 import { CardMovie } from "./CardMovie"
 import { Pagination } from "./Pagination"
 
 export const TrendsContent = () => {
-    const [movies, setMovies] = useState<Movie[]>([])
+    const [movies, setMovies] = useState<MovieCard[]>([])
     const [page, setPage] = useState(1)
 
     useEffect(() => {
