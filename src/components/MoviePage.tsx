@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { Movie } from "../tools/movies"
 import "../styles/movie.css"
 import { tmdbImageURL } from "../tools/URLs"
+import { Movie } from "../tools/types"
 
 export const MoviePage = () => {
 

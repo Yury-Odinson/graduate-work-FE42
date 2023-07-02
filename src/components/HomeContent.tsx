@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
-import { MovieCard, getMovies } from "../tools/movies"
+import { getMovies } from "../tools/movies"
 import { CardMovie } from "./CardMovie"
 import { Pagination } from "./Pagination"
+import { MovieCard } from "../tools/types"
 
 export const HomeContent = () => {
     const [movies, setMovies] = useState<MovieCard[]>([])

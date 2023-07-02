@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { tmdbImageURL } from "../tools/URLs"
-import { MovieCard, getGenres } from "../tools/movies"
+import { getGenres } from "../tools/movies"
+import { MovieCard } from "../tools/types"
 
 export const CardMovie = (movieProps: { movie: MovieCard }) => {
 
