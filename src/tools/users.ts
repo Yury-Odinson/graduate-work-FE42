@@ -1,15 +1,6 @@
 import { domainAuthURL, regUserURL } from "./URLs";
+import { Token, User } from "./types";
 
-export type User = {
-    username?: string | null;
-    email: string | null;
-    password: string | null;
-}
-
-export type Token = {
-    access: string,
-    refresh: string
-}
 
 export const regUser = async (user: User) => {
     const regURL = new URL(domainAuthURL + regUserURL)

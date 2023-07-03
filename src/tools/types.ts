@@ -1,3 +1,14 @@
+export type User = {
+    username?: string | null;
+    email: string | null;
+    password: string | null;
+}
+
+export type Token = {
+    access: string,
+    refresh: string
+}
+
 export type Movie = {
     adult: boolean,
     backdrop_path: string,

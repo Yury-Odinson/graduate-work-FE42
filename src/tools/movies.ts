@@ -1,7 +1,7 @@
 import { tmdbGenresURL, tmdbMoviesURL, tmdbPopularMoviesURL } from "./URLs"
 import { FilterValuesToSearch } from "./types"
 
-const options = {
+export const fetchOptions = {
     method: "GET",
     headers: {
         accept: "application/json",
@@ -12,31 +12,31 @@ const options = {
 
 export const getMovies = async (numberPage: number) => {
     const movieURL = new URL(tmdbMoviesURL + numberPage)
-    const response = await fetch(movieURL, options)
+    const response = await fetch(movieURL, fetchOptions)
     return await response.json()
 }
 
 export const getPopularMovies = async (numberPage: number) => {
     const movieURL = new URL(tmdbPopularMoviesURL + numberPage)
-    const response = await fetch(movieURL, options)
+    const response = await fetch(movieURL, fetchOptions)
     return await response.json()
 }
 
 export const searchMovies = async (inputValue: string, numberPage: number) => {
     const searchURL = new URL(`https://api.themoviedb.org/3/search/movie?query=${inputValue}&include_adult=false&language=en-US&page=${numberPage}`)
-    const response = await fetch(searchURL, options)
+    const response = await fetch(searchURL, fetchOptions)
     return await response.json()
 }
 
 export const getGenres = async () => {
     const genresURL = new URL(tmdbGenresURL)
-    const response = await fetch(genresURL, options)
+    const response = await fetch(genresURL, fetchOptions)
     return await response.json()
 }
 
 export const getMoviesWithFilter = async ({ movieName, movieAdult, movieYear }: FilterValuesToSearch) => {
     const requestURL = `https://api.themoviedb.org/3/search/movie?query=${movieName}&include_adult=${movieAdult}&language=en-US&page=1&year=${movieYear}`
-    const response = await fetch(requestURL, options)
+    const response = await fetch(requestURL, fetchOptions)
     return await response.json()
     // const test = await response.json()
     // return console.log(test)
