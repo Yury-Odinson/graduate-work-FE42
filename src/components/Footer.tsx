@@ -6,10 +6,9 @@ export const Footer = () => {
         }
     }
 
-
     return (
         <footer>
-            <button className="scrollUp" onClick={() => scrollUp()}>sfsrg</button>
+            <button className="scrollUp" onClick={() => scrollUp()}></button>
         </footer>
     )
 }
