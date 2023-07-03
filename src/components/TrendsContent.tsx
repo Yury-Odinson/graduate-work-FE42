@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
-import { MovieCard, getPopularMovies } from "../tools/movies"
+import { getPopularMovies } from "../tools/movies"
 import { CardMovie } from "./CardMovie"
 import { Pagination } from "./Pagination"
+import { MovieCard } from "../tools/types"
 
 export const TrendsContent = () => {
     const [movies, setMovies] = useState<MovieCard[]>([])

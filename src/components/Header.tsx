@@ -1,20 +1,22 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import { Filter } from "./Filter"
 
 export const Header = () => {
 
     const [expandedUserMenu, setExpandedUserMenu] = useState(false)
     const [searchValue, setSearchValue] = useState("")
+    const [filterMenu, setFilterMenu] = useState(false)
+
+    const showFilter = () => filterMenu === true ? <Filter handlerSetMenu={() => setFilterMenu(false)}/> : null
 
     const modalMenu = () => {
         return (
-            <>
-                <div className="user-menu">
-                    <button className="user-menu__item">Some button</button>
-                    <button className="user-menu__item">Any some button</button>
-                    <button className="user-menu__item user-menu__logout">Log out</button>
-                </div>
-            </>
+            <div className="user-menu">
+                <button className="user-menu__item">Some button</button>
+                <button className="user-menu__item">Any some button</button>
+                <button className="user-menu__item user-menu__logout">Log out</button>
+            </div>
         )
     }
 
@@ -33,24 +35,35 @@ export const Header = () => {
                 <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M11 1L6 5L1 1" stroke="#AFB2B6" strokeWidth="2" strokeLinecap="round" />
                 </svg>
-
             )
         }
     }
 
     return (
         <>
+            {showFilter()}
             <div className="header">
-                <input className="header__search" type="search" placeholder="Search" onChange={(e) => setSearchValue(e.target.value)}></input>
-                <Link to={"/s/" + searchValue}>go</Link>
+                <label className="header-search">
+                    <input className="header-search__input" type="text" placeholder="Search" onChange={(e) => setSearchValue(e.target.value)}></input>
+                    <div className="header-search-buttonsContainer">
+                        <button className="header-search__button" onClick={() => setFilterMenu(!filterMenu)}></button>
+
+
+                        <Link to={"/search/" + searchValue}>
+                            <button className="header-search__button"></button>
+                        </Link>
+                    </div>
+                </label >
                 <div className="header__user" onClick={() => setExpandedUserMenu(!expandedUserMenu)}>
+
+
                     <div className="user-initials">
                         <span className="user-initials__item">DEB</span>
                     </div>
                     <span className="user__name"> dr. Emmet Brown</span>
                     {showMenu()}
                 </div>
-            </div>
+            </div >
         </>
     )
 }

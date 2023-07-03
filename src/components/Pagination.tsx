@@ -1,8 +1,4 @@
-export type PaginationProps = {
-    currentPage: number,
-    totalPages: number,
-    handlerSetPage: (pageNum: number) => void
-}
+import { PaginationProps } from "../tools/types"
 
 export const Pagination = ({ currentPage, totalPages, handlerSetPage }: PaginationProps) => {
 

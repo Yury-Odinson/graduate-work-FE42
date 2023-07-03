@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
-import { MovieCard, searchMovies } from "../tools/movies"
+import { searchMovies } from "../tools/movies"
 import { Link, useParams } from "react-router-dom"
 import { CardMovie } from "./CardMovie"
 import { Pagination } from "./Pagination"
+import { MovieCard } from "../tools/types"
 
 export const SearchResultContent = () => {
 

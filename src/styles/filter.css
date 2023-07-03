@@ -1,0 +1,234 @@
+.filter {
+    position: absolute;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 400px;
+    background-color: var(--var-formDarkColor);
+}
+
+.filter>* {
+    padding: 20px;
+}
+
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter__title {
+    color: #FFF;
+    font-weight: 600;
+}
+
+.filter__buttonClose {
+    background-color: #ffffff00;
+    width: 40px;
+    height: 40px;
+    transition: 0.2s;
+    border-radius: 10px;
+}
+
+.filter__buttonClose:hover {
+    background-color: var(--var-systemPrimaryColor);
+}
+
+.filter-sort {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-sort__title {
+    padding: 10px 0;
+    color: #FFF;
+    font-size: 16px;
+}
+
+.filter-sort-items {
+    display: flex;
+}
+
+.filter-sort__button {
+    background-color: var(--var-graphite);
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+.filter-sort__button:hover {
+    color: var(--var-systemPrimaryColor);
+}
+
+.filter-sort__button:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+.filter-sort__button:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+.filter-sort::after {
+    padding: 20px;
+    content: "";
+    border-bottom: 1px solid var(--var-graphite);
+}
+
+.filter-movieName__title {
+    padding: 10px 0;
+    color: #FFF;
+    font-size: 16px;
+}
+
+.filter-movieName__input {
+    margin: 10px 0;
+    width: 100%;
+}
+
+.filter-additional {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter-additional>label {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-year {
+    width: 60%;
+}
+
+.filter-additional__title {
+    padding: 10px 0;
+    color: #FFF;
+}
+
+.filter-additional__input {
+    text-align: center;
+    font-size: 24px;
+}
+
+.filter-adult {
+    width: 30%;
+}
+
+.filter-adult__title {
+    margin: 0 auto;
+    padding: 10px 0;
+    color: #FFF;
+}
+
+.toggle:before,
+.toggle:after {
+    background: hsl(0, 0%, 90%);
+}
+
+.toggle {
+    position: relative;
+    margin: auto;
+    padding: 0;
+}
+
+.toggle:before,
+.toggle:after {
+    position: absolute;
+}
+
+.toggle:before,
+.toggle:after {
+    transition: transform var(--dur);
+}
+
+.toggle:before,
+.toggle:checked:after {
+    transition-timing-function: ease-out;
+}
+
+.toggle {
+    overflow: hidden;
+}
+
+.toggle {
+    background: #646464;
+    border-radius: 0.75em;
+    cursor: pointer;
+    width: 3em;
+    height: 1.5em;
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: 0.2s;
+}
+
+.toggle:before,
+.toggle:after {
+    border-radius: 50%;
+    content: "";
+    display: block;
+    top: 0.25em;
+    left: 0.25em;
+    width: 1em;
+    height: 1em;
+}
+
+.toggle:before,
+.toggle:checked:after {
+    transition-delay: 0s;
+}
+
+.toggle:checked:before,
+.toggle:after {
+    transition-delay: calc(var(--dur) * 0.75);
+    transition-timing-function: cubic-bezier(0.3, 1.6, 0.5, 0.7);
+}
+
+.toggle:before {
+    transform: translateX(-1.5em);
+}
+
+.toggle:checked:before {
+    transform: translateX(1.5em);
+}
+
+.toggle:checked:after {
+    transform: translateX(3em);
+}
+
+.toggle:checked~.curtain {
+    transform: scaleX(1);
+}
+
+.toggle:focus {
+    outline: transparent;
+}
+
+.filter-footer {
+    position: absolute;
+    bottom: 50px;
+    right: 0;
+    left: 0;
+}
+
+.filter-footer-items {
+    display: flex;
+    gap: 20px;
+}
+
+.filter-footer__buttons {
+    background-color: var(--var-graphite);
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
+    transition: 0.2s;
+    color: #FFF;
+    border-radius: 10px;
+}
+
+.filter-footer__buttons:last-child {
+    background-color: var(--var-systemPrimaryColor);
+}
