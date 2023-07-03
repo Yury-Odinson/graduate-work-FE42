@@ -41,7 +41,9 @@
     background-color: var(--var-graphite);
     color: #FFF;
     font-weight: 100;
+    cursor: default;
 }
+
 .movie-rContainer__item:first-child {
     background-color: #00A340;
 }
@@ -50,10 +52,9 @@
     color: #FFF;
 }
 
-.movie-information-container{
+.movie-information-container {
     margin: 20px 0;
     display: flex;
     justify-content: space-between;
-    
-}
 
+}

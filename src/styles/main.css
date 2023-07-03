@@ -7,11 +7,11 @@ html {
 }
 
 .main {
-    margin-left: 5%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    max-width: 1490px;
+    width: 1490px;
 }
 
 .header {
@@ -226,4 +226,25 @@ html {
 .movie-item__crew {
     margin: 10px 10px 20px;
     font-size: 12px;
+}
+
+.scrollUp {
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--var-graphite);
+    border: 3px solid var(--var-formDarkColor);
+    background-image: url("/public/images/scrollUp.png");
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.2s;
+}
+
+.scrollUp:hover {
+    background-color: var(--var-systemPrimaryColor);
+    border: 3px solid var(--var-graphite);
 }
