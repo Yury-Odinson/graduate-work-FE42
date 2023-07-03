@@ -3,6 +3,7 @@ import "../styles/main.css"
 import { Header } from "./Header"
 import { Content } from "./Content"
 import { NavBar } from "./NavBar"
+import { Footer } from "./Footer"
 
 export type ExpandedMenuProps = {
     opened: boolean,
@@ -23,6 +24,7 @@ export const Main = () => {
                 <Routes>
                     <Route path="/*" element={<Content />}></Route>
                 </Routes>
+                <Footer />
             </div>
         </>
     )

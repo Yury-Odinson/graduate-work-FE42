@@ -15,6 +15,7 @@
   margin: 0;
   padding: 0;
   color: var(--var-fontDarkColor);
+  scroll-behavior: smooth;
 }
 
 a {

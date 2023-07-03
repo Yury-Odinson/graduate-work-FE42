@@ -227,3 +227,11 @@ html {
     margin: 10px 10px 20px;
     font-size: 12px;
 }
+
+.scrollUp {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+}
