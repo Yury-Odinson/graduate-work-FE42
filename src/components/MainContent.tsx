@@ -51,6 +51,7 @@ export const MainContent = () => {
                     </div>
                 )}
             </Link>
+            <span>Recommended:</span>
             <div className="content-movies">
                 {movies.map((item) =>
                     <li key={item.id}>
