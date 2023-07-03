@@ -1,0 +1,7 @@
+.main-recommended {
+    display: flex;
+    padding: 40px 10px;
+    width: 100%;
+    overflow: scroll;
+    /* border: 2px solid red; */
+}

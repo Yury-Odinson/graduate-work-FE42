@@ -9,7 +9,6 @@ export const fetchOptions = {
     }
 };
 
-
 export const getMovies = async (numberPage: number) => {
     const movieURL = new URL(tmdbMoviesURL + numberPage)
     const response = await fetch(movieURL, fetchOptions)
@@ -40,4 +39,10 @@ export const getMoviesWithFilter = async ({ movieName, movieAdult, movieYear }: 
     return await response.json()
     // const test = await response.json()
     // return console.log(test)
+}
+
+export const getRecommendedMovies = async (idParentMovie: string) => {
+    const recommendedURL = `https://api.themoviedb.org/3/movie/${idParentMovie}/recommendations?language=en-US&page=1`
+    const response = await fetch(recommendedURL, fetchOptions)
+    return await response.json()
 }

@@ -2,6 +2,7 @@
     position: relative;
     margin: 50px;
     max-width: 700px;
+    min-height: 300px;
 }
 
 .main-movie__background {
