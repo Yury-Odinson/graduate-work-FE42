@@ -40,12 +40,13 @@
     border-radius: 6px;
     background-color: var(--var-graphite);
     color: #FFF;
-    font-weight: 100;
+    font-weight: 300;
     cursor: default;
 }
 
 .movie-rContainer__item:first-child {
     background-color: #00A340;
+    font-weight: 600;
 }
 
 .movie__description {

@@ -16,7 +16,7 @@ export const CardMovie = (movieProps: { movie: MovieCard }) => {
     const setThisGenres = (idGenres: number[], allGenresName: any[]) => {
         const test1 = idGenres.map(item => item)
         for (let i = 0; i < idGenres.length; i++) {
-            setGenres(allGenresName.find(item => item.id === idGenres[i])) 
+            setGenres(allGenresName.find(item => item.id === idGenres[i]))
         }
     }
 
@@ -24,11 +24,9 @@ export const CardMovie = (movieProps: { movie: MovieCard }) => {
         <>
             <div className="movie-item">
                 <img className="movie-item__image" src={tmdbImageURL + movieProps.movie.poster_path} alt={movieProps.movie.original_title} height={350} />
-                <div className="movie-item__voteAverage">{movieProps.movie.vote_average}</div>
+                <div className="movie-item__voteAverage">{Number(movieProps.movie.vote_average).toFixed(1)}</div>
                 <span className="movie-item__name">{movieProps.movie.title}</span>
                 <span className="movie-item__name">{movieProps.movie.genre_ids.join(", ")}</span>
-
-                {/* <button onClick={() => getGenres(movieProps.movie.genre_ids)}>get genres</button> */}
             </div>
         </>
     )
