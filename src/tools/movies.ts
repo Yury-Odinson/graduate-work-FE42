@@ -9,35 +9,72 @@ export const fetchOptions = {
     }
 };
 
-
 export const getMovies = async (numberPage: number) => {
     const movieURL = new URL(tmdbMoviesURL + numberPage)
-    const response = await fetch(movieURL, fetchOptions)
-    return await response.json()
+    try {
+        const response = await fetch(movieURL, fetchOptions)
+        return response.json()
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 export const getPopularMovies = async (numberPage: number) => {
     const movieURL = new URL(tmdbPopularMoviesURL + numberPage)
-    const response = await fetch(movieURL, fetchOptions)
-    return await response.json()
+    try {
+        const response = await fetch(movieURL, fetchOptions)
+        return response.json()
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 export const searchMovies = async (inputValue: string, numberPage: number) => {
     const searchURL = new URL(`https://api.themoviedb.org/3/search/movie?query=${inputValue}&include_adult=false&language=en-US&page=${numberPage}`)
-    const response = await fetch(searchURL, fetchOptions)
-    return await response.json()
+    try {
+        const response = await fetch(searchURL, fetchOptions)
+        return response.json()
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 export const getGenres = async () => {
     const genresURL = new URL(tmdbGenresURL)
-    const response = await fetch(genresURL, fetchOptions)
-    return await response.json()
+    try {
+        const response = await fetch(genresURL, fetchOptions)
+        return response.json()
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 export const getMoviesWithFilter = async ({ movieName, movieAdult, movieYear }: FilterValuesToSearch) => {
     const requestURL = `https://api.themoviedb.org/3/search/movie?query=${movieName}&include_adult=${movieAdult}&language=en-US&page=1&year=${movieYear}`
-    const response = await fetch(requestURL, fetchOptions)
-    return await response.json()
-    // const test = await response.json()
-    // return console.log(test)
+    try {
+        const response = await fetch(requestURL, fetchOptions)
+        return response.json()
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getRecommendedMovies = async (idParentMovie: string) => {
+    const recommendedURL = `https://api.themoviedb.org/3/movie/${idParentMovie}/recommendations?language=en-US&page=1`
+    try {
+        const response = await fetch(recommendedURL, fetchOptions)
+        return response.json()
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const getRandomMovie = async (idMovie: number) => {
+    const randomMovieURL = `https://api.themoviedb.org/3/movie/${idMovie}?language=en-US`
+    try {
+        const response = await fetch(randomMovieURL, fetchOptions)
+        return response.json()
+    } catch (error) {
+        console.log(error)
+    }
 }

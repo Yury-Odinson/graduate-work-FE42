@@ -90,3 +90,7 @@ export type FilterValuesToSearch = {
     movieAdult?: boolean,
     movieYear?: string // or number
 }
+
+export type RecommendedMoviesProps = {
+    idParentMovie: string
+}

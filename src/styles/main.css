@@ -124,7 +124,7 @@ html {
 
 .content {
     margin: 0 auto;
-    max-width: 1490px;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }

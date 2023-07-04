@@ -2,6 +2,7 @@
     position: relative;
     margin: 50px;
     max-width: 700px;
+    min-height: 300px;
 }
 
 .main-movie__background {
@@ -31,7 +32,7 @@
 .main-movie__title {
     color: #FFF;
     font-size: 24px;
-    font-weight: 300;
+    font-weight: 500;
 }
 
 .main-movie__description {
