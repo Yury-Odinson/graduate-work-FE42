@@ -4,24 +4,12 @@ import { Movie } from "../tools/types"
 import { tmdbImageURL } from "../tools/URLs"
 import { Link } from "react-router-dom"
 import { Recommended } from "./Recommended"
+import { getRandomMovie } from "../tools/movies"
 
 export const MainContent = () => {
 
     const [movie, setMovie] = useState<Movie>()
-    // const [movies, setMovies] = useState<MovieCard[]>([])
-    useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/${getRandomIdNumber()}?language=en-US`,
-            {
-                method: "GET",
-                headers: {
-                    accept: "application/json",
-                    Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZWMyZTNmYTFlOTA1NGI0Zjk4NWU5Y2Q2YjJjZjE2OSIsInN1YiI6IjY0ODg5OTdjZDJiMjA5MDE0ZTBhZjYyYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1HxHn8Xff6pZFz3mNoT0X56GTr8gCWj3XhhnJ-UsbXI"
-                }
-            }
-        )
-            .then(response => response.json())
-            .then(data => setMovie(data))
-    }, [])
+    useEffect(() => { getRandomMovie(getRandomIdNumber()).then((movie) => setMovie(movie)) }, [])
 
     // get random number from request id
     const getRandomIdNumber = () => Math.floor(Math.random() * (500 - 2)) + 2
