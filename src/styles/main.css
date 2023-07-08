@@ -1,17 +1,19 @@
 html {
-    background-color: #000;
+    background-color: var(--var-backgroundColor);
 }
 
 .wrapper {
     display: flex;
+    margin: 0 auto;
 }
 
 .main {
     margin: 0 auto;
     display: flex;
+    flex-grow: 1;
     flex-direction: column;
     justify-content: space-between;
-    width: 1490px;
+    max-width: 1490px;
 }
 
 .header {
@@ -24,6 +26,7 @@ html {
 
 .header-search {
     position: relative;
+    margin: 0 auto;
     width: 100%;
 }
 
@@ -123,10 +126,10 @@ html {
 }
 
 .content {
-    margin: 0 auto;
-    width: 100%;
     display: flex;
+    flex-grow: 1;
     flex-direction: column;
+    max-width: 1490px;
 }
 
 .content__title {
@@ -159,7 +162,7 @@ html {
 
 .content-movies {
     margin: 0 auto;
-    max-width: 1490px;
+    width: 100%;
     display: grid;
     gap: 40px;
     grid-template-columns: repeat(auto-fit, minmax(250px, auto));
@@ -220,12 +223,6 @@ html {
     font-weight: 600;
     cursor: pointer;
     transition: 0.2s;
-    /* border: 2px solid red; */
-}
-
-.movie-item__crew {
-    margin: 10px 10px 20px;
-    font-size: 12px;
 }
 
 .scrollUp {

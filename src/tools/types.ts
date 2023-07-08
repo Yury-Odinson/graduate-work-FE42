@@ -94,3 +94,7 @@ export type FilterValuesToSearch = {
 export type RecommendedMoviesProps = {
     idParentMovie: string
 }
+
+export type ChangeColorNavigation = {
+    color: string,
+}
