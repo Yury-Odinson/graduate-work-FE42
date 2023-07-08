@@ -4,7 +4,6 @@
 
 .movie-nav {
     padding: 20px;
-    /* border: 2px solid red; */
 }
 
 .movie__poster {
@@ -14,6 +13,7 @@
 
 .movie-info {
     padding: 20px;
+    width: 100%;
 }
 
 .movie__title {
@@ -29,7 +29,6 @@
 
 .movie-rating-container {
     margin: 20px 0;
-    /* border: 2px solid red; */
     display: flex;
     gap: 20px;
 }

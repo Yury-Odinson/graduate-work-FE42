@@ -5,7 +5,7 @@ import { CardMovie } from "./CardMovie"
 import { Pagination } from "./Pagination"
 import { MovieCard } from "../tools/types"
 
-export const HomeContent = () => {
+export const TopRatedContent = () => {
     const [movies, setMovies] = useState<MovieCard[]>([])
     const [page, setPage] = useState(1)
 
