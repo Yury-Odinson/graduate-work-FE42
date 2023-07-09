@@ -14,9 +14,8 @@ export const FavoritesContent = () => {
 
     useEffect(() => {
         idMovies && getFavoritesMovies(idMovies).then((movie) => setMovies(movie))
-    }, [])
+    }, [idMovies])
 
-    
     console.log(movies)
 
     return (
