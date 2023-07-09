@@ -28,7 +28,6 @@ export const FavoritesContent = () => {
                     <FavoriteMovie movie={item} />
                 </li>
             )}
-            {/* <button onClick={() => loadFavoritesMovies()}>check</button> */}
         </div>
     )
 }

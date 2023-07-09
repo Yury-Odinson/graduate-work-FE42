@@ -39,7 +39,8 @@ export const MoviePage = () => {
 
 
 
-                                </button><button className="movie-buttons__item" onClick={() => addToFavorites(movie.id)}>
+                                </button>
+                                <button className="movie-buttons__item" onClick={() => addToFavorites(movie.id)}>
                                     check
                                 </button>
 
