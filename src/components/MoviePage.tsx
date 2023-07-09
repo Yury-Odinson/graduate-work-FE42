@@ -36,6 +36,14 @@ export const MoviePage = () => {
                     <div className="movie-wrapper">
                         <div className="movie-nav">
                             <img className="movie__poster" src={tmdbImageURL + movie.poster_path} alt="movie poster" />
+                            <div className="movie-buttons">
+                                <button className="movie-buttons__item">
+                                    <img src="/images/addToFavorites.png" />
+                                </button>
+                                <button className="movie-buttons__item">
+                                    <img src="/images/share.png" />
+                                </button>
+                            </div>
                         </div>
                         <div className="movie-info">
                             <h2 className="movie__title">{movie.title}</h2>
