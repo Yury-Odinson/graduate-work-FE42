@@ -78,3 +78,21 @@ export const getRandomMovie = async (idMovie: number) => {
         console.log(error)
     }
 }
+
+export const getMovie = async (idMovie: string) => {
+    const movieURL = `https://api.themoviedb.org/3/movie/${idMovie}?language=en-US`
+    try {
+        const response = await fetch(movieURL, fetchOptions)
+        return response.json()
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+
+
+export const addToFavorites = (idMovie: number) => {
+
+
+}

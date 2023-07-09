@@ -4,23 +4,15 @@ import "../styles/movie.css"
 import { tmdbImageURL } from "../tools/URLs"
 import { Movie } from "../tools/types"
 import { Recommended } from "./Recommended"
+import { getMovie } from "../tools/movies"
 
 export const MoviePage = () => {
 
     const { id } = useParams()
     const [movie, setMovie] = useState<Movie>()
+
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`,
-            {
-                method: "GET",
-                headers: {
-                    accept: "application/json",
-                    Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZWMyZTNmYTFlOTA1NGI0Zjk4NWU5Y2Q2YjJjZjE2OSIsInN1YiI6IjY0ODg5OTdjZDJiMjA5MDE0ZTBhZjYyYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1HxHn8Xff6pZFz3mNoT0X56GTr8gCWj3XhhnJ-UsbXI"
-                }
-            }
-        )
-            .then(response => response.json())
-            .then(data => setMovie(data))
+        id && getMovie(id).then((movie) => setMovie(movie))
     }, [id])
 
     const numberWithSpaces = (num: number) => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
