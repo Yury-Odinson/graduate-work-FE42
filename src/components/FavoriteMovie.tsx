@@ -3,12 +3,20 @@ import { Movie } from "../tools/types"
 import "../styles/favorites.css"
 
 export const FavoriteMovie = (movieProps: { movie: Movie }) => {
+
+
+    const removeFromFavorites = () => {
+        const arr = localStorage.getItem("idMovies")
+        console.log(arr)
+
+    }
+
     return (
         <div className="content-favorites-item">
             <div>
                 <img className="favorites__poster" src={tmdbImageURL + movieProps.movie.poster_path} />
                 <div className="movie-buttons">
-                    <button className="movie-buttons__item">Remove from favorites</button>
+                    <button className="movie-buttons__item" onClick={() => removeFromFavorites()}>Remove from favorites</button>
                     <button className="movie-buttons__item">
                         <img src="/images/share.png" />
                     </button>

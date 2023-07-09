@@ -12,12 +12,11 @@ export const FavoritesContent = () => {
         setIdMovies(JSON.parse(localStorage.getItem("idMovies") || "[]"))
     }, [])
 
-
     useEffect(() => {
-        getFavoritesMovies(idMovies).then((movie) => setMovies(movie))
-    }, [localStorage.getItem("idMovies")])
+        idMovies && getFavoritesMovies(idMovies).then((movie) => setMovies(movie))
+    }, [])
 
-    localStorage.getItem("idMovies")
+    
     console.log(movies)
 
     return (
