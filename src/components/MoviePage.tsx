@@ -4,7 +4,7 @@ import "../styles/movie.css"
 import { tmdbImageURL } from "../tools/URLs"
 import { Movie } from "../tools/types"
 import { Recommended } from "./Recommended"
-import { getMovie } from "../tools/movies"
+import { addToFavorites, getMovie } from "../tools/movies"
 
 export const MoviePage = () => {
 
@@ -34,7 +34,19 @@ export const MoviePage = () => {
                                 </button>
                                 <button className="movie-buttons__item">
                                     <img src="/images/share.png" />
+
+
+
+
+
+                                </button><button className="movie-buttons__item" onClick={() => addToFavorites(movie.id)}>
+                                    check
                                 </button>
+
+
+
+
+
                             </div>
                         </div>
                         <div className="movie-info">
