@@ -5,18 +5,11 @@ import { FavoriteMovie } from "./FavoriteMovie"
 
 export const FavoritesContent = () => {
 
-    const [idMovies, setIdMovies] = useState([])
     const [movies, setMovies] = useState<Movie[]>([])
 
     useEffect(() => {
-        setIdMovies(JSON.parse(localStorage.getItem("idMovies") || "[]"))
-    }, [])
-
-    useEffect(() => {
-        idMovies && getFavoritesMovies(idMovies).then((movie) => setMovies(movie))
-    }, [idMovies])
-
-    console.log(movies)
+        getFavoritesMovies(JSON.parse(localStorage.getItem("idMovies") || "[]")).then((movie) => setMovies(movie))
+    }, [localStorage.getItem("idMovies")])
 
     return (
         <div>
