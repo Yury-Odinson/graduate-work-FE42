@@ -4,23 +4,15 @@ import "../styles/movie.css"
 import { tmdbImageURL } from "../tools/URLs"
 import { Movie } from "../tools/types"
 import { Recommended } from "./Recommended"
+import { addToFavorites, getMovie } from "../tools/movies"
 
 export const MoviePage = () => {
 
     const { id } = useParams()
     const [movie, setMovie] = useState<Movie>()
+
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/${id}?language=en-US`,
-            {
-                method: "GET",
-                headers: {
-                    accept: "application/json",
-                    Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZWMyZTNmYTFlOTA1NGI0Zjk4NWU5Y2Q2YjJjZjE2OSIsInN1YiI6IjY0ODg5OTdjZDJiMjA5MDE0ZTBhZjYyYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1HxHn8Xff6pZFz3mNoT0X56GTr8gCWj3XhhnJ-UsbXI"
-                }
-            }
-        )
-            .then(response => response.json())
-            .then(data => setMovie(data))
+        id && getMovie(id).then((movie) => setMovie(movie))
     }, [id])
 
     const numberWithSpaces = (num: number) => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
@@ -35,7 +27,29 @@ export const MoviePage = () => {
                 <>
                     <div className="movie-wrapper">
                         <div className="movie-nav">
-                            <img className="movie__poster" src={tmdbImageURL + movie.poster_path} alt="movie poster" />
+                            <img className="movie__poster"
+                                src={tmdbImageURL + movie.poster_path}
+                                alt="movie poster"
+                                onError={(event) => {
+                                    event.currentTarget.src = "https://sun9-47.userapi.com/impg/1f3OceQFnZsE3t6Dk3tDPwGPa1-h2_oEeaXMWQ/gYtwQOpFlRc.jpg?size=365x455&quality=95&sign=c30e73fd6dddcc5ab508b49290ce28c9&type=album"
+                                }}
+                            />
+                            <div className="movie-buttons">
+                                <button className="movie-buttons__item" onClick={() => addToFavorites(movie.id)}>
+                                    <img src="/images/addToFavorites.png" />
+                                </button>
+                                <button className="movie-buttons__item">
+                                    <img src="/images/share.png" />
+                                </button>
+
+
+                                <button className="movie-buttons__item" onClick={() => console.log(JSON.parse(localStorage.getItem("idMovies") || "[]"))}>
+                                    check local storage
+                                </button>
+
+
+
+                            </div>
                         </div>
                         <div className="movie-info">
                             <h2 className="movie__title">{movie.title}</h2>
@@ -48,7 +62,7 @@ export const MoviePage = () => {
                             <span className="movie__description">{movie.overview}</span>
                             <div className="movie-information-container">
                                 <table>
-                                    <thead></thead>
+                                    <thead />
                                     <tbody>
                                         <tr>
                                             <td>Year</td>
@@ -83,7 +97,7 @@ export const MoviePage = () => {
                                             <td>{movie.release_date}</td>
                                         </tr>
                                     </tbody>
-                                    <tfoot></tfoot>
+                                    <tfoot />
                                 </table>
                             </div>
                         </div>

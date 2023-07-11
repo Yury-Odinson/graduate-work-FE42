@@ -50,6 +50,7 @@
 
 .filter-sort-items {
     display: flex;
+    gap: 2px;
 }
 
 .filter-sort__button {

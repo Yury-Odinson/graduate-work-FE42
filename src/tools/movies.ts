@@ -1,5 +1,6 @@
 import { tmdbGenresURL, tmdbMoviesURL, tmdbPopularMoviesURL } from "./URLs"
 import { FilterValuesToSearch } from "./types"
+import { idMoviesLS } from "./storage";
 
 export const fetchOptions = {
     method: "GET",
@@ -77,4 +78,29 @@ export const getRandomMovie = async (idMovie: number) => {
     } catch (error) {
         console.log(error)
     }
+}
+
+export const getMovie = async (idMovie: string) => {
+    const movieURL = `https://api.themoviedb.org/3/movie/${idMovie}?language=en-US`
+    try {
+        const response = await fetch(movieURL, fetchOptions)
+        return response.json()
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+// export const favoritesStorage: string[] = []
+export const addToFavorites = async (idMovie: string) => {
+    idMoviesLS.push(idMovie)
+    localStorage.setItem("idMovies", JSON.stringify(idMoviesLS))
+}
+
+export const getFavoritesMovies = async (idMovies: string[]) => {
+    const finalArr = []
+    for (let i = 0; i < idMovies.length; i++) {
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${idMovies[i]}?language=en-US`, fetchOptions)
+        finalArr.push(await response.json())
+    }
+    return await finalArr
 }
