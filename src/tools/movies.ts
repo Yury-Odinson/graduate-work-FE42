@@ -1,6 +1,6 @@
-import { strict } from "assert";
 import { tmdbGenresURL, tmdbMoviesURL, tmdbPopularMoviesURL } from "./URLs"
 import { FilterValuesToSearch } from "./types"
+import { idMoviesLS } from "./storage";
 
 export const fetchOptions = {
     method: "GET",
@@ -90,12 +90,10 @@ export const getMovie = async (idMovie: string) => {
     }
 }
 
-
-export const favoritesStorage: string[] = []
+// export const favoritesStorage: string[] = []
 export const addToFavorites = async (idMovie: string) => {
-    favoritesStorage.push(idMovie)
-    localStorage.setItem("idMovies", JSON.stringify(favoritesStorage))
-    console.log(favoritesStorage)
+    idMoviesLS.push(idMovie)
+    localStorage.setItem("idMovies", JSON.stringify(idMoviesLS))
 }
 
 export const getFavoritesMovies = async (idMovies: string[]) => {
@@ -104,6 +102,5 @@ export const getFavoritesMovies = async (idMovies: string[]) => {
         const response = await fetch(`https://api.themoviedb.org/3/movie/${idMovies[i]}?language=en-US`, fetchOptions)
         finalArr.push(await response.json())
     }
-    // return await console.log(finalArr)
     return await finalArr
 }

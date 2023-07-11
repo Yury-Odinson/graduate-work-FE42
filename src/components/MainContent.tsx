@@ -21,7 +21,14 @@ export const MainContent = () => {
                 <>
                     <Link to={`/movie/${movie?.id}`}>
                         <div className="main-movie">
-                            <img className="main-movie__background" src={tmdbImageURL + movie.backdrop_path} />
+                            <img className="main-movie__background"
+                                src={tmdbImageURL + movie.backdrop_path}
+                                alt={movie.title}
+                                height={350}
+                                onError={(event) => {
+                                    event.currentTarget.src = "https://sun9-47.userapi.com/impg/1f3OceQFnZsE3t6Dk3tDPwGPa1-h2_oEeaXMWQ/gYtwQOpFlRc.jpg?size=365x455&quality=95&sign=c30e73fd6dddcc5ab508b49290ce28c9&type=album"
+                                }}
+                            />
                             <div className="main-movie__backgroundCover"></div>
                             <div className="main-movie-info">
                                 <h3 className="main-movie__title">{movie.title}</h3>

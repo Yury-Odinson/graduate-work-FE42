@@ -27,7 +27,13 @@ export const MoviePage = () => {
                 <>
                     <div className="movie-wrapper">
                         <div className="movie-nav">
-                            <img className="movie__poster" src={tmdbImageURL + movie.poster_path} alt="movie poster" />
+                            <img className="movie__poster"
+                                src={tmdbImageURL + movie.poster_path}
+                                alt="movie poster"
+                                onError={(event) => {
+                                    event.currentTarget.src = "https://sun9-47.userapi.com/impg/1f3OceQFnZsE3t6Dk3tDPwGPa1-h2_oEeaXMWQ/gYtwQOpFlRc.jpg?size=365x455&quality=95&sign=c30e73fd6dddcc5ab508b49290ce28c9&type=album"
+                                }}
+                            />
                             <div className="movie-buttons">
                                 <button className="movie-buttons__item" onClick={() => addToFavorites(movie.id)}>
                                     <img src="/images/addToFavorites.png" />
@@ -35,6 +41,14 @@ export const MoviePage = () => {
                                 <button className="movie-buttons__item">
                                     <img src="/images/share.png" />
                                 </button>
+
+
+                                <button className="movie-buttons__item" onClick={() => console.log(JSON.parse(localStorage.getItem("idMovies") || "[]"))}>
+                                    check local storage
+                                </button>
+
+
+
                             </div>
                         </div>
                         <div className="movie-info">
@@ -48,7 +62,7 @@ export const MoviePage = () => {
                             <span className="movie__description">{movie.overview}</span>
                             <div className="movie-information-container">
                                 <table>
-                                    <thead></thead>
+                                    <thead />
                                     <tbody>
                                         <tr>
                                             <td>Year</td>
@@ -83,7 +97,7 @@ export const MoviePage = () => {
                                             <td>{movie.release_date}</td>
                                         </tr>
                                     </tbody>
-                                    <tfoot></tfoot>
+                                    <tfoot />
                                 </table>
                             </div>
                         </div>

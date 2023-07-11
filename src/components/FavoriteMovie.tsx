@@ -6,8 +6,16 @@ export const FavoriteMovie = (movieProps: { movie: Movie }) => {
 
 
     const removeFromFavorites = () => {
-        const arr = localStorage.getItem("idMovies")
-        console.log(arr)
+        // const arr = localStorage.getItem("idMovies")
+
+        // console.log(arr)
+
+
+        // arr.find()
+
+
+
+
 
     }
 
@@ -24,7 +32,7 @@ export const FavoriteMovie = (movieProps: { movie: Movie }) => {
             </div>
             <div className="favorites-info">
                 <img className="favorites-background__item" src={tmdbImageURL + movieProps.movie.backdrop_path} />
-                <div className="favorites-background__itemCover"></div>
+                <div className="favorites-background__itemCover" />
                 <div className="favorites-info-description">
                     <h3 className="favorites__title">{movieProps.movie.title}</h3>
 
