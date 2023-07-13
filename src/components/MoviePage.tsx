@@ -41,14 +41,6 @@ export const MoviePage = () => {
                                 <button className="movie-buttons__item">
                                     <img src="/images/share.png" />
                                 </button>
-
-
-                                <button className="movie-buttons__item" onClick={() => console.log(JSON.parse(localStorage.getItem("idMovies") || "[]"))}>
-                                    check local storage
-                                </button>
-
-
-
                             </div>
                         </div>
                         <div className="movie-info">
