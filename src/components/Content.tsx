@@ -10,16 +10,14 @@ export const Content = () => {
     return (
         <div className="content">
             <Routes>
-                <Route path="/" element={<MainContent />}></Route>
-                <Route path="/search/:searchString" element={<SearchResultContent />}></Route>
-                <Route path="/toprated" element={<TopRatedContent />}></Route>
-                <Route path="/trends" element={<TrendsContent />}></Route>
-                <Route path="/favorites" element={<FavoritesContent />}></Route>
-                <Route path="/settings" element={<TopRatedContent />}></Route>
-                <Route path="/movie/:id" element={<MoviePage />}></Route>
+                <Route path="/" element={<MainContent />} />
+                <Route path="/search/:searchString" element={<SearchResultContent />} />
+                <Route path="/toprated" element={<TopRatedContent />} />
+                <Route path="/trends" element={<TrendsContent />} />
+                <Route path="/favorites" element={<FavoritesContent />} />
+                <Route path="/settings" element={<TopRatedContent />} />
+                <Route path="/movie/:id" element={<MoviePage />} />
             </Routes>
-            {/* <Link to={"/login"}><button>open auth page</button></Link> */}
-
         </div>
     )
 }

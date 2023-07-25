@@ -54,7 +54,9 @@ export const getMoviesWithFilter = async ({ movieName, movieAdult, movieYear }: 
     const requestURL = `https://api.themoviedb.org/3/search/movie?query=${movieName}&include_adult=${movieAdult}&language=en-US&page=1&year=${movieYear}`
     try {
         const response = await fetch(requestURL, fetchOptions)
-        return response.json()
+        // const test = await response.json()
+        return await response.json()
+        // console.log(test)
     } catch (error) {
         console.log(error)
     }
@@ -90,7 +92,6 @@ export const getMovie = async (idMovie: string) => {
     }
 }
 
-// export const favoritesStorage: string[] = []
 export const addToFavorites = async (idMovie: string) => {
     idMoviesLS.push(idMovie)
     localStorage.setItem("idMovies", JSON.stringify(idMoviesLS))
@@ -104,3 +105,7 @@ export const getFavoritesMovies = async (idMovies: string[]) => {
     }
     return await finalArr
 }
+
+// export const setFilter =async (params:type) => {
+    
+// }
