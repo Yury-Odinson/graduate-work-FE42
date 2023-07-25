@@ -139,25 +139,14 @@ html {
 
 .content-pagination {
     margin: 20px auto;
+    background-color: #FFF;
     display: flex;
     gap: 10px;
 }
 
-.pagination__button {
-    width: 40px;
-    height: 40px;
-    background-color: var(--var-graphite);
-    border-radius: 10px;
+.pagination__items {
     color: #FFF;
-    transition: 0.2s;
-}
-
-.pagination__button:hover {
-    background-color: var(--var-systemPrimaryColor);
-}
-
-.pagination__activeButton {
-    background-color: var(--var-systemPrimaryColor);
+    border: 2px solid red;
 }
 
 .content-movies {
