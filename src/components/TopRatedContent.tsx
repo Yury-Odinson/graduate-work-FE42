@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { getMovies } from "../tools/movies"
 import { CardMovie } from "./CardMovie"
-import { Pagination } from '@mui/material';
+import { Pagination } from '@mui/material'
 import { MovieCard } from "../tools/types"
 
 export const TopRatedContent = () => {
@@ -30,6 +30,7 @@ export const TopRatedContent = () => {
                     page={page}
                     onChange={(_, num) => setPage(num)}
                     color="primary"
+                    size="large"
                 />
             </div>
             <div className="content-movies">
@@ -48,6 +49,7 @@ export const TopRatedContent = () => {
                     page={page}
                     onChange={(_, num) => setPage(num)}
                     color="primary"
+                    size="large"
                 />
             </div>
         </>
