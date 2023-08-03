@@ -154,11 +154,6 @@ html {
     gap: 10px;
 }
 
-.pagination__items {
-    color: #FFF;
-    border: 2px solid red;
-}
-
 .content-movies {
     margin: 0 auto;
     width: 100%;
