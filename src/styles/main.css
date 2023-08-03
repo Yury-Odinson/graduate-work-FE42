@@ -43,7 +43,8 @@ html {
     bottom: 0;
 }
 
-.header-search__button {
+.header-search__button,
+.header-filter__button {
     width: 70px;
     height: 100%;
     background-color: var(--var-formDarkColor);
@@ -52,16 +53,24 @@ html {
     transition: 0.2s;
 }
 
-.header-search__button:first-child {
+.header-filter__button {
     background-image: url("/public/images/search_settings.png");
+    width: 70px;
+    height: 100%;
+    /* border: 2px solid red; */
+    background-color: var(--var-formDarkColor);
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.2s;
 }
 
-.header-search__button:last-child {
+.header-search__button {
     background-image: url("/public/images/search.png");
     border-radius: 0 10px 10px 0;
 }
 
-.header-search__button:hover {
+.header-search__button:hover,
+.header-filter__button:hover {
     background-color: var(--var-systemPrimaryColor);
 }
 

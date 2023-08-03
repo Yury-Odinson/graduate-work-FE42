@@ -2,8 +2,8 @@ import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { getMovies } from "../tools/movies"
 import { CardMovie } from "./CardMovie"
-import { Pagination } from '@mui/material'
 import { MovieCard } from "../tools/types"
+import { Pagination } from '@mui/material'
 
 export const TopRatedContent = () => {
     const [movies, setMovies] = useState<MovieCard[]>([])
@@ -19,6 +19,8 @@ export const TopRatedContent = () => {
 
     // tmdb return max 500 page. if page > 500 - error
     const maxPages = () => totalPage >= 500 ? 500 : totalPage
+
+    console.log(movies)
 
     return (
         <>
