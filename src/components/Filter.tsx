@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { FilterMenuProps } from "../tools/types"
+import { FilterMenuProps, MovieCard } from "../tools/types"
 import { getMoviesWithFilter } from "../tools/movies"
 import { Link } from "react-router-dom"
 import { Drawer } from "@mui/material"
@@ -11,14 +11,14 @@ export const Filter = () => {
 
     return (
         <>
-            <button className="header-filter__button" onClick={() => setExpanded(!expanded)}></button>
+            <button className="header-filter__button" onClick={() => setExpanded(!expanded)} />
             <ExpandedMenu opened={expanded} close={() => setExpanded(false)} />
         </>
     )
 }
 
 const ExpandedMenu = ({ opened, close }: FilterMenuProps) => {
-
+    const [movies, setMovies] = useState<MovieCard[]>([])
     const [sortBy, setSortBy] = useState("")
     const [movieName, setMovieName] = useState("")
     const [movieYear, setMovieYear] = useState("")
@@ -29,6 +29,14 @@ const ExpandedMenu = ({ opened, close }: FilterMenuProps) => {
         setMovieName("");
         setMovieYear("");
         setMovieAdult(false);
+    }
+
+    const getResults = () => {
+        getMoviesWithFilter({ movieName, movieAdult, movieYear })
+            .then((movies) => setMovies(movies.results))
+        // console.log(movies)
+        movies && movies.sort((a: any, b: any) => b.vote_average - a.vote_average)
+        // console.log(movies)
     }
 
     return (
@@ -44,8 +52,8 @@ const ExpandedMenu = ({ opened, close }: FilterMenuProps) => {
                 <div className="filter-sort">
                     <span className="filter-sort__title">Sort by</span>
                     <label className="filter-sort-items">
-                        <button className="filter-sort__button" onClick={() => setSortBy("Rating")}>Rating</button>
-                        <button className="filter-sort__button" onClick={() => setSortBy("Year")}>Year</button>
+                        <button className={sortBy === "Rating" ? "filter-sort__buttonActive" : "filter-sort__button"} onClick={() => setSortBy("Rating")}>Rating</button>
+                        <button className={sortBy === "Year" ? "filter-sort__buttonActive" : "filter-sort__button"} onClick={() => setSortBy("Year")}>Year</button>
                     </label>
                 </div>
                 <label className="filter-movieName">
@@ -65,8 +73,8 @@ const ExpandedMenu = ({ opened, close }: FilterMenuProps) => {
                 <div className="filter-footer">
                     <label className="filter-footer-items">
                         <button className="filter-footer__buttons" onClick={() => clearFilter()}>Clear filter</button>
-                        <Link to={"/search/"}>
-                            <button className="filter-footer__buttons" onClick={() => getMoviesWithFilter({ movieName, movieAdult, movieYear })}>Show results</button>
+                        <Link to={"/search/" + movieName}>
+                            <button className="filter-footer__buttons" onClick={() => getResults()}>Show results</button>
                         </Link>
                     </label>
                 </div>

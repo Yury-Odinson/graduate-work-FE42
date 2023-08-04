@@ -106,6 +106,6 @@ export const getFavoritesMovies = async (idMovies: string[]) => {
     return await finalArr
 }
 
-// export const setFilter =async (params:type) => {
-    
-// }
+export const getFilterResult = async ({ movieName, movieAdult, movieYear }: FilterValuesToSearch) => {
+
+}

@@ -175,6 +175,18 @@ html {
     transition: 0.2s;
 }
 
+.movie-item__adult {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    background-color: #be2f2f;
+    /* font-size: 20px; */
+    font-weight: 600;
+    color: #fff;
+}
+
 .movie-item:hover {
     scale: 1.03;
     background-color: var(--var-graphite);
@@ -187,7 +199,6 @@ html {
 }
 
 .movie-item:hover>.movie-item__name {
-
     color: var(--var-systemPrimaryColor);
     transition: 0.4s;
 }
@@ -217,6 +228,16 @@ html {
     font-weight: 600;
     cursor: pointer;
     transition: 0.2s;
+}
+
+.movie-item__year {
+    margin: 10px;
+    font-size: 14px;
+}
+
+.movie-item__genres {
+    margin: 10px;
+    font-size: 14px;
 }
 
 .scrollUp {

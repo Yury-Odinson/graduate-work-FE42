@@ -76,6 +76,7 @@ export type Languages = {
 }
 
 export type FilterValuesToSearch = {
+    movieSort?: string,
     movieName?: string,
     movieAdult?: boolean,
     movieYear?: string // or number
@@ -92,4 +93,8 @@ export type ChangeColorNavigation = {
 export type FilterMenuProps = {
     opened: boolean,
     close: () => void
+}
+
+export type MoviesWithFilter = {
+    filterMovies?: string[]
 }

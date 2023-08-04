@@ -20,8 +20,6 @@ export const TopRatedContent = () => {
     // tmdb return max 500 page. if page > 500 - error
     const maxPages = () => totalPage >= 500 ? 500 : totalPage
 
-    console.log(movies)
-
     return (
         <>
             <h2 className="content__title">Top rated movies</h2>
