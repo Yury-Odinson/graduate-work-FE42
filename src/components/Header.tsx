@@ -6,9 +6,6 @@ export const Header = () => {
 
     const [expandedUserMenu, setExpandedUserMenu] = useState(false)
     const [searchValue, setSearchValue] = useState("")
-    const [filterMenu, setFilterMenu] = useState(false)
-
-    const showFilter = () => filterMenu === true ? <Filter handlerSetMenu={() => setFilterMenu(false)}/> : null
 
     const modalMenu = () => {
         return (
@@ -41,22 +38,17 @@ export const Header = () => {
 
     return (
         <>
-            {showFilter()}
             <div className="header">
                 <label className="header-search">
-                    <input className="header-search__input" type="text" placeholder="Search" onChange={(e) => setSearchValue(e.target.value)}></input>
+                    <input className="header-search__input" type="text" placeholder="Search" onChange={(e) => setSearchValue(e.target.value)} />
                     <div className="header-search-buttonsContainer">
-                        <button className="header-search__button" onClick={() => setFilterMenu(!filterMenu)}></button>
-
-
+                        <Filter />
                         <Link to={"/search/" + searchValue}>
-                            <button className="header-search__button"></button>
+                            <button className="header-search__button" />
                         </Link>
                     </div>
                 </label >
                 <div className="header__user" onClick={() => setExpandedUserMenu(!expandedUserMenu)}>
-
-
                     <div className="user-initials">
                         <span className="user-initials__item">DEB</span>
                     </div>

@@ -75,17 +75,8 @@ export type Languages = {
     name: string
 }
 
-export type PaginationProps = {
-    currentPage: number,
-    totalPages: number,
-    handlerSetPage: (pageNum: number) => void
-}
-
-export type FilterStateProps = {
-    handlerSetMenu: () => void
-}
-
 export type FilterValuesToSearch = {
+    movieSort?: string,
     movieName?: string,
     movieAdult?: boolean,
     movieYear?: string // or number
@@ -97,4 +88,13 @@ export type RecommendedMoviesProps = {
 
 export type ChangeColorNavigation = {
     color: string,
+}
+
+export type FilterMenuProps = {
+    opened: boolean,
+    close: () => void
+}
+
+export type MoviesWithFilter = {
+    filterMovies?: string[]
 }

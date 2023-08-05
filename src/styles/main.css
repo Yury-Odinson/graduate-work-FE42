@@ -1,5 +1,6 @@
 html {
     background-color: var(--var-backgroundColor);
+        /* background-color: #c5f0f8; */
 }
 
 .wrapper {
@@ -42,7 +43,8 @@ html {
     bottom: 0;
 }
 
-.header-search__button {
+.header-search__button,
+.header-filter__button {
     width: 70px;
     height: 100%;
     background-color: var(--var-formDarkColor);
@@ -51,16 +53,24 @@ html {
     transition: 0.2s;
 }
 
-.header-search__button:first-child {
+.header-filter__button {
     background-image: url("/public/images/search_settings.png");
+    width: 70px;
+    height: 100%;
+    /* border: 2px solid red; */
+    background-color: var(--var-formDarkColor);
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.2s;
 }
 
-.header-search__button:last-child {
+.header-search__button {
     background-image: url("/public/images/search.png");
     border-radius: 0 10px 10px 0;
 }
 
-.header-search__button:hover {
+.header-search__button:hover,
+.header-filter__button:hover {
     background-color: var(--var-systemPrimaryColor);
 }
 
@@ -139,25 +149,9 @@ html {
 
 .content-pagination {
     margin: 20px auto;
+    background-color: #FFF;
     display: flex;
     gap: 10px;
-}
-
-.pagination__button {
-    width: 40px;
-    height: 40px;
-    background-color: var(--var-graphite);
-    border-radius: 10px;
-    color: #FFF;
-    transition: 0.2s;
-}
-
-.pagination__button:hover {
-    background-color: var(--var-systemPrimaryColor);
-}
-
-.pagination__activeButton {
-    background-color: var(--var-systemPrimaryColor);
 }
 
 .content-movies {
@@ -181,6 +175,18 @@ html {
     transition: 0.2s;
 }
 
+.movie-item__adult {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    background-color: #be2f2f;
+    /* font-size: 20px; */
+    font-weight: 600;
+    color: #fff;
+}
+
 .movie-item:hover {
     scale: 1.03;
     background-color: var(--var-graphite);
@@ -193,7 +199,6 @@ html {
 }
 
 .movie-item:hover>.movie-item__name {
-
     color: var(--var-systemPrimaryColor);
     transition: 0.4s;
 }
@@ -223,6 +228,16 @@ html {
     font-weight: 600;
     cursor: pointer;
     transition: 0.2s;
+}
+
+.movie-item__year {
+    margin: 10px;
+    font-size: 14px;
+}
+
+.movie-item__genres {
+    margin: 10px;
+    font-size: 14px;
 }
 
 .scrollUp {

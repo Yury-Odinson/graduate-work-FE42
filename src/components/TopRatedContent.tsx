@@ -2,27 +2,36 @@ import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { getMovies } from "../tools/movies"
 import { CardMovie } from "./CardMovie"
-import { Pagination } from "./Pagination"
 import { MovieCard } from "../tools/types"
+import { Pagination } from '@mui/material'
 
 export const TopRatedContent = () => {
     const [movies, setMovies] = useState<MovieCard[]>([])
     const [page, setPage] = useState(1)
+    const [totalPage, setTotalPage] = useState(0)
 
     useEffect(() => {
-        getMovies(page).then((movies) => setMovies(movies.results))
-    }, [])
+        getMovies(page).then((movies) => {
+            setMovies(movies.results)
+            setTotalPage(movies.total_pages)
+        })
+    }, [page])
 
-    const changePage = (pageNumber: number) => {
-        setPage(pageNumber)
-        getMovies(pageNumber).then((movies) => setMovies(movies.results))
-    }
+    // tmdb return max 500 page. if page > 500 - error
+    const maxPages = () => totalPage >= 500 ? 500 : totalPage
 
     return (
         <>
             <h2 className="content__title">Top rated movies</h2>
             <div className="content-pagination">
-                <Pagination currentPage={page} totalPages={500} handlerSetPage={(pageNum) => changePage(pageNum)} />
+                <Pagination
+                    count={maxPages()}
+                    defaultPage={1 || page}
+                    page={page}
+                    onChange={(_, num) => setPage(num)}
+                    color="primary"
+                    size="large"
+                />
             </div>
             <div className="content-movies">
                 {movies.map((item) =>
@@ -34,7 +43,14 @@ export const TopRatedContent = () => {
                 )}
             </div>
             <div className="content-pagination">
-                <Pagination currentPage={page} totalPages={500} handlerSetPage={(pageNum) => changePage(pageNum)} />
+                <Pagination
+                    count={maxPages()}
+                    defaultPage={1 || page}
+                    page={page}
+                    onChange={(_, num) => setPage(num)}
+                    color="primary"
+                    size="large"
+                />
             </div>
         </>
     )

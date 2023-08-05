@@ -2,10 +2,10 @@ import { useEffect, useState } from "react"
 import { searchMovies } from "../tools/movies"
 import { Link, useParams } from "react-router-dom"
 import { CardMovie } from "./CardMovie"
-import { Pagination } from "./Pagination"
-import { MovieCard } from "../tools/types"
+import { Pagination } from '@mui/material'
+import { MovieCard, MoviesWithFilter } from "../tools/types"
 
-export const SearchResultContent = () => {
+export const SearchResultContent = (filterMovies: MoviesWithFilter) => {
 
     const [movies, setMovies] = useState<MovieCard[]>([])
     const [page, setPage] = useState(1)
@@ -14,21 +14,32 @@ export const SearchResultContent = () => {
 
     useEffect(() => {
         searchString && searchMovies(searchString, page).then((movies) => setMovies(movies.results))
-    }, [searchString])
+    }, [searchString, page])
 
-    const changePage = (pageNumber: number) => {
-        setPage(pageNumber)
-        searchString && searchMovies(searchString, pageNumber).then((movies) => setMovies(movies.results))
-    }
+    // console.log(filterMovies)
+
+    movies && movies.sort((a: any, b: any) => b.vote_average - a.vote_average)
+
+    // movies && movies.sort((a: any, b: any) => a.release_date - b.release_date)
 
     // set total pages in the fetch request
     searchString && searchMovies(searchString, page).then((total) => setTotalPages(total.total_pages))
+
+    const maxPages = () => totalPages >= 500 ? 500 : totalPages
 
     return (
         <>
             <h2 className="content__title">Search result</h2>
             <div className="content-pagination">
-                <Pagination currentPage={page} totalPages={totalPages} handlerSetPage={(pageNum) => changePage(pageNum)} />
+                {totalPages > 1 ? <Pagination
+                    count={maxPages()}
+                    defaultPage={1 || page}
+                    page={page}
+                    onChange={(_, num) => setPage(num)}
+                    color="primary"
+                    size="large"
+                /> : null}
+
             </div>
             <div className="content-movies">
                 {movies.map((item) =>
@@ -40,7 +51,14 @@ export const SearchResultContent = () => {
                 )}
             </div>
             <div className="content-pagination">
-                <Pagination currentPage={page} totalPages={totalPages} handlerSetPage={(pageNum) => changePage(pageNum)} />
+                {totalPages > 1 ? <Pagination
+                    count={maxPages()}
+                    defaultPage={1 || page}
+                    page={page}
+                    onChange={(_, num) => setPage(num)}
+                    color="primary"
+                    size="large"
+                /> : null}
             </div>
         </>
     )

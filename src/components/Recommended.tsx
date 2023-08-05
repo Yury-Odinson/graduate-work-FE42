@@ -8,11 +8,10 @@ import "../styles/recommended.css"
 export const Recommended = ({ idParentMovie }: RecommendedMoviesProps) => {
 
     const [recMovies, setRecMovies] = useState<MovieCard[]>([])
-    const [page, setPage] = useState(1)
 
     useEffect(() => {
         getRecommendedMovies(idParentMovie).then((movies) => setRecMovies(movies.results))
-    }, [])
+    }, [idParentMovie])
 
     return (
         <div className="main-recommended">
