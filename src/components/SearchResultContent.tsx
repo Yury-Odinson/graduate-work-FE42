@@ -18,7 +18,7 @@ export const SearchResultContent = (filterMovies: MoviesWithFilter) => {
 
     // console.log(filterMovies)
 
-    movies && movies.sort((a: any, b: any) => b.vote_average - a.vote_average)
+    // movies && movies.sort((a: any, b: any) => b.vote_average - a.vote_average)
 
     // movies && movies.sort((a: any, b: any) => a.release_date - b.release_date)
 

@@ -9,6 +9,7 @@ export const Filter = () => {
 
     const [expanded, setExpanded] = useState(false)
 
+
     return (
         <>
             <button className="header-filter__button" onClick={() => setExpanded(!expanded)} />
