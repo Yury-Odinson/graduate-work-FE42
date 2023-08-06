@@ -1,25 +1,28 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { searchMovies } from "../tools/movies"
 import { Link, useParams } from "react-router-dom"
 import { CardMovie } from "./CardMovie"
 import { Pagination } from '@mui/material'
-import { MovieCard, MoviesWithFilter } from "../tools/types"
+import { MovieCard } from "../tools/types"
+import { FilterContext } from "../tools/store"
 
-export const SearchResultContent = (filterMovies: MoviesWithFilter) => {
+export const SearchResultContent = () => {
 
     const [movies, setMovies] = useState<MovieCard[]>([])
     const [page, setPage] = useState(1)
     const [totalPages, setTotalPages] = useState(1)
+
+    const test = useContext(FilterContext)
+
+    // console.log(test)
+
     const { searchString } = useParams()
 
     useEffect(() => {
         searchString && searchMovies(searchString, page).then((movies) => setMovies(movies.results))
     }, [searchString, page])
 
-    // console.log(filterMovies)
-
     // movies && movies.sort((a: any, b: any) => b.vote_average - a.vote_average)
-
     // movies && movies.sort((a: any, b: any) => a.release_date - b.release_date)
 
     // set total pages in the fetch request

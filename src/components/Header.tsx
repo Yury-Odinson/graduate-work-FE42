@@ -42,12 +42,7 @@ export const Header = () => {
     return (
         <>
             <div className="header">
-
-
                 <input type="checkbox" onChange={() => changeTheme()} />
-
-
-
                 <label className="header-search">
                     <input className="header-search__input" type="text" placeholder="Search" onChange={(e) => setSearchValue(e.target.value)} />
                     <div className="header-search-buttonsContainer">

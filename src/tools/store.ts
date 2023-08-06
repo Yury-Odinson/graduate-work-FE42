@@ -1,10 +1,13 @@
-import React, { createContext } from "react"
-import { ThemeType } from "./types"
+import React from "react"
+import { FilterValuesToSearch, ThemeType } from "./types"
 
-export const FilterContext = React.createContext({})
+export const FilterContext = React.createContext<FilterValuesToSearch>({
+    movieSort: "",
+    movieName: "",
+    movieAdult: false,
+    movieYear: ""
+})
+// export const SetFilter = React.createContext(() => { })
 
-
-// export const DefaultTheme: ThemeType = "dark"
-export const ThemeContext = createContext<ThemeType>("dark")
-
+export const ThemeContext = React.createContext<ThemeType>("dark")
 export const ChangeTheme = React.createContext(() => { })
