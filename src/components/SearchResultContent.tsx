@@ -1,20 +1,15 @@
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { searchMovies } from "../tools/movies"
 import { Link, useParams } from "react-router-dom"
 import { CardMovie } from "./CardMovie"
 import { Pagination } from '@mui/material'
 import { MovieCard } from "../tools/types"
-import { FilterContext } from "../tools/store"
 
 export const SearchResultContent = () => {
 
     const [movies, setMovies] = useState<MovieCard[]>([])
     const [page, setPage] = useState(1)
     const [totalPages, setTotalPages] = useState(1)
-
-    const test = useContext(FilterContext)
-
-    // console.log(test)
 
     const { searchString } = useParams()
 

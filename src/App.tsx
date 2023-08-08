@@ -1,18 +1,22 @@
 import { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Wrapper } from './components/Wrapper';
-import { ChangeTheme, ThemeContext } from './tools/store';
-import { ThemeType } from './tools/types';
+import { ChangeTheme, FilterContext, ThemeContext, defaultFilterValue } from './tools/store';
+import { FilterValuesToSearch, ThemeType } from './tools/types';
 
 function App() {
   const [theme, setTheme] = useState<ThemeType>("dark");
+  const [filter, setFilter] = useState<FilterValuesToSearch>(defaultFilterValue)
+  // 4 states for filter (sort, name, adult, year)
 
   return (
     <ThemeContext.Provider value={theme}>
       <ChangeTheme.Provider value={() => theme === "light" ? setTheme("dark") : setTheme("light")}>
-        <BrowserRouter>
-          <Wrapper />
-        </BrowserRouter>
+        <FilterContext.Provider value={{ filter, setFilter }}>
+          <BrowserRouter>
+            <Wrapper />
+          </BrowserRouter>
+        </FilterContext.Provider>
       </ChangeTheme.Provider>
     </ThemeContext.Provider >
   );
