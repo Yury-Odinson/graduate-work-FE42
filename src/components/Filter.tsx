@@ -18,23 +18,19 @@ export const Filter = () => {
 }
 
 const ExpandedMenu = ({ opened, close }: FilterMenuProps) => {
-    const [sortBy, setSortBy] = useState("")
+    const [movieSort, setMovieSort] = useState("")
     const [movieName, setMovieName] = useState("")
     const [movieYear, setMovieYear] = useState("")
     const [movieAdult, setMovieAdult] = useState(false)
 
     useEffect(() => {
 
-    }, [sortBy, movieName, movieYear, movieAdult])
+    }, [movieSort, movieName, movieYear, movieAdult])
 
-    const test = useContext(FilterContext)
-    console.log(test)
-
-
-    // test.setFilter
+    const setContext = useContext(FilterContext)
 
     const clearFilter = () => {
-        setSortBy("");
+        setMovieSort("");
         setMovieName("");
         setMovieYear("");
         setMovieAdult(false);
@@ -53,8 +49,8 @@ const ExpandedMenu = ({ opened, close }: FilterMenuProps) => {
                 <div className="filter-sort">
                     <span className="filter-sort__title">Sort by</span>
                     <label className="filter-sort-items">
-                        <button className={sortBy === "Rating" ? "filter-sort__buttonActive" : "filter-sort__button"} onClick={() => setSortBy("Rating")}>Rating</button>
-                        <button className={sortBy === "Year" ? "filter-sort__buttonActive" : "filter-sort__button"} onClick={() => setSortBy("Year")}>Year</button>
+                        <button className={movieSort === "Rating" ? "filter-sort__buttonActive" : "filter-sort__button"} onClick={() => setMovieSort("Rating")}>Rating</button>
+                        <button className={movieSort === "Year" ? "filter-sort__buttonActive" : "filter-sort__button"} onClick={() => setMovieSort("Year")}>Year</button>
                     </label>
                 </div>
                 <label className="filter-movieName">
@@ -75,7 +71,7 @@ const ExpandedMenu = ({ opened, close }: FilterMenuProps) => {
                     <label className="filter-footer-items">
                         <button className="filter-footer__buttons" onClick={() => clearFilter()}>Clear filter</button>
                         <Link to={"/search/" + movieName}>
-                            <button className="filter-footer__buttons">Show results</button>
+                            <button className="filter-footer__buttons" onClick={() => setContext.setFilter({ movieSort, movieName, movieYear, movieAdult })}>Show results</button>
                         </Link>
                     </label>
                 </div>
