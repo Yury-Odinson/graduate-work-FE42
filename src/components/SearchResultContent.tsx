@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { searchMovies } from "../tools/movies"
 import { Link, useParams } from "react-router-dom"
 import { CardMovie } from "./CardMovie"
 import { Pagination } from '@mui/material'
 import { MovieCard } from "../tools/types"
+import { FilterContext } from "../tools/store"
 
 export const SearchResultContent = () => {
 
@@ -17,8 +18,16 @@ export const SearchResultContent = () => {
         searchString && searchMovies(searchString, page).then((movies) => setMovies(movies.results))
     }, [searchString, page])
 
-    // movies && movies.sort((a: any, b: any) => b.vote_average - a.vote_average)
-    // movies && movies.sort((a: any, b: any) => a.release_date - b.release_date)
+    const filter = useContext(FilterContext)
+
+
+    if (filter.filter.movieSort == "Rating") {
+        movies && movies.sort((a: any, b: any) => b.vote_average - a.vote_average)
+    }
+
+    if (filter.filter.movieSort == "Year") {
+        movies && movies.sort((a: any, b: any) => Number(b.release_date.slice(0, 4)) - Number(a.release_date.slice(0, 4)))
+    }
 
     // set total pages in the fetch request
     searchString && searchMovies(searchString, page).then((total) => setTotalPages(total.total_pages))
@@ -28,6 +37,7 @@ export const SearchResultContent = () => {
     return (
         <>
             <h2 className="content__title">Search result</h2>
+            <button onClick={() => console.log(filter.filter)}>check filter</button>
             <div className="content-pagination">
                 {totalPages > 1 ? <Pagination
                     count={maxPages()}
