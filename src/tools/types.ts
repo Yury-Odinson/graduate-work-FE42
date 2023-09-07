@@ -1,3 +1,7 @@
+import { Dispatch, SetStateAction } from "react";
+
+export type ThemeType = "light" | "dark"
+
 export type User = {
     username?: string | null;
     email: string | null;
@@ -80,6 +84,11 @@ export type FilterValuesToSearch = {
     movieName?: string,
     movieAdult?: boolean,
     movieYear?: string // or number
+}
+
+export type FilterType = {
+    filter: FilterValuesToSearch;
+    setFilter: Dispatch<SetStateAction<FilterValuesToSearch>>
 }
 
 export type RecommendedMoviesProps = {
