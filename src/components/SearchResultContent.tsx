@@ -20,7 +20,6 @@ export const SearchResultContent = () => {
 
     const filter = useContext(FilterContext)
 
-
     if (filter.filter.movieSort == "Rating") {
         movies && movies.sort((a: any, b: any) => b.vote_average - a.vote_average)
     }
@@ -37,7 +36,6 @@ export const SearchResultContent = () => {
     return (
         <>
             <h2 className="content__title">Search result</h2>
-            <button onClick={() => console.log(filter.filter)}>check filter</button>
             <div className="content-pagination">
                 {totalPages > 1 ? <Pagination
                     count={maxPages()}
