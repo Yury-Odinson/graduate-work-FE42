@@ -240,6 +240,25 @@ html {
     font-size: 14px;
 }
 
+.settings-cover {
+    margin: 20px 0;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--var-formDarkColor);
+    border-radius: 10px;
+}
+
+.settings-cover-items {
+    margin: auto 0;
+}
+
+.settings__themaName {
+    padding: 10px 0;
+    font-weight: 600;
+    color: #FFF;
+}
+
 .scrollUp {
     position: fixed;
     bottom: 40px;

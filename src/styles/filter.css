@@ -183,6 +183,10 @@
     transition: 0.2s;
 }
 
+.toggle:checked {
+    background-color: var(--var-systemPrimaryColor);
+}
+
 .toggle:before,
 .toggle:after {
     border-radius: 50%;

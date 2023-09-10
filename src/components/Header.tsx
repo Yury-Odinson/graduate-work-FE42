@@ -1,7 +1,6 @@
-import { useContext, useState } from "react"
+import { useState } from "react"
 import { Link } from "react-router-dom"
 import { Filter } from "./Filter"
-import { ChangeTheme } from "../tools/store"
 
 export const Header = () => {
 
@@ -37,12 +36,9 @@ export const Header = () => {
         }
     }
 
-    const changeTheme = useContext(ChangeTheme)
-
     return (
         <>
             <div className="header">
-                <input type="checkbox" onChange={() => changeTheme()} />
                 <label className="header-search">
                     <input className="header-search__input" type="text" placeholder="Search" onChange={(e) => setSearchValue(e.target.value)} />
                     <div className="header-search-buttonsContainer">

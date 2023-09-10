@@ -8,7 +8,7 @@ import { useContext } from "react";
 export const Wrapper = () => {
 
     const theme = useContext(ThemeContext)
-    console.log(theme)
+    // console.log(theme)
 
     const darkTheme = { background: "var(--var-backgroundColor)" }
     const lightTheme = { background: "var(--var-backgroundWhite)" }
