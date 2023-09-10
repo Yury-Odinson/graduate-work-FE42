@@ -5,20 +5,25 @@ import { NavSettingsImg } from "./SvgComponents/NavSettingsImg"
 import { NavFavoritesImg } from "./SvgComponents/NavFovoritesImg"
 import { NavTrendsImg } from "./SvgComponents/NavTrendsImg"
 import { NavShapeImg } from "./SvgComponents/NavShapeImg"
-import { useEffect, useState } from "react"
+import { useContext } from "react"
 import { NavTopRated } from "./SvgComponents/NavTopRated"
+import { ThemeContext } from "../tools/store"
 
 export const NavBar = () => {
 
-    const [activeTab, setActiveTab] = useState("")
-    useEffect(() => { }, [])
+    const theme = useContext(ThemeContext)
 
-    const changeActiveTab = () => {
-
+    const classNameActiveTab = () => {
+        if (theme === "dark") {
+            return "navigation__itemActive"
+        } else {
+            return "navigation__itemActiveLight"
+        }
     }
 
     return (
-        <div className="navigation">
+        // <div className="navigation">
+        <div className={theme === "dark" ? "navigation" : "navigationLight"}>
             <div className="navigation__logo">
                 <Link to={"/"}>
                     <LogoImg />
@@ -29,7 +34,7 @@ export const NavBar = () => {
                 <li className="navigation__item">
                     <NavLink to={"/"}
                         className={({ isActive }) =>
-                            isActive ? "navigation__itemActive" : ""
+                            isActive ? classNameActiveTab() : ""
                         }>
                         <button className="navigation__button">
                             <NavShapeImg color="#80858B" />
@@ -40,7 +45,7 @@ export const NavBar = () => {
                 <li className="navigation__item">
                     <NavLink to={"/toprated"}
                         className={({ isActive }) =>
-                            isActive ? "navigation__itemActive" : ""
+                            isActive ? classNameActiveTab() : ""
                         }>
                         <button className="navigation__button">
                             <NavTopRated />
@@ -51,7 +56,7 @@ export const NavBar = () => {
                 <li className="navigation__item">
                     <NavLink to={"/trends"}
                         className={({ isActive }) =>
-                            isActive ? "navigation__itemActive" : ""
+                            isActive ? classNameActiveTab() : ""
                         }>
                         <button className="navigation__button">
                             <NavTrendsImg />
@@ -62,7 +67,7 @@ export const NavBar = () => {
                 <li className="navigation__item">
                     <NavLink to={"/favorites"}
                         className={({ isActive }) =>
-                            isActive ? "navigation__itemActive" : ""
+                            isActive ? classNameActiveTab() : ""
                         }>
                         <button className="navigation__button">
                             <NavFavoritesImg />
@@ -73,7 +78,7 @@ export const NavBar = () => {
                 <li className="navigation__item">
                     <NavLink to={"/settings"}
                         className={({ isActive }) =>
-                            isActive ? "navigation__itemActive" : ""
+                            isActive ? classNameActiveTab() : ""
                         }>
                         <button className="navigation__button">
                             <NavSettingsImg />

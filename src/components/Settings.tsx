@@ -1,36 +1,27 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext } from "react"
 import "../styles/main.css"
 import { ChangeTheme, ThemeContext } from "../tools/store"
-import { ThemeType } from "../tools/types"
 
 export const Settings = () => {
 
-    const [theme, setTheme] = useState<ThemeType>("dark")
 
     const changeTheme = useContext(ChangeTheme)
-    const thisTheme = useContext(ThemeContext)
+    const theme = useContext(ThemeContext)
 
     const reverseTheme = () => theme === "dark" ? "light" : "dark"
-
-    useEffect(() => {
-        if (thisTheme === "dark") {
-            setTheme("dark")
-        } else {
-            setTheme("light")
-        }
-    }, [changeTheme])
+    const classNameTheme = () => theme === "light" ? "Light" : ""
 
     return (
         <div className="settings">
-            <h1 className="content__title">Color mode</h1>
+            <h1 className={theme === "dark" ? "content__title" : "content__titleDark"}>Color mode</h1>
 
-            <div className="settings-cover">
+            <div className={theme === "dark" ? "settings-cover" : "settings-coverLight"}>
                 <div className="settings-cover-items">
-                    <p className="settings__themaName">{theme.toUpperCase()}</p>
+                    <p className={"settings__themaName" + classNameTheme()}>{theme.toUpperCase()}</p>
                     <p>Use {reverseTheme()} thema</p>
                 </div>
                 <div className="settings-cover-items">
-                    <input className="toggle" type="checkbox" onChange={() => changeTheme()} />
+                    <input className="toggle" type="checkbox" defaultChecked={theme === "light" ? true : false} onChange={() => changeTheme()} />
                 </div>
             </div>
         </div>

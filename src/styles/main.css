@@ -1,6 +1,5 @@
 html {
     background-color: var(--var-backgroundColor);
-        /* background-color: #c5f0f8; */
 }
 
 .wrapper {
@@ -50,18 +49,23 @@ html {
     background-color: var(--var-formDarkColor);
     background-repeat: no-repeat;
     background-position: center;
-    transition: 0.2s;
+}
+
+.header-search__buttonLight {
+    width: 70px;
+    height: 100%;
+    background-color: var(--var-formLightColor);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .header-filter__button {
     background-image: url("/public/images/search_settings.png");
     width: 70px;
     height: 100%;
-    /* border: 2px solid red; */
     background-color: var(--var-formDarkColor);
     background-repeat: no-repeat;
     background-position: center;
-    transition: 0.2s;
 }
 
 .header-search__button {
@@ -147,6 +151,11 @@ html {
     font-weight: 400;
 }
 
+.content__titleDark {
+    color: #000;
+    font-weight: 400;
+}
+
 .content-pagination {
     margin: 20px auto;
     background-color: #FFF;
@@ -163,7 +172,8 @@ html {
     justify-items: center;
 }
 
-.movie-item {
+.movie-item,
+.movie-itemLight {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -172,7 +182,6 @@ html {
     color: #FFF;
     font-size: 16px;
     border-radius: 20px;
-    transition: 0.2s;
 }
 
 .movie-item__adult {
@@ -182,7 +191,6 @@ html {
     padding: 5px 10px;
     border-radius: 6px;
     background-color: #be2f2f;
-    /* font-size: 20px; */
     font-weight: 600;
     color: #fff;
 }
@@ -193,8 +201,13 @@ html {
     transition: 0.4s;
 }
 
+.movie-itemLight:hover {
+    scale: 1.03;
+    background-color: var(--var-formLightColor);
+    transition: 0.4s;
+}
+
 .movie-item:hover>.movie-item__voteAverage {
-    transition: 0.2s;
     opacity: 0.3;
 }
 
@@ -208,7 +221,6 @@ html {
     width: 240px;
     max-height: 350px;
     border-radius: 20px;
-    transition: 0.2s;
     cursor: pointer;
 }
 
@@ -227,7 +239,6 @@ html {
     margin: 20px 10px 0;
     font-weight: 600;
     cursor: pointer;
-    transition: 0.2s;
 }
 
 .movie-item__year {
@@ -249,6 +260,15 @@ html {
     border-radius: 10px;
 }
 
+.settings-coverLight {
+    margin: 20px 0;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--var-formLightColor);
+    border-radius: 10px;
+}
+
 .settings-cover-items {
     margin: auto 0;
 }
@@ -257,6 +277,12 @@ html {
     padding: 10px 0;
     font-weight: 600;
     color: #FFF;
+}
+
+.settings__themaNameLight {
+    padding: 10px 0;
+    font-weight: 600;
+    color: #000;
 }
 
 .scrollUp {
@@ -272,7 +298,6 @@ html {
     background-size: 70%;
     background-repeat: no-repeat;
     background-position: center;
-    transition: 0.2s;
 }
 
 .scrollUp:hover {

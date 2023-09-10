@@ -3,7 +3,7 @@ import { FilterMenuProps } from "../tools/types"
 import { Link } from "react-router-dom"
 import { Drawer } from "@mui/material"
 import "../styles/filter.css"
-import { FilterContext } from "../tools/store"
+import { FilterContext, ThemeContext } from "../tools/store"
 
 export const Filter = () => {
 
@@ -28,6 +28,9 @@ const ExpandedMenu = ({ opened, close }: FilterMenuProps) => {
     }, [movieSort, movieName, movieYear, movieAdult])
 
     const setContext = useContext(FilterContext)
+    const theme = useContext(ThemeContext)
+
+    const classNameTheme = () => theme === "light" ? "Light" : ""
 
     const clearFilter = () => {
         setMovieSort("");
@@ -42,28 +45,28 @@ const ExpandedMenu = ({ opened, close }: FilterMenuProps) => {
             open={opened}
             onClose={close}
         >
-            <div className="filter">
+            <div className={"filter" + classNameTheme()}>
                 <div className="filter-header">
-                    <h2 className="filter__title">Filters</h2>
+                    <h2 className={"filter__title" + classNameTheme()}>Filters</h2>
                 </div>
                 <div className="filter-sort">
-                    <span className="filter-sort__title">Sort by</span>
+                    <span className={"filter-sort__title" + classNameTheme()}>Sort by</span>
                     <label className="filter-sort-items">
-                        <button className={movieSort === "Rating" ? "filter-sort__buttonActive" : "filter-sort__button"} onClick={() => setMovieSort("Rating")}>Rating</button>
-                        <button className={movieSort === "Year" ? "filter-sort__buttonActive" : "filter-sort__button"} onClick={() => setMovieSort("Year")}>Year</button>
+                        <button className={movieSort === "Rating" ? "filter-sort__buttonActive" : "filter-sort__button" + classNameTheme()} onClick={() => setMovieSort("Rating")}>Rating</button>
+                        <button className={movieSort === "Year" ? "filter-sort__buttonActive" : "filter-sort__button" + classNameTheme()} onClick={() => setMovieSort("Year")}>Year</button>
                     </label>
                 </div>
                 <label className="filter-movieName">
-                    <span className="filter-movieName__title">Full or short movie name *</span>
-                    <input className="filter-movieName__input" placeholder="Your text" onChange={(e) => setMovieName(e.target.value)} value={movieName}></input>
+                    <span className={"filter-movieName__title" + classNameTheme()}>Full or short movie name *</span>
+                    <input className={"filter-movieName__input" + classNameTheme()} placeholder="Your text" onChange={(e) => setMovieName(e.target.value)} value={movieName}></input>
                 </label>
                 <div className="filter-additional">
                     <label className="filter-year">
-                        <span className="filter-additional__title">Year of issue</span>
-                        <input className="filter-additional__input" placeholder="Year" maxLength={4} onChange={(e) => setMovieYear(e.target.value)} value={movieYear}></input>
+                        <span className={"filter-additional__title" + classNameTheme()}>Year of issue</span>
+                        <input className={"filter-additional__input" + classNameTheme()} placeholder="Year" maxLength={4} onChange={(e) => setMovieYear(e.target.value)} value={movieYear}></input>
                     </label>
                     <label className="filter-adult">
-                        <span className="filter-adult__title">Adult</span>
+                        <span className={"filter-adult__title" + classNameTheme()}>Adult</span>
                         <input className="toggle" type="checkbox" onChange={() => setMovieAdult(!movieAdult)} checked={movieAdult}></input>
                     </label>
                 </div>

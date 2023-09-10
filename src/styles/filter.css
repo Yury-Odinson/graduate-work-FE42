@@ -11,6 +11,19 @@
     background-color: var(--var-formDarkColor);
 }
 
+.filterLight {
+    position: fixed;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 400px;
+    background-color: var(--var-formLightColor);
+}
+
 .filter>* {
     padding: 20px;
 }
@@ -25,11 +38,15 @@
     font-weight: 600;
 }
 
+.filter__titleLight {
+    color: #000;
+    font-weight: 600;
+}
+
 .filter__buttonClose {
     background-color: #ffffff00;
     width: 40px;
     height: 40px;
-    transition: 0.2s;
     border-radius: 10px;
 }
 
@@ -48,6 +65,12 @@
     font-size: 16px;
 }
 
+.filter-sort__titleLight {
+    padding: 10px 0;
+    color: #000;
+    font-size: 16px;
+}
+
 .filter-sort-items {
     display: flex;
     gap: 2px;
@@ -58,7 +81,14 @@
     width: 100%;
     height: 50px;
     font-size: 18px;
-    transition: 0.2s;
+}
+
+.filter-sort__buttonLight {
+    background-color: #fff;
+    color: #000;
+    width: 100%;
+    height: 50px;
+    font-size: 18px;
 }
 
 .filter-sort__buttonActive {
@@ -67,14 +97,15 @@
     width: 100%;
     height: 50px;
     font-size: 18px;
-    transition: 0.2s;
 }
 
-.filter-sort__buttonActive:first-child {
+.filter-sort__buttonActive:first-child,
+.filter-sort__buttonLight:first-child {
     border-radius: 10px 0 0 10px;
 }
 
-.filter-sort__buttonActive:last-child {
+.filter-sort__buttonActive:last-child,
+.filter-sort__buttonLight:last-child {
     border-radius: 0 10px 10px 0;
 }
 
@@ -102,9 +133,22 @@
     font-size: 16px;
 }
 
+.filter-movieName__titleLight {
+    padding: 10px 0;
+    color: #000;
+    font-size: 16px;
+}
+
 .filter-movieName__input {
     margin: 10px 0;
     width: 100%;
+}
+
+.filter-movieName__inputLight {
+    margin: 10px 0;
+    width: 100%;
+    color: #000;
+    background-color: #fff;
 }
 
 .filter-additional {
@@ -126,9 +170,21 @@
     color: #FFF;
 }
 
+.filter-additional__titleLight {
+    padding: 10px 0;
+    color: #000;
+}
+
 .filter-additional__input {
     text-align: center;
     font-size: 24px;
+}
+
+.filter-additional__inputLight {
+    text-align: center;
+    font-size: 24px;
+    background-color: #FFF;
+    color: #000;
 }
 
 .filter-adult {
@@ -139,6 +195,12 @@
     margin: 0 auto;
     padding: 10px 0;
     color: #FFF;
+}
+
+.filter-adult__titleLight {
+    margin: 0 auto;
+    padding: 10px 0;
+    color: #000;
 }
 
 .toggle:before,
@@ -180,7 +242,6 @@
     -webkit-appearance: none;
     appearance: none;
     -webkit-tap-highlight-color: transparent;
-    transition: 0.2s;
 }
 
 .toggle:checked {
@@ -246,7 +307,6 @@
     width: 100%;
     height: 50px;
     font-size: 18px;
-    transition: 0.2s;
     color: #FFF;
     border-radius: 10px;
 }
