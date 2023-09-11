@@ -1,6 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --dur: 0.3s;
+
+  --var-fontDarkColor: #80858B;
+  --var-systemPrimaryColor: #7B61FF;
+
+  --var-graphite: #323537;
+
+  --var-formDarkColor: #242426;
+  --var-formLightColor: #c5f0f8;
+
+  
+  --var-backgroundColor: #0c0c0c;
+  --var-backgroundWhite: #fff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: var(--var-fontDarkColor);
+  scroll-behavior: smooth;
+  transition: 0.2s;
+}
+
+a {
+  width: fit-content;
+  text-decoration: none;
+  color: var(--var-systemPrimaryColor);
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+input,
+select {
+  padding: 20px;
+  height: 60px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--var-graphite);
+  font-size: 16px;
+  color: #fff;
+}
+
+.inputLight {
+  color: #000;
+  background-color: var(--var-formLightColor);
+}
+
+td {
+  padding: 10px;
+}
+
+td:last-child {
+  color: #FFF;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: -apple-system, BlinkMacSystemFont, 'Exo 2', 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;

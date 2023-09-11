@@ -1,0 +1,329 @@
+html {
+    background-color: var(--var-backgroundColor);
+}
+
+.wrapper {
+    display: flex;
+    margin: 0 auto;
+}
+
+.main {
+    margin: 0 auto;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 1490px;
+}
+
+.header {
+    display: flex;
+    margin: 0 auto;
+    padding: 40px;
+    gap: 40px;
+    width: 100%;
+}
+
+.header-search {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.header-search__input {
+    width: 100%;
+    font-size: 24px;
+}
+
+.header-search-buttonsContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.header-search__button,
+.header-filter__button {
+    width: 70px;
+    height: 100%;
+    background-color: var(--var-formDarkColor);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.header-search__buttonLight {
+    width: 70px;
+    height: 100%;
+    background-color: #a3e4f0;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.header-filter__button {
+    background-image: url("/public/images/search_settings.png");
+    width: 70px;
+    height: 100%;
+    background-color: var(--var-formDarkColor);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.header-filter__buttonLight {
+    background-image: url("/public/images/search_settings.png");
+    width: 70px;
+    height: 100%;
+    background-color: #a3e4f0;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.header-search__button {
+    background-image: url("/public/images/search.png");
+    border-radius: 0 10px 10px 0;
+}
+
+.header-search__buttonLight {
+    background-image: url("/public/images/search.png");
+    border-radius: 0 10px 10px 0;
+}
+
+.header-search__button:hover,
+.header-filter__button:hover,
+.header-search__buttonLight:hover,
+.header-filter__buttonLight:hover {
+    background-color: var(--var-systemPrimaryColor);
+}
+
+.header__user {
+    position: relative;
+    display: flex;
+    width: 20%;
+    gap: 20px;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.header__user>* {
+    align-self: center;
+    text-align: center;
+}
+
+.user-initials {
+    width: 50px;
+    height: 50px;
+    background-color: var(--var-systemPrimaryColor);
+    border-radius: 10px;
+    color: #FFF;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.user-initials__item {
+    margin: auto;
+    vertical-align: middle;
+}
+
+.user-menu {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background-color: var(--var-graphite);
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.user-menu__item {
+    width: 100%;
+    height: 50px;
+    color: #FFF;
+    font-size: 16px;
+    background-color: var(--var-systemPrimaryColor);
+    border-bottom: 2px solid var(--var-graphite);
+}
+
+.user-menu__item:first-child {
+    border-radius: 10px 10px 0 0;
+}
+
+.user-menu__item:last-child {
+    border-radius: 0 0 10px 10px;
+    border-bottom: none;
+}
+
+.user-menu__logout {
+    background-color: #be2f2f;
+}
+
+.content {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    max-width: 1490px;
+}
+
+.content__title {
+    color: #FFF;
+    font-weight: 400;
+}
+
+.content__titleDark {
+    color: #000;
+    font-weight: 400;
+}
+
+.content-pagination {
+    margin: 20px auto;
+    background-color: #FFF;
+    display: flex;
+    gap: 10px;
+}
+
+.content-movies {
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+    justify-items: center;
+}
+
+.movie-item,
+.movie-itemLight {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 260px;
+    color: #FFF;
+    font-size: 16px;
+    border-radius: 20px;
+}
+
+.movie-item__adult {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    padding: 5px 10px;
+    border-radius: 6px;
+    background-color: #be2f2f;
+    font-weight: 600;
+    color: #fff;
+}
+
+.movie-item:hover {
+    scale: 1.03;
+    background-color: var(--var-graphite);
+    transition: 0.4s;
+}
+
+.movie-itemLight:hover {
+    scale: 1.03;
+    background-color: var(--var-formLightColor);
+    transition: 0.4s;
+}
+
+.movie-item:hover>.movie-item__voteAverage {
+    opacity: 0.3;
+}
+
+.movie-item:hover>.movie-item__name {
+    color: var(--var-systemPrimaryColor);
+    transition: 0.4s;
+}
+
+.movie-item__image {
+    margin: 0 auto;
+    width: 240px;
+    max-height: 350px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.movie-item__voteAverage {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    padding: 5px 10px;
+    font-weight: 600;
+    border-radius: 6px;
+    background-color: #00A340;
+    color: #FFF;
+}
+
+.movie-item__name {
+    margin: 20px 10px 0;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.movie-item__year {
+    margin: 10px;
+    font-size: 14px;
+}
+
+.movie-item__genres {
+    margin: 10px;
+    font-size: 14px;
+}
+
+.settings-cover {
+    margin: 20px 0;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--var-formDarkColor);
+    border-radius: 10px;
+}
+
+.settings-coverLight {
+    margin: 20px 0;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--var-formLightColor);
+    border-radius: 10px;
+}
+
+.settings-cover-items {
+    margin: auto 0;
+}
+
+.settings__themaName {
+    padding: 10px 0;
+    font-weight: 600;
+    color: #FFF;
+}
+
+.settings__themaNameLight {
+    padding: 10px 0;
+    font-weight: 600;
+    color: #000;
+}
+
+.scrollUp,
+.scrollUpLight {
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--var-graphite);
+    border: 2px solid var(--var-formDarkColor);
+    background-image: url("/public/images/scrollUp.png");
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.scrollUpLight {
+    background-color: var(--var-formLightColor);
+    border: 2px solid var(--var-formDarkColor);
+}
+
+.scrollUp:hover,
+.scrollUpLight:hover {
+    background-color: var(--var-systemPrimaryColor);
+    border: 2px solid var(--var-graphite);
+}

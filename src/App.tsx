@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { Wrapper } from './components/Wrapper';
+import { ChangeTheme, FilterContext, ThemeContext, defaultFilterValue } from './tools/store';
+import { FilterValuesToSearch, ThemeType } from './tools/types';
 
 function App() {
+  const [theme, setTheme] = useState<ThemeType>("dark");
+  const [filter, setFilter] = useState<FilterValuesToSearch>(defaultFilterValue)
+  // 4 states for filter (sort, name, adult, year)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeContext.Provider value={theme}>
+      <ChangeTheme.Provider value={() => theme === "light" ? setTheme("dark") : setTheme("light")}>
+        <FilterContext.Provider value={{ filter, setFilter }}>
+          <BrowserRouter>
+            <Wrapper />
+          </BrowserRouter>
+        </FilterContext.Provider>
+      </ChangeTheme.Provider>
+    </ThemeContext.Provider >
   );
 }
 
