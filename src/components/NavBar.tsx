@@ -22,7 +22,6 @@ export const NavBar = () => {
     }
 
     return (
-        // <div className="navigation">
         <div className={theme === "dark" ? "navigation" : "navigationLight"}>
             <div className="navigation__logo">
                 <Link to={"/"}>

@@ -48,7 +48,3 @@ export const MainContent = () => {
         </div>
     )
 }
-
-const spanWhiteStyle = {
-    color: "#FFF",
-};
