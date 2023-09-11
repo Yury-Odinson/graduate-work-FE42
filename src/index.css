@@ -9,11 +9,11 @@
   --var-graphite: #323537;
 
   --var-formDarkColor: #242426;
-  --var-formLightColor: #FFF;
+  --var-formLightColor: #c5f0f8;
 
   
   --var-backgroundColor: #0c0c0c;
-  --var-backgroundWhite: #c5f0f8;
+  --var-backgroundWhite: #fff;
 }
 
 * {
@@ -22,6 +22,7 @@
   padding: 0;
   color: var(--var-fontDarkColor);
   scroll-behavior: smooth;
+  transition: 0.2s;
 }
 
 a {
@@ -48,6 +49,11 @@ select {
   background-color: var(--var-graphite);
   font-size: 16px;
   color: #fff;
+}
+
+.inputLight {
+  color: #000;
+  background-color: var(--var-formLightColor);
 }
 
 td {

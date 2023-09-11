@@ -1,4 +1,4 @@
 .wrapper {
     margin: 0 auto;
-    /* width: 1440px; */
+    transition: 0.2s;
 }

@@ -1,12 +1,15 @@
 import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
 import { Filter } from "./Filter"
-import { ChangeTheme } from "../tools/store"
+import { ThemeContext } from "../tools/store"
 
 export const Header = () => {
 
     const [expandedUserMenu, setExpandedUserMenu] = useState(false)
     const [searchValue, setSearchValue] = useState("")
+
+    const theme = useContext(ThemeContext)
+    const classNameTheme = () => theme === "light" ? "Light" : ""
 
     const modalMenu = () => {
         return (
@@ -37,18 +40,15 @@ export const Header = () => {
         }
     }
 
-    const changeTheme = useContext(ChangeTheme)
-
     return (
         <>
             <div className="header">
-                <input type="checkbox" onChange={() => changeTheme()} />
                 <label className="header-search">
-                    <input className="header-search__input" type="text" placeholder="Search" onChange={(e) => setSearchValue(e.target.value)} />
+                    <input className={theme === "dark" ? "header-search__input" : "header-search__input inputLight"} type="text" placeholder="Search" onChange={(e) => setSearchValue(e.target.value)} />
                     <div className="header-search-buttonsContainer">
                         <Filter />
                         <Link to={"/search/" + searchValue}>
-                            <button className="header-search__button" />
+                            <button className={"header-search__button" + classNameTheme()} />
                         </Link>
                     </div>
                 </label >
