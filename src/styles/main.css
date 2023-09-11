@@ -54,7 +54,7 @@ html {
 .header-search__buttonLight {
     width: 70px;
     height: 100%;
-    background-color: var(--var-formLightColor);
+    background-color: #a3e4f0;
     background-repeat: no-repeat;
     background-position: center;
 }
@@ -68,13 +68,29 @@ html {
     background-position: center;
 }
 
+.header-filter__buttonLight {
+    background-image: url("/public/images/search_settings.png");
+    width: 70px;
+    height: 100%;
+    background-color: #a3e4f0;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .header-search__button {
     background-image: url("/public/images/search.png");
     border-radius: 0 10px 10px 0;
 }
 
+.header-search__buttonLight {
+    background-image: url("/public/images/search.png");
+    border-radius: 0 10px 10px 0;
+}
+
 .header-search__button:hover,
-.header-filter__button:hover {
+.header-filter__button:hover,
+.header-search__buttonLight:hover,
+.header-filter__buttonLight:hover {
     background-color: var(--var-systemPrimaryColor);
 }
 
@@ -285,7 +301,8 @@ html {
     color: #000;
 }
 
-.scrollUp {
+.scrollUp,
+.scrollUpLight {
     position: fixed;
     bottom: 40px;
     left: 40px;
@@ -293,14 +310,20 @@ html {
     height: 50px;
     border-radius: 50%;
     background-color: var(--var-graphite);
-    border: 3px solid var(--var-formDarkColor);
+    border: 2px solid var(--var-formDarkColor);
     background-image: url("/public/images/scrollUp.png");
     background-size: 70%;
     background-repeat: no-repeat;
     background-position: center;
 }
 
-.scrollUp:hover {
+.scrollUpLight {
+    background-color: var(--var-formLightColor);
+    border: 2px solid var(--var-formDarkColor);
+}
+
+.scrollUp:hover,
+.scrollUpLight:hover {
     background-color: var(--var-systemPrimaryColor);
-    border: 3px solid var(--var-graphite);
+    border: 2px solid var(--var-graphite);
 }

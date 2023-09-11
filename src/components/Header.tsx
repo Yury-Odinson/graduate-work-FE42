@@ -9,6 +9,7 @@ export const Header = () => {
     const [searchValue, setSearchValue] = useState("")
 
     const theme = useContext(ThemeContext)
+    const classNameTheme = () => theme === "light" ? "Light" : ""
 
     const modalMenu = () => {
         return (
@@ -47,7 +48,7 @@ export const Header = () => {
                     <div className="header-search-buttonsContainer">
                         <Filter />
                         <Link to={"/search/" + searchValue}>
-                            <button className="header-search__button" />
+                            <button className={"header-search__button" + classNameTheme()} />
                         </Link>
                     </div>
                 </label >

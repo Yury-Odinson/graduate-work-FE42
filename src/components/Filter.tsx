@@ -9,9 +9,12 @@ export const Filter = () => {
 
     const [expanded, setExpanded] = useState(false)
 
+    const theme = useContext(ThemeContext)
+    const classNameTheme = () => theme === "light" ? "Light" : ""
+
     return (
         <>
-            <button className="header-filter__button" onClick={() => setExpanded(!expanded)} />
+            <button className={"header-filter__button" + classNameTheme()} onClick={() => setExpanded(!expanded)} />
             <ExpandedMenu opened={expanded} close={() => setExpanded(false)} />
         </>
     )
@@ -72,9 +75,9 @@ const ExpandedMenu = ({ opened, close }: FilterMenuProps) => {
                 </div>
                 <div className="filter-footer">
                     <label className="filter-footer-items">
-                        <button className="filter-footer__buttons" onClick={() => clearFilter()}>Clear filter</button>
+                        <button className={"filter-footer__buttons" + classNameTheme()} onClick={() => clearFilter()}>Clear filter</button>
                         <Link to={"/search/" + movieName}>
-                            <button className="filter-footer__buttons" onClick={() => setContext.setFilter({ movieSort, movieName, movieYear, movieAdult })}>Show results</button>
+                            <button className={"filter-footer__buttons" + classNameTheme()} onClick={() => setContext.setFilter({ movieSort, movieName, movieYear, movieAdult })}>Show results</button>
                         </Link>
                     </label>
                 </div>
