@@ -80,9 +80,9 @@ export type Languages = {
 }
 
 export type FilterValuesToSearch = {
-    movieSort?: string,
-    movieName?: string,
-    movieAdult?: boolean,
+    movieSort: string,
+    movieName: string,
+    movieAdult: boolean,
     movieYear?: string // or number
 }
 
