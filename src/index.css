@@ -60,10 +60,6 @@ td {
   padding: 10px;
 }
 
-td:last-child {
-  color: #FFF;
-}
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Exo 2', 'Segoe UI', 'Roboto', 'Oxygen',

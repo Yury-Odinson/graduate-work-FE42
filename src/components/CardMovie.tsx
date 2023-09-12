@@ -12,8 +12,6 @@ export const CardMovie = (movieProps: { movie: MovieCard }) => {
         getGenres().then((genre_ids) => setGenres(genre_ids))
     }, [])
 
-    // console.log(genres)
-
     const theme = useContext(ThemeContext)
 
     const classNameMovieItem = () => {
@@ -23,7 +21,6 @@ export const CardMovie = (movieProps: { movie: MovieCard }) => {
             return "movie-itemLight"
         }
     }
-    console.log(movieProps.movie)
 
     return (
         <div className={classNameMovieItem()}>

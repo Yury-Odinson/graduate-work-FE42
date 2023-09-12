@@ -1,15 +1,19 @@
 import { useParams } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import "../styles/movie.css"
 import { tmdbImageURL } from "../tools/URLs"
 import { Movie } from "../tools/types"
 import { Recommended } from "./Recommended"
 import { addToFavorites, getMovie } from "../tools/movies"
+import { ThemeContext } from "../tools/store"
 
 export const MoviePage = () => {
 
     const { id } = useParams()
     const [movie, setMovie] = useState<Movie>()
+
+    const theme = useContext(ThemeContext)
+    const classNameTheme = () => theme === "light" ? "Light" : ""
 
     useEffect(() => {
         id && getMovie(id).then((movie) => setMovie(movie))
@@ -44,49 +48,49 @@ export const MoviePage = () => {
                             </div>
                         </div>
                         <div className="movie-info">
-                            <h2 className="movie__title">{movie.title}</h2>
+                            <h2 className={"movie__title" + classNameTheme()}>{movie.title}</h2>
                             <p className="movie__tagline">{movie.tagline}</p>
                             <div className="movie-rating-container">
                                 <div className="movie-rContainer__item">{Number(movie.vote_average).toFixed(1)}</div>
                                 <div className="movie-rContainer__item">votes: {movie.vote_count}</div>
                                 <div className="movie-rContainer__item">{movie.runtime} min</div>
                             </div>
-                            <span className="movie__description">{movie.overview}</span>
-                            <div className="movie-information-container">
+                            <span className={"movie__description" + classNameTheme()}>{movie.overview}</span>
+                            <div className={"movie-information-container" + classNameTheme()}>
                                 <table>
                                     <thead />
                                     <tbody>
                                         <tr>
                                             <td>Year</td>
-                                            <td>{movie.release_date.slice(0, 4)}</td>
+                                            <td className={"movie-table__last" + classNameTheme()}>{movie.release_date.slice(0, 4)}</td>
                                         </tr>
                                         <tr>
                                             <td>Genres</td>
-                                            <td>{genres}</td>
+                                            <td className={"movie-table__last" + classNameTheme()}>{genres}</td>
                                         </tr>
                                         <tr>
                                             <td>Country</td>
-                                            <td>{countries}</td>
+                                            <td className={"movie-table__last" + classNameTheme()}>{countries}</td>
                                         </tr>
                                         <tr>
                                             <td>Spoken languages</td>
-                                            <td>{languages}</td>
+                                            <td className={"movie-table__last" + classNameTheme()}>{languages}</td>
                                         </tr>
                                         <tr>
                                             <td>Production</td>
-                                            <td>{companies} </td>
+                                            <td className={"movie-table__last" + classNameTheme()}>{companies} </td>
                                         </tr>
                                         <tr>
                                             <td>Budget</td>
-                                            <td>$ {numberWithSpaces(movie.budget)}</td>
+                                            <td className={"movie-table__last" + classNameTheme()}>$ {numberWithSpaces(movie.budget)}</td>
                                         </tr>
                                         <tr>
                                             <td>Revenue</td>
-                                            <td>$ {numberWithSpaces(movie.revenue)}</td>
+                                            <td className={"movie-table__last" + classNameTheme()}>$ {numberWithSpaces(movie.revenue)}</td>
                                         </tr>
                                         <tr>
                                             <td>Released</td>
-                                            <td>{movie.release_date}</td>
+                                            <td className={"movie-table__last" + classNameTheme()}>{movie.release_date}</td>
                                         </tr>
                                     </tbody>
                                     <tfoot />

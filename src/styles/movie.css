@@ -43,10 +43,15 @@
     width: 100%;
 }
 
-.movie__title {
+.movie__title,
+.movie__titleLight {
     color: #FFF;
     font-size: 40px;
     font-weight: 600;
+}
+
+.movie__titleLight {
+    color: #000;
 }
 
 .movie__tagline {
@@ -79,9 +84,20 @@
     color: #FFF;
 }
 
+.movie__descriptionLight {
+    color: #000;
+}
+
 .movie-information-container {
     margin: 20px 0;
     display: flex;
     justify-content: space-between;
+}
 
+.movie-table__last {
+    color: #fff;
+}
+
+.movie-table__lastLight {
+    color: #000;
 }
