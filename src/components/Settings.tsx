@@ -13,7 +13,7 @@ export const Settings = () => {
 
     return (
         <div className="settings">
-            <h1 className={theme === "dark" ? "content__title" : "content__titleDark"}>Color mode</h1>
+            <h1 className={"content__title" + classNameTheme()}>Color mode</h1>
 
             <div className={theme === "dark" ? "settings-cover" : "settings-coverLight"}>
                 <div className="settings-cover-items">

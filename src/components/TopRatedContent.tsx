@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import { Link } from "react-router-dom"
 import { getMovies } from "../tools/movies"
 import { CardMovie } from "./CardMovie"
 import { MovieCard } from "../tools/types"
 import { Pagination } from '@mui/material'
+import { ThemeContext } from "../tools/store"
 
 export const TopRatedContent = () => {
     const [movies, setMovies] = useState<MovieCard[]>([])
@@ -17,12 +18,15 @@ export const TopRatedContent = () => {
         })
     }, [page])
 
+    const theme = useContext(ThemeContext)
+    const classNameTheme = () => theme === "light" ? "Light" : ""
+
     // tmdb return max 500 page. if page > 500 - error
     const maxPages = () => totalPage >= 500 ? 500 : totalPage
 
     return (
         <>
-            <h2 className="content__title">Top rated movies</h2>
+            <h2 className={"content__title" + classNameTheme()}>Top rated movies</h2>
             <div className="content-pagination">
                 <Pagination
                     count={maxPages()}

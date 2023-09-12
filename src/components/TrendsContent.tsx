@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import { Link } from "react-router-dom"
 import { getPopularMovies } from "../tools/movies"
 import { CardMovie } from "./CardMovie"
 import { Pagination } from '@mui/material'
 import { MovieCard } from "../tools/types"
+import { ThemeContext } from "../tools/store"
 
 export const TrendsContent = () => {
     const [movies, setMovies] = useState<MovieCard[]>([])
@@ -18,11 +19,15 @@ export const TrendsContent = () => {
         })
     }, [page])
 
+
+    const theme = useContext(ThemeContext)
+    const classNameTheme = () => theme === "light" ? "Light" : ""
+
     const maxPages = () => totalPage >= 500 ? 500 : totalPage
 
     return (
         <>
-            <h2 className="content__title">In trends</h2>
+            <h2 className={"content__title" + classNameTheme()}>In trends</h2>
             <div className="content-pagination">
                 <Pagination
                     count={maxPages()}
