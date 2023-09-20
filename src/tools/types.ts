@@ -73,6 +73,11 @@ export type MovieCard = {
     vote_count: number
 }
 
+export type Genres = {
+    id: number
+    name: string
+}
+
 export type Languages = {
     iso_639_1: string,
     english_name: string,

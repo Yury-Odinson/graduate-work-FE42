@@ -7,7 +7,6 @@ import { FilterValuesToSearch, ThemeType } from './tools/types';
 function App() {
   const [theme, setTheme] = useState<ThemeType>("dark");
   const [filter, setFilter] = useState<FilterValuesToSearch>(defaultFilterValue)
-  // 4 states for filter (sort, name, adult, year)
 
   return (
     <ThemeContext.Provider value={theme}>
