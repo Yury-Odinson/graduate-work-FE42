@@ -1,4 +1,4 @@
-import { domainAuthURL, regUserURL } from "./URLs";
+import { domainAuthURL, regUserURL, userAuthURL } from "./URLs";
 import { Token, User } from "./types";
 
 
@@ -13,7 +13,7 @@ export const regUser = async (user: User) => {
 }
 
 export const authUser = async (user: User) => {
-    const authURL = new URL(domainAuthURL + regUserURL)
+    const authURL = new URL(domainAuthURL + userAuthURL)
     const response = await fetch(authURL, {
         method: "POST",
         body: JSON.stringify(user),
@@ -23,7 +23,7 @@ export const authUser = async (user: User) => {
 }
 
 export const saveToken = ({ access, refresh }: Token) => {
-    // localStorage.setItem("access", access)
-    // localStorage.setItem("refresh", refresh)
-    console.log(access, refresh)
+    localStorage.setItem("access", access)
+    localStorage.setItem("refresh", refresh)
+    // console.log(access, refresh)
 }
