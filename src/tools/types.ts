@@ -73,6 +73,11 @@ export type MovieCard = {
     vote_count: number
 }
 
+export type Genres = {
+    id: number
+    name: string
+}
+
 export type Languages = {
     iso_639_1: string,
     english_name: string,
@@ -80,9 +85,9 @@ export type Languages = {
 }
 
 export type FilterValuesToSearch = {
-    movieSort?: string,
-    movieName?: string,
-    movieAdult?: boolean,
+    movieSort: string,
+    movieName: string,
+    movieAdult: boolean,
     movieYear?: string // or number
 }
 

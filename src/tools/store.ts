@@ -13,8 +13,5 @@ export const FilterContext = React.createContext<FilterType>({
     setFilter: () => { }
 })
 
-
-// export const SetFilter = React.createContext(() => { })
-
 export const ThemeContext = React.createContext<ThemeType>("dark")
 export const ChangeTheme = React.createContext(() => { })

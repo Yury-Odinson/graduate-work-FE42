@@ -1,22 +1,36 @@
 import { tmdbImageURL } from "../tools/URLs"
+import { getGenres } from "../tools/movies"
 import { ThemeContext } from "../tools/store"
-import { MovieCard } from "../tools/types"
-import { useContext } from "react"
+import { Genres, MovieCard } from "../tools/types"
+import { useContext, useEffect, useState } from "react"
 
 export const CardMovie = (movieProps: { movie: MovieCard }) => {
 
+    const [allGenres, setAllGenres] = useState([])
+
+    useEffect(() => {
+        getGenres().then(setAllGenres)
+    }, [])
+
+    const thisGenres = movieProps.movie.genre_ids
+
+    const classNameTheme = () => theme === "light" ? "Light" : ""
     const theme = useContext(ThemeContext)
 
-    const classNameMovieItem = () => {
-        if (theme === "dark") {
-            return "movie-item"
-        } else {
-            return "movie-itemLight"
-        }
+    const checkGenres = () => {
+        const arr: any = []
+        thisGenres.map((id) => {
+            allGenres.filter((e: Genres) => {
+                if (id === e.id) {
+                    arr.push(e.name)
+                }
+            })
+        })
+        return arr.join(", ")
     }
 
     return (
-        <div className={classNameMovieItem()}>
+        <div className={"movie-item" + classNameTheme()}>
             {
                 movieProps.movie.adult === true ? <span className="movie-item__adult"> 18+ </span> : null
             }
@@ -30,7 +44,7 @@ export const CardMovie = (movieProps: { movie: MovieCard }) => {
             />
             <div className="movie-item__voteAverage">{Number(movieProps.movie.vote_average).toFixed(1)}</div>
             <span className="movie-item__name">{movieProps.movie.title}</span>
-            <span className="movie-item__year">{movieProps.movie.release_date.split("", 4)}</span>
+            <span className="movie-item__year">{checkGenres()}</span>
         </div>
     )
 }
