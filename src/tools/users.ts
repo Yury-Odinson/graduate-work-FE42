@@ -1,6 +1,5 @@
-import { domainAuthURL, regUserURL, userAuthURL } from "./URLs";
-import { Token, User } from "./types";
-
+import { domainAuthURL, refreshTokenURL, regUserURL, userAuthURL } from "./URLs";
+import { newToken, User } from "./types";
 
 export const regUser = async (user: User) => {
     const regURL = new URL(domainAuthURL + regUserURL)
@@ -22,8 +21,18 @@ export const authUser = async (user: User) => {
     return await response.json()
 }
 
-export const saveToken = ({ access, refresh }: Token) => {
+export const saveToken = ({ access, refresh }: newToken) => {
     localStorage.setItem("access", access)
     localStorage.setItem("refresh", refresh)
-    // console.log(access, refresh)
+}
+
+export const updateToken = async (refresh: string) => {
+    const refreshURL = new URL(domainAuthURL + refreshTokenURL)
+    const response = await fetch(refreshURL, {
+        method: "POST",
+        body: JSON.stringify(new Object({ "refresh": refresh })),
+        headers: { "Content-Type": "application/json" }
+    })
+    const newToken = await response.json()
+    return localStorage.setItem("access", newToken.access)
 }
