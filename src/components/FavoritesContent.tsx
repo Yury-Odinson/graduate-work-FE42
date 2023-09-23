@@ -9,7 +9,7 @@ export const FavoritesContent = () => {
 
     useEffect(() => {
         getFavoritesMovies(JSON.parse(localStorage.getItem("idMovies") || "[]")).then((movie) => setMovies(movie))
-    }, [movies])
+    }, [])
 
     return (
         <div>
