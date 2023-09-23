@@ -2,6 +2,7 @@
 export const domainAuthURL = "https://studapi.teachmeskills.by"
 export const regUserURL = "/auth/users/"
 export const userAuthURL = "/auth/jwt/create/"
+export const refreshTokenURL = "/auth/jwt/refresh/"
 
 // urls for The Movie Data Base API
 export const tmdbMoviesURL = "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page="
