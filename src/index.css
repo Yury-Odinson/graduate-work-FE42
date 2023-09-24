@@ -1191,6 +1191,36 @@ html {
 }
 
 @media only screen and (max-width: 760px) {
+
+  .header {
+    padding: 10px;
+  }
+
+  .header-search__input,
+  .inputLight {
+    height: 40px;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .header-search__button,
+  .header-search__buttonLight,
+  .header-filter__button,
+  .header-filter__buttonLight {
+    width: 40px;
+    height: 40px;
+  }
+
+  .header-search__button,
+  .header-search__buttonLight {
+    background-size: 30px;
+  }
+
+  .header-filter__button,
+  .header-filter__buttonLight {
+    background-size: 30px;
+  }
+
   .main-movie {
     margin: 20px;
   }
@@ -1199,7 +1229,8 @@ html {
     flex-direction: column;
   }
 
-  .movie-item {
+  .movie-item,
+  .movie-itemLight {
     width: 350px;
     height: 550px;
   }
@@ -1213,4 +1244,10 @@ html {
     grid-template-columns: repeat(auto-fit, minmax(270px, auto));
   }
 
+}
+
+@media only screen and (max-width: 550px) {
+  .main-movie {
+    /* border: 2px solid red; */
+  }
 }
