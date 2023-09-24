@@ -16,7 +16,8 @@ export const MoviePage = () => {
 
     useEffect(() => {
         id && getMovie(id).then((movie) => setMovie(movie));
-    }, [id, idMoviesLS])
+        idMoviesLS.find((e) => e === id ? setIsFavorites(true) : setIsFavorites(false))
+    }, [id, idMoviesLS, isFavotires])
 
 
     const theme = useContext(ThemeContext)
