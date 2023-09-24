@@ -3,7 +3,6 @@ import { MovieCard, RecommendedMoviesProps } from "../tools/types"
 import { getRecommendedMovies } from "../tools/movies"
 import { CardMovie } from "./CardMovie"
 import { Link } from "react-router-dom"
-import "../styles/recommended.css"
 
 export const Recommended = ({ idParentMovie }: RecommendedMoviesProps) => {
 
@@ -14,14 +13,19 @@ export const Recommended = ({ idParentMovie }: RecommendedMoviesProps) => {
     }, [idParentMovie])
 
     return (
-        <div className="main-recommended">
-            {recMovies && recMovies.map((item) =>
-                <li key={item.id}>
-                    <Link key={item.id} to={`/movie/${item.id}`}>
-                        <CardMovie movie={item} />
-                    </Link>
-                </li>
-            )}
-        </div>
+        <>
+            <span>Recomended:</span>
+            <div className="main-recommended">
+
+                {recMovies && recMovies.map((item) =>
+                    <li key={item.id}>
+                        <Link key={item.id} to={`/movie/${item.id}`}>
+                            <CardMovie movie={item} />
+                        </Link>
+                    </li>
+                )}
+            </div>
+        </>
+
     )
 }

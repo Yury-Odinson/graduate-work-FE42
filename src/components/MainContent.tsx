@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import "../styles/mainContent.css"
 import { Movie } from "../tools/types"
 import { tmdbImageURL } from "../tools/URLs"
 import { Link } from "react-router-dom"
@@ -19,8 +18,8 @@ export const MainContent = () => {
             <h1 className="main__title">Greeting, stranger!</h1>
             {movie && (
                 <>
-                    <Link to={`/movie/${movie?.id}`}>
-                        <div className="main-movie">
+                    <div className="main-movie">
+                        <Link to={`/movie/${movie?.id}`}>
                             <img className="main-movie__background"
                                 src={tmdbImageURL + movie.backdrop_path}
                                 alt={movie.title}
@@ -39,9 +38,8 @@ export const MainContent = () => {
                                     <div className="movie-rContainer__item">{movie.runtime} min</div>
                                 </div>
                             </div>
-                        </div>
-                    </Link>
-                    <span>Recommended:</span>
+                        </Link>
+                    </div>
                     <Recommended idParentMovie={movie?.id} />
                 </>
             )}

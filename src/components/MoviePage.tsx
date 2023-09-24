@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom"
 import { useContext, useEffect, useState } from "react"
-import "../styles/movie.css"
 import { tmdbImageURL } from "../tools/URLs"
 import { Movie } from "../tools/types"
 import { Recommended } from "./Recommended"
@@ -60,6 +59,13 @@ export const MoviePage = () => {
                         <div className="movie-nav">
                             <img className="movie__poster"
                                 src={tmdbImageURL + movie.poster_path}
+                                alt="movie poster"
+                                onError={(event) => {
+                                    event.currentTarget.src = "https://sun9-47.userapi.com/impg/1f3OceQFnZsE3t6Dk3tDPwGPa1-h2_oEeaXMWQ/gYtwQOpFlRc.jpg?size=365x455&quality=95&sign=c30e73fd6dddcc5ab508b49290ce28c9&type=album"
+                                }}
+                            />
+                            <img className="movie__posterMobile"
+                                src={tmdbImageURL + movie.backdrop_path}
                                 alt="movie poster"
                                 onError={(event) => {
                                     event.currentTarget.src = "https://sun9-47.userapi.com/impg/1f3OceQFnZsE3t6Dk3tDPwGPa1-h2_oEeaXMWQ/gYtwQOpFlRc.jpg?size=365x455&quality=95&sign=c30e73fd6dddcc5ab508b49290ce28c9&type=album"

@@ -1,4 +1,3 @@
-import "../styles/wrapper.css"
 import { Route, Routes } from "react-router-dom";
 import { Main } from "./Main";
 import { FormLoginWrapper } from "./FormLoginWrapper";

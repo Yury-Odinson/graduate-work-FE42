@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom"
-import "../styles/formLogin.css"
 import { SignIn } from "./SignIn"
 import { SignUp } from "./SignUp"
 import { ResetPassword } from "./ResetPassword"
