@@ -1,5 +1,4 @@
 import { Link, NavLink } from "react-router-dom"
-import "../styles/navBar.css"
 import { LogoImg } from "./SvgComponents/LogoImg"
 import { NavSettingsImg } from "./SvgComponents/NavSettingsImg"
 import { NavFavoritesImg } from "./SvgComponents/NavFovoritesImg"

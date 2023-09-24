@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom"
 import { useContext, useEffect, useState } from "react"
-import "../styles/movie.css"
 import { tmdbImageURL } from "../tools/URLs"
 import { Movie } from "../tools/types"
 import { Recommended } from "./Recommended"

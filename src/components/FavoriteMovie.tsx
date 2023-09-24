@@ -1,6 +1,5 @@
 import { tmdbImageURL } from "../tools/URLs"
 import { Movie } from "../tools/types"
-import "../styles/favorites.css"
 import { useContext } from "react"
 import { ThemeContext } from "../tools/store"
 import { idMoviesLS } from "../tools/storage"

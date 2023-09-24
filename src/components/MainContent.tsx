@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import "../styles/mainContent.css"
 import { Movie } from "../tools/types"
 import { tmdbImageURL } from "../tools/URLs"
 import { Link } from "react-router-dom"

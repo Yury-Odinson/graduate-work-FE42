@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react"
 import { FilterMenuProps } from "../tools/types"
 import { Link } from "react-router-dom"
 import { Drawer } from "@mui/material"
-import "../styles/filter.css"
 import { FilterContext, ThemeContext } from "../tools/store"
 
 export const Filter = () => {

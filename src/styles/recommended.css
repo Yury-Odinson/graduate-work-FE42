@@ -1,9 +1,0 @@
-.main-recommended {
-    padding-top: 40px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, auto));
-    grid-template-rows: repeat(1, minmax(200px, auto));
-    grid-auto-rows: minmax(300px, auto);
-    gap: 40px;
-    justify-content: center;
-}

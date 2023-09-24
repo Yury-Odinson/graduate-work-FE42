@@ -2,7 +2,6 @@ import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
 import { Filter } from "./Filter"
 import { ThemeContext } from "../tools/store"
-import { HeaderUserMenu } from "./HeaderUserMenu"
 
 export const Header = () => {
 
