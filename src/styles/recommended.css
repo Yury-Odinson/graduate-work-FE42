@@ -1,18 +1,9 @@
 .main-recommended {
-    display: flex;
-    padding: 40px 10px;
-    width: 100%;
-    overflow: scroll;
-    /* border: 2px solid red; */
-}
-
-.main-recommended::-webkit-scrollbar {
-    display: none;
-}
-
-.main-recommended {
-    -ms-overflow-style: none;
-    /* IE и Edge */
-    scrollbar-width: none;
-    /* Firefox */
+    padding-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, auto));
+    grid-template-rows: repeat(1, minmax(200px, auto));
+    grid-auto-rows: minmax(300px, auto);
+    gap: 40px;
+    justify-content: center;
 }
