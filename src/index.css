@@ -1266,14 +1266,21 @@ html {
 
   .header-menuMobile {
     display: block;
+    border-radius: 10px;
   }
 
-  .navigation {
+  .navigation,
+  .navigationLight {
     display: none;
   }
 
   .navigationMobile {
     display: none;
+  }
+
+  .navigationLightMobile {
+    min-height: 100vh;
+    background-color: var(--var-formLightColor);
   }
 
   .navigationMobile,

@@ -36,8 +36,6 @@ export const Header = () => {
 const ExpandedMenu = ({ opened, close }: any) => {
 
     const theme = useContext(ThemeContext)
-    const classNameTheme = () => theme === "light" ? "Light" : ""
-
 
     const classNameActiveTab = () => {
         if (theme === "dark") {
