@@ -12,9 +12,10 @@ function App() {
 
   const getToken = localStorage.getItem("refresh") || ""
 
-  if (getToken !== "") {
-    updateToken(getToken);
-  }
+  // 23.09.2023 - AUTHORIZATION API NOT WORKING!!! (fetch returns 502)
+  // if (getToken !== "") {
+  //   updateToken(getToken);
+  // }
 
   return (
     <ThemeContext.Provider value={theme}>

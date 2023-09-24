@@ -1,22 +1,22 @@
 import { tmdbImageURL } from "../tools/URLs"
 import { Movie } from "../tools/types"
 import "../styles/favorites.css"
+import { useContext } from "react"
+import { ThemeContext } from "../tools/store"
+import { idMoviesLS } from "../tools/storage"
 
 export const FavoriteMovie = (movieProps: { movie: Movie }) => {
 
+    const classNameTheme = () => theme === "light" ? "Light" : ""
+    const theme = useContext(ThemeContext)
 
     const removeFromFavorites = () => {
-        // const arr = localStorage.getItem("idMovies")
-
-        // console.log(arr)
-
-
-        // arr.find()
-
-
-
-
-
+        for (let i = 0; i < idMoviesLS.length; i++) {
+            if (idMoviesLS[i] === movieProps.movie.id.toString()) {
+                idMoviesLS.splice(i, 1)
+            }
+        }
+        localStorage.setItem("idMovies", JSON.stringify(idMoviesLS))
     }
 
     return (
@@ -24,8 +24,8 @@ export const FavoriteMovie = (movieProps: { movie: Movie }) => {
             <div>
                 <img className="favorites__poster" src={tmdbImageURL + movieProps.movie.poster_path} />
                 <div className="movie-buttons">
-                    <button className="movie-buttons__item" onClick={() => removeFromFavorites()}>Remove from favorites</button>
-                    <button className="movie-buttons__item">
+                    <button className={"movie-buttons__item" + classNameTheme()} onClick={() => removeFromFavorites()}>Remove from favorites</button>
+                    <button className={"movie-buttons__item" + classNameTheme()}>
                         <img src="/images/share.png" />
                     </button>
                 </div>

@@ -6,18 +6,45 @@ import { Movie } from "../tools/types"
 import { Recommended } from "./Recommended"
 import { addToFavorites, getMovie } from "../tools/movies"
 import { ThemeContext } from "../tools/store"
+import { idMoviesLS } from "../tools/storage"
 
 export const MoviePage = () => {
 
     const { id } = useParams()
     const [movie, setMovie] = useState<Movie>()
+    const [isFavotires, setIsFavorites] = useState(false)
+
+    useEffect(() => {
+        id && getMovie(id).then((movie) => setMovie(movie));
+        idMoviesLS.find((e) => e === id ? setIsFavorites(true) : setIsFavorites(false))
+    }, [id, idMoviesLS, isFavotires])
+
 
     const theme = useContext(ThemeContext)
     const classNameTheme = () => theme === "light" ? "Light" : ""
 
-    useEffect(() => {
-        id && getMovie(id).then((movie) => setMovie(movie))
-    }, [id])
+    const removeFromFavorites = () => {
+        for (let i = 0; i < idMoviesLS.length; i++) {
+            if (idMoviesLS[i] === id) {
+                console.log(idMoviesLS[i])
+                idMoviesLS.splice(i, 1)
+            }
+        }
+        localStorage.setItem("idMovies", JSON.stringify(idMoviesLS))
+    }
+
+    const handlerSetFavorites = () => {
+        if (isFavotires === false) {
+            addToFavorites(`${id}`);
+            setIsFavorites(true);
+
+        } else {
+            removeFromFavorites();
+            setIsFavorites(false);
+        }
+    }
+
+    const classButtonFavorites = () => isFavotires === true ? "movie-buttons__favorites" : "movie-buttons__item"
 
     const numberWithSpaces = (num: number) => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     const genres = movie?.genres.map((element) => element.name).join(", ")
@@ -39,7 +66,7 @@ export const MoviePage = () => {
                                 }}
                             />
                             <div className="movie-buttons">
-                                <button className="movie-buttons__item" onClick={() => addToFavorites(movie.id)}>
+                                <button className={classButtonFavorites()} onClick={() => handlerSetFavorites()}>
                                     <img src="/images/addToFavorites.png" />
                                 </button>
                                 <button className="movie-buttons__item">
