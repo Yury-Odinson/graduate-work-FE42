@@ -18,6 +18,7 @@
 }
 
 .movie-buttons__item,
+.movie-buttons__favorites,
 .movie-buttons__itemLight {
     margin-top: 30px;
     padding: 10px;
@@ -33,6 +34,7 @@
 }
 
 .movie-buttons__item:first-child,
+.movie-buttons__favorites:first-child,
 .movie-buttons__itemLight:first-child {
     border-radius: 10px 0 0 10px;
 }
@@ -43,6 +45,10 @@
 }
 
 .movie-buttons__item:hover {
+    background-color: var(--var-systemPrimaryColor);
+}
+
+.movie-buttons__favorites {
     background-color: var(--var-systemPrimaryColor);
 }
 

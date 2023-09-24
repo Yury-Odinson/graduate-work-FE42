@@ -3,21 +3,20 @@ import { Movie } from "../tools/types"
 import "../styles/favorites.css"
 import { useContext } from "react"
 import { ThemeContext } from "../tools/store"
+import { idMoviesLS } from "../tools/storage"
 
 export const FavoriteMovie = (movieProps: { movie: Movie }) => {
 
     const classNameTheme = () => theme === "light" ? "Light" : ""
     const theme = useContext(ThemeContext)
 
-    const favorites = JSON.parse(localStorage.getItem("idMovies") || "[]")
     const removeFromFavorites = () => {
-        for (let i = 0; i < favorites.length; i++) {
-            if (favorites[i] === movieProps.movie.id) {
-                console.log(favorites[i])
-                favorites.splice(i, 1)
+        for (let i = 0; i < idMoviesLS.length; i++) {
+            if (idMoviesLS[i] === movieProps.movie.id.toString()) {
+                idMoviesLS.splice(i, 1)
             }
         }
-        localStorage.setItem("idMovies", JSON.stringify(favorites))
+        localStorage.setItem("idMovies", JSON.stringify(idMoviesLS))
     }
 
     return (
