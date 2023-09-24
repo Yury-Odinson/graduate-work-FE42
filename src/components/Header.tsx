@@ -47,7 +47,7 @@ const ExpandedMenu = ({ opened, close }: any) => {
 
     return (
         <Drawer
-            anchor={"right"}
+            anchor={"left"}
             open={opened}
             onClose={close}
         >
