@@ -14,11 +14,13 @@ export const SearchResultContent = () => {
 
     const { searchString } = useParams()
 
+    const filter = useContext(FilterContext)
+
     useEffect(() => {
-        searchString && searchMovies(searchString, page).then((movies) => setMovies(movies.results))
+        searchString && searchMovies(searchString, page, filter.filter.movieAdult.toString()).then((movies) => setMovies(movies.results))
     }, [searchString, page])
 
-    const filter = useContext(FilterContext)
+
 
     if (filter.filter.movieSort == "Rating") {
         movies && movies.sort((a: any, b: any) => b.vote_average - a.vote_average)
@@ -29,7 +31,7 @@ export const SearchResultContent = () => {
     }
 
     // set total pages in the fetch request
-    searchString && searchMovies(searchString, page).then((total) => setTotalPages(total.total_pages))
+    searchString && searchMovies(searchString, page, filter.filter.movieAdult.toString()).then((total) => setTotalPages(total.total_pages))
 
     const maxPages = () => totalPages >= 500 ? 500 : totalPages
 

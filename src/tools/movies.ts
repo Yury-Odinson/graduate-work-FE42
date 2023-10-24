@@ -30,8 +30,8 @@ export const getPopularMovies = async (numberPage: number) => {
     }
 }
 
-export const searchMovies = async (inputValue: string, numberPage: number) => {
-    const searchURL = new URL(`https://api.themoviedb.org/3/search/movie?query=${inputValue}&include_adult=false&language=en-US&page=${numberPage}`)
+export const searchMovies = async (inputValue: string, numberPage: number, adult: string) => {
+    const searchURL = new URL(`https://api.themoviedb.org/3/search/movie?query=${inputValue}&include_adult=${adult}&language=en-US&page=${numberPage}`)
     try {
         const response = await fetch(searchURL, fetchOptions)
         return response.json()
@@ -44,7 +44,8 @@ export const getGenres = async () => {
     const genresURL = new URL(tmdbGenresURL)
     try {
         const response = await fetch(genresURL, fetchOptions)
-        return response.json()
+        const responseGenres = await response.json()
+        return responseGenres.genres
     } catch (error) {
         console.log(error)
     }
@@ -54,9 +55,7 @@ export const getMoviesWithFilter = async ({ movieName, movieAdult, movieYear }: 
     const requestURL = `https://api.themoviedb.org/3/search/movie?query=${movieName}&include_adult=${movieAdult}&language=en-US&page=1&year=${movieYear}`
     try {
         const response = await fetch(requestURL, fetchOptions)
-        // const test = await response.json()
         return await response.json()
-        // console.log(test)
     } catch (error) {
         console.log(error)
     }
@@ -104,8 +103,4 @@ export const getFavoritesMovies = async (idMovies: string[]) => {
         finalArr.push(await response.json())
     }
     return await finalArr
-}
-
-export const getFilterResult = async ({ movieName, movieAdult, movieYear }: FilterValuesToSearch) => {
-
 }

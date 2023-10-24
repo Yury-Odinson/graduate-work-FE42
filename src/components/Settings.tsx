@@ -1,5 +1,4 @@
 import { useContext } from "react"
-import "../styles/main.css"
 import { ChangeTheme, ThemeContext } from "../tools/store"
 
 export const Settings = () => {

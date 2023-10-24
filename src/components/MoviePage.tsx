@@ -1,19 +1,49 @@
 import { useParams } from "react-router-dom"
-import { useEffect, useState } from "react"
-import "../styles/movie.css"
+import { useContext, useEffect, useState } from "react"
 import { tmdbImageURL } from "../tools/URLs"
 import { Movie } from "../tools/types"
 import { Recommended } from "./Recommended"
 import { addToFavorites, getMovie } from "../tools/movies"
+import { ThemeContext } from "../tools/store"
+import { idMoviesLS } from "../tools/storage"
 
 export const MoviePage = () => {
 
     const { id } = useParams()
     const [movie, setMovie] = useState<Movie>()
+    const [isFavotires, setIsFavorites] = useState(false)
 
     useEffect(() => {
-        id && getMovie(id).then((movie) => setMovie(movie))
-    }, [id])
+        id && getMovie(id).then((movie) => setMovie(movie));
+        idMoviesLS.find((e) => e === id ? setIsFavorites(true) : setIsFavorites(false))
+    }, [id, idMoviesLS, isFavotires])
+
+
+    const theme = useContext(ThemeContext)
+    const classNameTheme = () => theme === "light" ? "Light" : ""
+
+    const removeFromFavorites = () => {
+        for (let i = 0; i < idMoviesLS.length; i++) {
+            if (idMoviesLS[i] === id) {
+                console.log(idMoviesLS[i])
+                idMoviesLS.splice(i, 1)
+            }
+        }
+        localStorage.setItem("idMovies", JSON.stringify(idMoviesLS))
+    }
+
+    const handlerSetFavorites = () => {
+        if (isFavotires === false) {
+            addToFavorites(`${id}`);
+            setIsFavorites(true);
+
+        } else {
+            removeFromFavorites();
+            setIsFavorites(false);
+        }
+    }
+
+    const classButtonFavorites = () => isFavotires === true ? "movie-buttons__favorites" : "movie-buttons__item"
 
     const numberWithSpaces = (num: number) => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     const genres = movie?.genres.map((element) => element.name).join(", ")
@@ -34,8 +64,15 @@ export const MoviePage = () => {
                                     event.currentTarget.src = "https://sun9-47.userapi.com/impg/1f3OceQFnZsE3t6Dk3tDPwGPa1-h2_oEeaXMWQ/gYtwQOpFlRc.jpg?size=365x455&quality=95&sign=c30e73fd6dddcc5ab508b49290ce28c9&type=album"
                                 }}
                             />
+                            <img className="movie__posterMobile"
+                                src={tmdbImageURL + movie.backdrop_path}
+                                alt="movie poster"
+                                onError={(event) => {
+                                    event.currentTarget.src = "https://sun9-47.userapi.com/impg/1f3OceQFnZsE3t6Dk3tDPwGPa1-h2_oEeaXMWQ/gYtwQOpFlRc.jpg?size=365x455&quality=95&sign=c30e73fd6dddcc5ab508b49290ce28c9&type=album"
+                                }}
+                            />
                             <div className="movie-buttons">
-                                <button className="movie-buttons__item" onClick={() => addToFavorites(movie.id)}>
+                                <button className={classButtonFavorites()} onClick={() => handlerSetFavorites()}>
                                     <img src="/images/addToFavorites.png" />
                                 </button>
                                 <button className="movie-buttons__item">
@@ -44,49 +81,49 @@ export const MoviePage = () => {
                             </div>
                         </div>
                         <div className="movie-info">
-                            <h2 className="movie__title">{movie.title}</h2>
+                            <h2 className={"movie__title" + classNameTheme()}>{movie.title}</h2>
                             <p className="movie__tagline">{movie.tagline}</p>
                             <div className="movie-rating-container">
                                 <div className="movie-rContainer__item">{Number(movie.vote_average).toFixed(1)}</div>
                                 <div className="movie-rContainer__item">votes: {movie.vote_count}</div>
                                 <div className="movie-rContainer__item">{movie.runtime} min</div>
                             </div>
-                            <span className="movie__description">{movie.overview}</span>
-                            <div className="movie-information-container">
+                            <span className={"movie__description" + classNameTheme()}>{movie.overview}</span>
+                            <div className={"movie-information-container" + classNameTheme()}>
                                 <table>
                                     <thead />
                                     <tbody>
                                         <tr>
                                             <td>Year</td>
-                                            <td>{movie.release_date.slice(0, 4)}</td>
+                                            <td className={"movie-table__last" + classNameTheme()}>{movie.release_date.slice(0, 4)}</td>
                                         </tr>
                                         <tr>
                                             <td>Genres</td>
-                                            <td>{genres}</td>
+                                            <td className={"movie-table__last" + classNameTheme()}>{genres}</td>
                                         </tr>
                                         <tr>
                                             <td>Country</td>
-                                            <td>{countries}</td>
+                                            <td className={"movie-table__last" + classNameTheme()}>{countries}</td>
                                         </tr>
                                         <tr>
                                             <td>Spoken languages</td>
-                                            <td>{languages}</td>
+                                            <td className={"movie-table__last" + classNameTheme()}>{languages}</td>
                                         </tr>
                                         <tr>
                                             <td>Production</td>
-                                            <td>{companies} </td>
+                                            <td className={"movie-table__last" + classNameTheme()}>{companies} </td>
                                         </tr>
                                         <tr>
                                             <td>Budget</td>
-                                            <td>$ {numberWithSpaces(movie.budget)}</td>
+                                            <td className={"movie-table__last" + classNameTheme()}>$ {numberWithSpaces(movie.budget)}</td>
                                         </tr>
                                         <tr>
                                             <td>Revenue</td>
-                                            <td>$ {numberWithSpaces(movie.revenue)}</td>
+                                            <td className={"movie-table__last" + classNameTheme()}>$ {numberWithSpaces(movie.revenue)}</td>
                                         </tr>
                                         <tr>
                                             <td>Released</td>
-                                            <td>{movie.release_date}</td>
+                                            <td className={"movie-table__last" + classNameTheme()}>{movie.release_date}</td>
                                         </tr>
                                     </tbody>
                                     <tfoot />
