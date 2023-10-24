@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+# for correct operation from Belarus and Russia, you need to add the dns address 9.9.9.9 to the network adapter settings
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
