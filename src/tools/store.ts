@@ -1,5 +1,5 @@
 import React from "react"
-import { FilterValuesToSearch, ThemeType, FilterType } from "./types"
+import { FilterValuesToSearch, ThemeType, FilterType, UserName } from "./types"
 
 export const defaultFilterValue: FilterValuesToSearch = {
     movieSort: "",
@@ -15,3 +15,5 @@ export const FilterContext = React.createContext<FilterType>({
 
 export const ThemeContext = React.createContext<ThemeType>("dark")
 export const ChangeTheme = React.createContext(() => { })
+
+export const userContext = React.createContext<UserName>({ username: "" })

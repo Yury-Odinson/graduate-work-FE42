@@ -8,6 +8,10 @@ export type User = {
     password: string | null;
 }
 
+export type  UserName = {
+    username: string
+}
+
 export type newToken = {
     access: string,
     refresh: string

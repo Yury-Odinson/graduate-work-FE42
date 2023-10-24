@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Wrapper } from './components/Wrapper';
 import { ChangeTheme, FilterContext, ThemeContext, defaultFilterValue } from './tools/store';
@@ -8,14 +8,21 @@ import { updateToken } from './tools/users';
 function App() {
   const [theme, setTheme] = useState<ThemeType>("dark");
   const [filter, setFilter] = useState<FilterValuesToSearch>(defaultFilterValue)
+  const [user, setUser] = useState("")
 
+  useEffect(() => {
+    if (getToken !== "" || undefined) {
+      setUser("Yury")
+    }
+  }, [user])
 
   const getToken = localStorage.getItem("refresh") || ""
 
-  // 23.09.2023 - AUTHORIZATION API NOT WORKING!!! (fetch returns 502)
-  // if (getToken !== "") {
-  //   updateToken(getToken);
-  // }
+  if (getToken !== "") {
+    updateToken(getToken);
+  }
+
+  console.log(user)
 
   return (
     <ThemeContext.Provider value={theme}>
