@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/graduate-work-FE42/static/css/main.f348ab83.css",
+    "main.js": "/graduate-work-FE42/static/js/main.a9224dea.js",
+    "static/media/background_sign.png": "/graduate-work-FE42/static/media/background_sign.0246016b968df3122724.png",
+    "index.html": "/graduate-work-FE42/index.html",
+    "main.f348ab83.css.map": "/graduate-work-FE42/static/css/main.f348ab83.css.map",
+    "main.a9224dea.js.map": "/graduate-work-FE42/static/js/main.a9224dea.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f348ab83.css",
+    "static/js/main.a9224dea.js"
+  ]
+}
