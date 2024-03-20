@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+## https://yury-odinson.github.io/graduate-work-FE42/
 
 # for correct operation from Belarus and Russia, you need to add the dns address 9.9.9.9 to the network adapter settings
 
